@@ -1,0 +1,21 @@
+version: "3.10"
+
+services:
+  spider:
+    hostname: spider
+    build:
+      context: ../..
+      dockerfile: docker/docker-files/spider/Dockerfile.spider
+
+    environment:
+      TZ: ${TIME_ZONE}
+      SPIDER_SCRIPT_DIR: ${SPIDER_SCRIPT_DIR}
+      TRANSLATOR_SERVER: ${TRANSLATOR_SERVER}
+      TRANSLATOR_PORT: ${TRANSLATOR_PORT}
+      MONGO_URI: ${MONGO_URI}
+      MONGO_DB: ${MONGO_DB}
+    ports:
+      - "8002:80"
+
+    volumes:
+      - ./logs/spider/api/:/usr/src/spider_svc/log/:rw

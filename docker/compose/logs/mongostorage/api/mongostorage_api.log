@@ -1,0 +1,194 @@
+2023-07-12 16:55:43.066 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 17:00:31.438 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 17:05:09.788 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 17:05:18.408 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 17:05:28.598 ERROR    :: Unexpected connection close from remote "amqp://crwl:******@rabbitmq:5672/", Connection.Close(reply_code=320, reply_text="CONNECTION_FORCED - broker forced connection closure with reason 'shutdown'")
+NoneType: None
+2023-07-12 17:05:28.656 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 17:05:39.679 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 17:05:39.690 ERROR    :: Ошибка связи с брокером: [Errno -2] Name or service not known
+2023-07-12 17:05:44.728 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 17:05:44.733 ERROR    :: Ошибка связи с брокером: [Errno -2] Name or service not known
+2023-07-12 17:05:49.764 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 17:05:49.768 ERROR    :: Ошибка связи с брокером: [Errno -2] Name or service not known
+2023-07-12 17:05:54.806 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 17:05:54.812 ERROR    :: Ошибка связи с брокером: [Errno -2] Name or service not known
+2023-07-12 17:05:59.852 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 17:05:59.857 ERROR    :: Ошибка связи с брокером: [Errno -2] Name or service not known
+2023-07-12 17:06:04.892 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 17:06:04.898 ERROR    :: Ошибка связи с брокером: [Errno -2] Name or service not known
+2023-07-12 17:06:09.945 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 17:06:09.950 ERROR    :: Ошибка связи с брокером: [Errno -2] Name or service not known
+2023-07-12 17:06:14.979 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 17:06:14.983 ERROR    :: Ошибка связи с брокером: [Errno -2] Name or service not known
+2023-07-12 17:06:20.027 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 17:06:20.033 ERROR    :: Ошибка связи с брокером: [Errno -2] Name or service not known
+2023-07-12 17:06:25.076 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 17:06:25.082 ERROR    :: Ошибка связи с брокером: [Errno -2] Name or service not known
+2023-07-12 17:06:30.130 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 17:06:30.135 ERROR    :: Ошибка связи с брокером: [Errno -2] Name or service not known
+2023-07-12 17:06:35.178 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 17:06:35.183 ERROR    :: Ошибка связи с брокером: [Errno -2] Name or service not known
+2023-07-12 17:06:40.229 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 17:06:40.234 ERROR    :: Ошибка связи с брокером: [Errno -2] Name or service not known
+2023-07-12 17:06:45.275 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 17:06:45.280 ERROR    :: Ошибка связи с брокером: [Errno -2] Name or service not known
+2023-07-12 17:06:50.312 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 17:06:50.315 ERROR    :: Ошибка связи с брокером: [Errno -2] Name or service not known
+2023-07-12 17:06:55.352 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 17:06:55.360 ERROR    :: Ошибка связи с брокером: [Errno -2] Name or service not known
+2023-07-12 17:07:00.393 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 17:07:00.398 ERROR    :: Ошибка связи с брокером: [Errno -2] Name or service not known
+2023-07-12 17:07:05.443 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 17:07:05.448 ERROR    :: Ошибка связи с брокером: [Errno -2] Name or service not known
+2023-07-12 17:07:10.490 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 17:07:10.497 ERROR    :: Ошибка связи с брокером: [Errno -2] Name or service not known
+2023-07-12 17:07:15.538 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 17:07:15.541 ERROR    :: Ошибка связи с брокером: [Errno -2] Name or service not known
+2023-07-12 17:07:20.588 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 17:07:20.594 ERROR    :: Ошибка связи с брокером: [Errno -2] Name or service not known
+2023-07-12 17:07:25.612 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 17:07:25.616 ERROR    :: Ошибка связи с брокером: [Errno -2] Name or service not known
+2023-07-12 17:07:30.644 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 17:07:30.649 ERROR    :: Ошибка связи с брокером: [Errno -2] Name or service not known
+2023-07-12 17:07:35.681 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 17:07:35.686 ERROR    :: Ошибка связи с брокером: [Errno -2] Name or service not known
+2023-07-12 17:07:46.477 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 17:07:57.136 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 17:28:22.903 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 17:28:31.533 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 17:29:15.818 ERROR    :: Unexpected connection close from remote "amqp://crwl:******@rabbitmq:5672/", Connection.Close(reply_code=320, reply_text="CONNECTION_FORCED - broker forced connection closure with reason 'shutdown'")
+NoneType: None
+2023-07-12 17:29:35.952 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 17:29:35.970 ERROR    :: Ошибка связи с брокером: [Errno 111] Connect call failed ('172.18.0.6', 5672)
+2023-07-12 17:29:41.020 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 17:29:51.236 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 17:33:00.136 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 17:33:08.668 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 17:42:16.310 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 17:42:24.840 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 20:15:03.573 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 20:15:12.264 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 20:16:13.940 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 20:16:22.576 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 20:17:48.825 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 20:17:57.353 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 20:18:38.940 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 20:18:47.463 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 20:20:11.083 ERROR    :: Unexpected connection close from remote "amqp://crwl:******@rabbitmq:5672/", Connection.Close(reply_code=320, reply_text="CONNECTION_FORCED - broker forced connection closure with reason 'shutdown'")
+NoneType: None
+2023-07-12 20:20:38.560 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-12 20:20:38.568 ERROR    :: Ошибка связи с брокером: [Errno 111] Connect call failed ('172.19.0.2', 5672)
+2023-07-12 20:20:43.633 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 20:20:52.294 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 20:26:21.133 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 20:26:29.731 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 20:26:46.300 INFO     :: API: new_test_collection 64aee16d4441251e99c74326
+2023-07-12 20:29:26.730 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 20:29:35.246 INFO     :: Связь с AMQP сервером установлена.
+2023-07-12 20:30:44.657 INFO     :: API: new_test_collection 64aee16d4441251e99c74326
+2023-07-21 15:40:32.074 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-07-21 15:40:32.089 ERROR    :: Ошибка связи с брокером: [Errno 111] Connect call failed ('172.19.0.5', 5672)
+2023-07-21 15:40:37.138 INFO     :: Связь с AMQP сервером установлена.
+2023-07-21 15:40:48.072 INFO     :: Связь с AMQP сервером установлена.
+2023-07-21 15:47:03.190 INFO     :: API: test_collection 64baa845442a2a29b3ee5553
+2023-07-21 15:47:34.404 INFO     :: API: test_collection 64baa845442a2a29b3ee5551
+2023-07-21 15:49:23.396 INFO     :: API: test_collection 64baa845442a2a29b3ee5551
+2023-07-21 15:49:52.256 INFO     :: Связь с AMQP сервером установлена.
+2023-07-21 15:50:01.201 INFO     :: Связь с AMQP сервером установлена.
+2023-07-21 15:50:05.562 INFO     :: API: test_collection 64baa845442a2a29b3ee5551
+2023-07-21 15:54:44.131 INFO     :: Связь с AMQP сервером установлена.
+2023-07-21 15:55:39.504 INFO     :: Связь с AMQP сервером установлена.
+2023-07-21 15:55:48.235 INFO     :: Связь с AMQP сервером установлена.
+2023-07-21 15:55:54.985 INFO     :: API: test_collection 64baa845442a2a29b3ee5551
+2023-07-21 15:56:14.965 INFO     :: API: test_collection 64baa845442a2a29b3ee5551
+2023-07-21 15:56:27.272 INFO     :: API: test_collection 64baa845442a2a29b3ee5551
+2023-07-21 15:57:48.310 INFO     :: Связь с AMQP сервером установлена.
+2023-07-21 15:57:57.137 INFO     :: Связь с AMQP сервером установлена.
+2023-07-21 15:58:15.905 INFO     :: API: test_collection 64baa845442a2a29b3ee5551
+2023-07-21 16:03:21.501 INFO     :: Связь с AMQP сервером установлена.
+2023-07-21 16:03:30.251 INFO     :: Связь с AMQP сервером установлена.
+2023-07-21 16:04:56.371 INFO     :: Связь с AMQP сервером установлена.
+2023-07-21 16:05:05.044 INFO     :: Связь с AMQP сервером установлена.
+2023-07-21 16:08:08.579 INFO     :: Связь с AMQP сервером установлена.
+2023-07-21 16:08:17.164 INFO     :: Связь с AMQP сервером установлена.
+2023-07-21 16:10:12.884 INFO     :: Связь с AMQP сервером установлена.
+2023-07-21 16:10:21.483 INFO     :: Связь с AMQP сервером установлена.
+2023-07-21 16:10:45.635 INFO     :: Связь с AMQP сервером установлена.
+2023-07-21 16:10:54.163 INFO     :: Связь с AMQP сервером установлена.
+2023-07-21 16:12:28.784 INFO     :: Связь с AMQP сервером установлена.
+2023-07-21 16:12:37.375 INFO     :: Связь с AMQP сервером установлена.
+2023-07-21 16:16:49.263 INFO     :: Связь с AMQP сервером установлена.
+2023-07-21 16:16:58.366 INFO     :: Связь с AMQP сервером установлена.
+2023-08-01 15:49:51.770 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 15:49:51.784 ERROR    :: Ошибка связи с брокером: [Errno 111] Connect call failed ('172.18.0.3', 5672)
+2023-08-01 15:49:56.840 INFO     :: Связь с AMQP сервером установлена.
+2023-08-01 15:50:07.228 INFO     :: Связь с AMQP сервером установлена.
+2023-08-01 15:55:25.165 WARNING  :: Connection <Connection: "amqp://crwl:******@rabbitmq:5672/" at 0x4003fb1e40> was blocked by: 'low on disk'
+2023-08-01 16:07:41.545 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:07:41.659 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:07:41.669 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno -2] Name or service not known. Reconnecting after 5 seconds.
+2023-08-01 16:07:46.695 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:07:46.707 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno -2] Name or service not known. Reconnecting after 5 seconds.
+2023-08-01 16:07:51.730 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:07:51.735 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno -2] Name or service not known. Reconnecting after 5 seconds.
+2023-08-01 16:07:56.760 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:07:56.767 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno -2] Name or service not known. Reconnecting after 5 seconds.
+2023-08-01 16:08:01.803 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:08:01.810 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno -2] Name or service not known. Reconnecting after 5 seconds.
+2023-08-01 16:08:06.843 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:08:06.857 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno -2] Name or service not known. Reconnecting after 5 seconds.
+2023-08-01 16:08:11.882 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:08:11.889 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno -2] Name or service not known. Reconnecting after 5 seconds.
+2023-08-01 16:08:16.920 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:08:16.930 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno -2] Name or service not known. Reconnecting after 5 seconds.
+2023-08-01 16:08:21.968 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:08:21.975 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno -2] Name or service not known. Reconnecting after 5 seconds.
+2023-08-01 16:08:27.002 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:08:27.009 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno -2] Name or service not known. Reconnecting after 5 seconds.
+2023-08-01 16:08:32.045 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:08:32.051 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno -2] Name or service not known. Reconnecting after 5 seconds.
+2023-08-01 16:08:37.072 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:08:37.077 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno 111] Connect call failed ('172.18.0.3', 5672). Reconnecting after 5 seconds.
+2023-08-01 16:08:42.095 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:08:42.103 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno 111] Connect call failed ('172.18.0.3', 5672). Reconnecting after 5 seconds.
+2023-08-01 16:08:47.127 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:08:47.131 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno 111] Connect call failed ('172.18.0.3', 5672). Reconnecting after 5 seconds.
+2023-08-01 16:08:52.141 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:08:52.144 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno 111] Connect call failed ('172.18.0.3', 5672). Reconnecting after 5 seconds.
+2023-08-01 16:08:57.159 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:08:57.165 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno 111] Connect call failed ('172.18.0.3', 5672). Reconnecting after 5 seconds.
+2023-08-01 16:09:02.186 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:09:02.192 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno 111] Connect call failed ('172.18.0.3', 5672). Reconnecting after 5 seconds.
+2023-08-01 16:09:07.218 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:09:07.224 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno 111] Connect call failed ('172.18.0.3', 5672). Reconnecting after 5 seconds.
+2023-08-01 16:09:12.252 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:09:12.260 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno 111] Connect call failed ('172.18.0.3', 5672). Reconnecting after 5 seconds.
+2023-08-01 16:09:17.275 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:09:17.282 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno 111] Connect call failed ('172.18.0.3', 5672). Reconnecting after 5 seconds.
+2023-08-01 16:09:22.296 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:09:22.302 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno 111] Connect call failed ('172.18.0.3', 5672). Reconnecting after 5 seconds.
+2023-08-01 16:09:27.323 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:09:27.327 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno 111] Connect call failed ('172.18.0.3', 5672). Reconnecting after 5 seconds.
+2023-08-01 16:09:32.353 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:09:32.360 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno 111] Connect call failed ('172.18.0.3', 5672). Reconnecting after 5 seconds.
+2023-08-01 16:09:37.373 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:09:37.377 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno 111] Connect call failed ('172.18.0.3', 5672). Reconnecting after 5 seconds.
+2023-08-01 16:11:22.333 ERROR    :: Unexpected connection close from remote "amqp://crwl:******@rabbitmq:5672/", Connection.Close(reply_code=320, reply_text="CONNECTION_FORCED - broker forced connection closure with reason 'shutdown'")
+NoneType: None
+2023-08-01 16:11:22.509 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:11:47.069 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-01 16:11:47.090 ERROR    :: Ошибка связи с брокером: [Errno 111] Connect call failed ('172.19.0.5', 5672)
+2023-08-01 16:11:52.127 INFO     :: Связь с AMQP сервером установлена.
+2023-08-01 16:12:02.263 INFO     :: Связь с AMQP сервером установлена.
+2023-08-01 16:13:28.680 WARNING  :: Connection <Connection: "amqp://crwl:******@rabbitmq:5672/" at 0x4004367ab0> was blocked by: 'low on disk'
+2023-08-01 16:14:23.771 ERROR    :: Unexpected connection close from remote "amqp://crwl:******@rabbitmq:5672/", Connection.Close(reply_code=320, reply_text="CONNECTION_FORCED - broker forced connection closure with reason 'shutdown'")
+NoneType: None
+2023-08-01 16:14:24.031 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-08 15:59:24.315 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-08 15:59:24.327 ERROR    :: Ошибка связи с брокером: [Errno 111] Connect call failed ('172.22.0.3', 5672)
+2023-08-08 15:59:29.377 INFO     :: Связь с AMQP сервером установлена.
+2023-08-08 15:59:39.936 INFO     :: Связь с AMQP сервером установлена.
+2023-08-08 16:03:09.266 ERROR    :: Unexpected connection close from remote "amqp://crwl:******@rabbitmq:5672/", Connection.Close(reply_code=320, reply_text="CONNECTION_FORCED - broker forced connection closure with reason 'shutdown'")
+NoneType: None
+2023-08-08 16:03:09.661 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.

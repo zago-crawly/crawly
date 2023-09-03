@@ -1,0 +1,11 @@
+version: '3.9'
+services:
+  mongodb:
+    image: mongo:latest
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+    ports:
+      - '27017:27017'
+    # command: mongosh shell && db.createUser({user:$MONGO_INITDB_ROOT_USERNAME, pwd:$MONGO_INITDB_ROOT_PASSWORD, roles:[]})

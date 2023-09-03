@@ -1,0 +1,1251 @@
+2023-08-13 22:26:19.235 INFO     :: Связь с AMQP сервером установлена.
+2023-08-13 22:27:11.479 INFO     :: Связь с AMQP сервером установлена.
+2023-08-13 22:27:11.499 ERROR    :: Error while creating PostgreSQL connection pool:
+2023-08-13 22:27:20.368 INFO     :: Связь с AMQP сервером установлена.
+2023-08-13 22:27:20.386 ERROR    :: Error while creating PostgreSQL connection pool:
+2023-08-13 22:31:50.692 INFO     :: Связь с AMQP сервером установлена.
+2023-08-13 22:31:50.706 ERROR    :: Error while creating PostgreSQL connection pool:
+2023-08-13 22:31:50.870 ERROR    :: Connection pool is not initialized.
+2023-08-13 22:31:59.646 INFO     :: Связь с AMQP сервером установлена.
+2023-08-13 22:31:59.666 ERROR    :: Error while creating PostgreSQL connection pool:
+2023-08-14 19:47:44.196 ERROR    :: Connection pool is not initialized.
+2023-08-15 19:27:38.491 INFO     :: Связь с AMQP сервером установлена.
+2023-08-15 19:27:38.509 ERROR    :: Error while creating PostgreSQL connection pool:
+2023-08-15 19:27:38.684 ERROR    :: Connection pool is not initialized.
+2023-08-15 19:27:47.457 INFO     :: Связь с AMQP сервером установлена.
+2023-08-15 19:27:47.478 ERROR    :: Error while creating PostgreSQL connection pool:
+2023-08-15 19:43:52.601 INFO     :: Связь с AMQP сервером установлена.
+2023-08-15 19:44:01.634 INFO     :: Связь с AMQP сервером установлена.
+2023-08-15 19:58:55.023 INFO     :: Связь с AMQP сервером установлена.
+2023-08-15 19:59:04.208 INFO     :: Связь с AMQP сервером установлена.
+2023-08-15 22:58:23.536 INFO     :: Связь с AMQP сервером установлена.
+2023-08-15 22:58:32.707 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 14:28:13.471 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 14:30:37.067 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 14:30:47.155 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 14:33:01.786 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 14:33:12.078 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 14:37:24.380 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 14:37:33.506 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 14:40:39.867 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 14:40:50.645 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 15:35:00.273 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 15:35:10.516 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:02:23.686 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:02:32.851 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:05:53.642 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:06:03.880 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:11:56.181 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:12:05.269 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:12:46.074 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:12:55.968 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:17:29.815 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:17:38.931 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:19:22.374 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:19:31.432 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:20:15.093 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:20:24.586 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:21:27.784 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:21:36.915 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:21:57.349 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:22:06.615 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:22:16.966 ERROR    :: Exception in callback _task_done(<Task finishe...ction_pool'")>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py:43
+handle: <Handle _task_done(<Task finishe...ction_pool'")>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py:43>
+Traceback (most recent call last):
+
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 633, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x4002b3caf0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 600, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x4002b3e5f0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 1896, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x4002a9e050>
+    └ <Handle _task_done(<Task finishe...ction_pool'")>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+> File "/usr/local/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle _task_done(<Task finishe...ction_pool'")>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle _task_done(<Task finishe...ction_pool'")>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle _task_done(<Task finishe...ction_pool'")>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+  File "/usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py", line 47, in _task_done
+    raise exc
+          └ AttributeError("'PSQLConnectionPool' object has no attribute 'psql_connection_pool'")
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 76, in _process_message
+    res = await self._create(mes)
+                │    │       └ {'action': 'create', 'data': {'template': {'comp_card': {'summary': {'constraints': {'required': True, 'data_type': 'str', 'm...
+                │    └ <function TemplateStorageApp._create at 0x4003ddcc10>
+                └ <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 104, in _create
+    connection = self.psql_connection_pool.get_psql_connection()
+                 │    │                    └ <function PSQLConnectionPool.get_psql_connection at 0x40043d3be0>
+                 │    └ <src.template_storage.app.psql_connection_pool.PSQLConnectionPool object at 0x4005bfc0a0>
+                 └ <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>
+
+  File "/usr/src/template_storage_app/./src/template_storage/app/psql_connection_pool.py", line 41, in get_psql_connection
+    return self.psql_connection_pool.getconn()
+           └ <src.template_storage.app.psql_connection_pool.PSQLConnectionPool object at 0x4005bfc0a0>
+
+AttributeError: 'PSQLConnectionPool' object has no attribute 'psql_connection_pool'
+2023-08-16 16:22:17.013 ERROR    :: Task exception was never retrieved
+future: <Task finished name='Task-19' coro=<consumer() done, defined at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/queue.py:31> exception=AttributeError("'PSQLConnectionPool' object has no attribute 'psql_connection_pool'")>
+Traceback (most recent call last):
+
+> File "/usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/queue.py", line 37, in consumer
+    return await create_task(callback, message)
+                 │           │         └ IncomingMessage:{'app_id': None,
+                 │           │            'body_size': 476,
+                 │           │            'cluster_id': '',
+                 │           │            'consumer_tag': 'ctag1.11b121cec4b54d9faaf3254e850a29...
+                 │           └ <bound method TemplateStorageApp._process_message of <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>>
+                 └ <function create_task at 0x40031d5c60>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 76, in _process_message
+    res = await self._create(mes)
+                │    │       └ {'action': 'create', 'data': {'template': {'comp_card': {'summary': {'constraints': {'required': True, 'data_type': 'str', 'm...
+                │    └ <function TemplateStorageApp._create at 0x4003ddcc10>
+                └ <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 104, in _create
+    connection = self.psql_connection_pool.get_psql_connection()
+                 │    │                    └ <function PSQLConnectionPool.get_psql_connection at 0x40043d3be0>
+                 │    └ <src.template_storage.app.psql_connection_pool.PSQLConnectionPool object at 0x4005bfc0a0>
+                 └ <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>
+
+  File "/usr/src/template_storage_app/./src/template_storage/app/psql_connection_pool.py", line 41, in get_psql_connection
+    return self.psql_connection_pool.getconn()
+           └ <src.template_storage.app.psql_connection_pool.PSQLConnectionPool object at 0x4005bfc0a0>
+
+AttributeError: 'PSQLConnectionPool' object has no attribute 'psql_connection_pool'
+2023-08-16 16:24:05.478 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:24:15.028 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:24:53.890 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:25:03.160 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:26:37.281 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:26:46.372 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:27:25.702 ERROR    :: Error while parsing template model
+2023-08-16 16:29:06.863 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:29:15.970 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:29:22.581 ERROR    :: Exception in callback _task_done(<Task finishe...erializable')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py:43
+handle: <Handle _task_done(<Task finishe...erializable')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py:43>
+Traceback (most recent call last):
+
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 633, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x4002b3caf0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 600, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x4002b3e5f0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 1896, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x4002a9e050>
+    └ <Handle _task_done(<Task finishe...erializable')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+> File "/usr/local/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle _task_done(<Task finishe...erializable')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle _task_done(<Task finishe...erializable')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle _task_done(<Task finishe...erializable')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+  File "/usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py", line 47, in _task_done
+    raise exc
+          └ TypeError('Object of type ValidationError is not JSON serializable')
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 94, in _process_message
+    body=json.dumps(res, ensure_ascii=False).encode(),
+         │    │     └ {'error': 2 validation errors for TemplateInDB
+         │    │       template.comp_item.meta.RootModel[Literal[str]]
+         │    │         Input should be 'list' [type...
+         │    └ <function dumps at 0x4002ba72e0>
+         └ <module 'json' from '/usr/local/lib/python3.10/json/__init__.py'>
+
+  File "/usr/local/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+      │          └ {'error': 2 validation errors for TemplateInDB
+      │            template.comp_item.meta.RootModel[Literal[str]]
+      │              Input should be 'list' [type...
+      └ {}
+  File "/usr/local/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             │    │          └ {'error': 2 validation errors for TemplateInDB
+             │    │            template.comp_item.meta.RootModel[Literal[str]]
+             │    │              Input should be 'list' [type...
+             │    └ <function JSONEncoder.iterencode at 0x4002ba76d0>
+             └ <json.encoder.JSONEncoder object at 0x4005bfd420>
+  File "/usr/local/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+           │           └ {'error': 2 validation errors for TemplateInDB
+           │             template.comp_item.meta.RootModel[Literal[str]]
+           │               Input should be 'list' [type...
+           └ <_json.Encoder object at 0x4003fc3340>
+  File "/usr/local/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+
+TypeError: Object of type ValidationError is not JSON serializable
+2023-08-16 16:29:22.631 ERROR    :: Task exception was never retrieved
+future: <Task finished name='Task-19' coro=<consumer() done, defined at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/queue.py:31> exception=TypeError('Object of type ValidationError is not JSON serializable')>
+Traceback (most recent call last):
+
+> File "/usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/queue.py", line 37, in consumer
+    return await create_task(callback, message)
+                 │           │         └ IncomingMessage:{'app_id': None,
+                 │           │            'body_size': 476,
+                 │           │            'cluster_id': '',
+                 │           │            'consumer_tag': 'ctag1.f7b920c33a3441fa8041e5bb011941...
+                 │           └ <bound method TemplateStorageApp._process_message of <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>>
+                 └ <function create_task at 0x40031d5c60>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 94, in _process_message
+    body=json.dumps(res, ensure_ascii=False).encode(),
+         │    │     └ {'error': 2 validation errors for TemplateInDB
+         │    │       template.comp_item.meta.RootModel[Literal[str]]
+         │    │         Input should be 'list' [type...
+         │    └ <function dumps at 0x4002ba72e0>
+         └ <module 'json' from '/usr/local/lib/python3.10/json/__init__.py'>
+
+  File "/usr/local/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+      │          └ {'error': 2 validation errors for TemplateInDB
+      │            template.comp_item.meta.RootModel[Literal[str]]
+      │              Input should be 'list' [type...
+      └ {}
+  File "/usr/local/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             │    │          └ {'error': 2 validation errors for TemplateInDB
+             │    │            template.comp_item.meta.RootModel[Literal[str]]
+             │    │              Input should be 'list' [type...
+             │    └ <function JSONEncoder.iterencode at 0x4002ba76d0>
+             └ <json.encoder.JSONEncoder object at 0x4005bfd420>
+  File "/usr/local/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+           │           └ {'error': 2 validation errors for TemplateInDB
+           │             template.comp_item.meta.RootModel[Literal[str]]
+           │               Input should be 'list' [type...
+           └ <_json.Encoder object at 0x4003fc3340>
+  File "/usr/local/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+
+TypeError: Object of type ValidationError is not JSON serializable
+2023-08-16 16:34:07.323 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 16:34:16.482 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 18:20:20.615 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 18:20:29.708 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 18:21:40.327 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 18:21:49.379 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 18:32:46.537 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 18:32:56.004 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 18:33:31.609 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 18:33:40.684 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 18:34:19.663 ERROR    :: Exception in callback _task_done(<Task finishe... a sequence')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py:43
+handle: <Handle _task_done(<Task finishe... a sequence')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py:43>
+Traceback (most recent call last):
+
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 633, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x4002b3caf0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 600, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x4002b3e5f0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 1896, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x4002a9e050>
+    └ <Handle _task_done(<Task finishe... a sequence')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+> File "/usr/local/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle _task_done(<Task finishe... a sequence')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle _task_done(<Task finishe... a sequence')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle _task_done(<Task finishe... a sequence')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+  File "/usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py", line 47, in _task_done
+    raise exc
+          └ TypeError('dict is not a sequence')
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 76, in _process_message
+    res = await self._create(mes)
+                │    │       └ {'action': 'create', 'data': {'template': {'comp_card': {'summary': {'constraints': {'required': True, 'data_type': 'str', 'm...
+                │    └ <function TemplateStorageApp._create at 0x4003ea0c10>
+                └ <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 111, in _create
+    template_uuid = template_manager.save()
+                    │                └ <function TemplateManager.save at 0x4003ea09d0>
+                    └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c095a0>
+
+  File "/usr/src/template_storage_app/./src/template_storage/app/template_manager.py", line 25, in save
+    cursor.execute(sql, {'uuid': template_uuid, 'template': self.template.model_dump_json()})
+    │      │       │             │                          │    │        └ <function BaseModel.model_dump_json at 0x40039c5750>
+    │      │       │             │                          │    └ TemplateInDB(template={'comp_card': {'summary': TemplateFieldInDB(constraints=TemplateFieldCostraints(root=TemplateFieldStrin...
+    │      │       │             │                          └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c095a0>
+    │      │       │             └ UUID('fbe31a1b-72d1-45a9-a0d7-78162719382c')
+    │      │       └ '\n                INSERT INTO templates VALUES (%s(uuid), %s(template))\n            '
+    │      └ <method 'execute' of 'psycopg2.extensions.cursor' objects>
+    └ <cursor object at 0x400259df30; closed: -1>
+
+TypeError: dict is not a sequence
+2023-08-16 18:34:19.707 ERROR    :: Task exception was never retrieved
+future: <Task finished name='Task-20' coro=<consumer() done, defined at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/queue.py:31> exception=TypeError('dict is not a sequence')>
+Traceback (most recent call last):
+
+> File "/usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/queue.py", line 37, in consumer
+    return await create_task(callback, message)
+                 │           │         └ IncomingMessage:{'app_id': None,
+                 │           │            'body_size': 452,
+                 │           │            'cluster_id': '',
+                 │           │            'consumer_tag': 'ctag1.48345bb751784dd9b96589f80929d5...
+                 │           └ <bound method TemplateStorageApp._process_message of <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>>
+                 └ <function create_task at 0x40031d5c60>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 76, in _process_message
+    res = await self._create(mes)
+                │    │       └ {'action': 'create', 'data': {'template': {'comp_card': {'summary': {'constraints': {'required': True, 'data_type': 'str', 'm...
+                │    └ <function TemplateStorageApp._create at 0x4003ea0c10>
+                └ <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 111, in _create
+    template_uuid = template_manager.save()
+                    │                └ <function TemplateManager.save at 0x4003ea09d0>
+                    └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c095a0>
+
+  File "/usr/src/template_storage_app/./src/template_storage/app/template_manager.py", line 25, in save
+    cursor.execute(sql, {'uuid': template_uuid, 'template': self.template.model_dump_json()})
+    │      │       │             │                          │    │        └ <function BaseModel.model_dump_json at 0x40039c5750>
+    │      │       │             │                          │    └ TemplateInDB(template={'comp_card': {'summary': TemplateFieldInDB(constraints=TemplateFieldCostraints(root=TemplateFieldStrin...
+    │      │       │             │                          └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c095a0>
+    │      │       │             └ UUID('fbe31a1b-72d1-45a9-a0d7-78162719382c')
+    │      │       └ '\n                INSERT INTO templates VALUES (%s(uuid), %s(template))\n            '
+    │      └ <method 'execute' of 'psycopg2.extensions.cursor' objects>
+    └ <cursor object at 0x400259df30; closed: -1>
+
+TypeError: dict is not a sequence
+2023-08-16 18:38:23.644 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 18:38:32.883 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 18:39:15.798 ERROR    :: Exception in callback _task_done(<Task finishe...te 'format'")>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py:43
+handle: <Handle _task_done(<Task finishe...te 'format'")>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py:43>
+Traceback (most recent call last):
+
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 633, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x4002b3caf0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 600, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x4002b3e5f0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 1896, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x4002a9e050>
+    └ <Handle _task_done(<Task finishe...te 'format'")>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+> File "/usr/local/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle _task_done(<Task finishe...te 'format'")>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle _task_done(<Task finishe...te 'format'")>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle _task_done(<Task finishe...te 'format'")>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+  File "/usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py", line 47, in _task_done
+    raise exc
+          └ AttributeError("'UUID' object has no attribute 'format'")
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 76, in _process_message
+    res = await self._create(mes)
+                │    │       └ {'action': 'create', 'data': {'template': {'comp_card': {'summary': {'constraints': {'required': True, 'data_type': 'str', 'm...
+                │    └ <function TemplateStorageApp._create at 0x4003ea0ca0>
+                └ <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 110, in _create
+    template_uuid = template_manager.save()
+                    │                └ <function TemplateManager.save at 0x4003ea0a60>
+                    └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c0d5a0>
+
+  File "/usr/src/template_storage_app/./src/template_storage/app/template_manager.py", line 24, in save
+    self._logger.info(template_uuid, template_json)
+    │    │       │    │              └ '{"template":{"comp_card":{"summary":{"constraints":{"required":true,"data_type":"str","max_length":500}},"title":{"constrain...
+    │    │       │    └ UUID('edf65ab2-334e-4eca-ab25-66ced3cbc510')
+    │    │       └ <function Logger.info at 0x40043941f0>
+    │    └ <loguru.logger handlers=[(id=1, level=20, sink=<stdout>), (id=2, level=20, sink='log/template_storage_app.log')]>
+    └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c0d5a0>
+
+AttributeError: 'UUID' object has no attribute 'format'
+2023-08-16 18:39:15.838 ERROR    :: Task exception was never retrieved
+future: <Task finished name='Task-20' coro=<consumer() done, defined at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/queue.py:31> exception=AttributeError("'UUID' object has no attribute 'format'")>
+Traceback (most recent call last):
+
+> File "/usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/queue.py", line 37, in consumer
+    return await create_task(callback, message)
+                 │           │         └ IncomingMessage:{'app_id': None,
+                 │           │            'body_size': 452,
+                 │           │            'cluster_id': '',
+                 │           │            'consumer_tag': 'ctag1.a9a0a3b3656345539a3e69e77c85f0...
+                 │           └ <bound method TemplateStorageApp._process_message of <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>>
+                 └ <function create_task at 0x40031d5c60>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 76, in _process_message
+    res = await self._create(mes)
+                │    │       └ {'action': 'create', 'data': {'template': {'comp_card': {'summary': {'constraints': {'required': True, 'data_type': 'str', 'm...
+                │    └ <function TemplateStorageApp._create at 0x4003ea0ca0>
+                └ <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 110, in _create
+    template_uuid = template_manager.save()
+                    │                └ <function TemplateManager.save at 0x4003ea0a60>
+                    └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c0d5a0>
+
+  File "/usr/src/template_storage_app/./src/template_storage/app/template_manager.py", line 24, in save
+    self._logger.info(template_uuid, template_json)
+    │    │       │    │              └ '{"template":{"comp_card":{"summary":{"constraints":{"required":true,"data_type":"str","max_length":500}},"title":{"constrain...
+    │    │       │    └ UUID('edf65ab2-334e-4eca-ab25-66ced3cbc510')
+    │    │       └ <function Logger.info at 0x40043941f0>
+    │    └ <loguru.logger handlers=[(id=1, level=20, sink=<stdout>), (id=2, level=20, sink='log/template_storage_app.log')]>
+    └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c0d5a0>
+
+AttributeError: 'UUID' object has no attribute 'format'
+2023-08-16 18:39:38.716 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 18:39:47.917 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 18:39:51.598 ERROR    :: Exception in callback _task_done(<Task finishe... a sequence')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py:43
+handle: <Handle _task_done(<Task finishe... a sequence')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py:43>
+Traceback (most recent call last):
+
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 633, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x4002b3caf0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 600, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x4002b3e5f0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 1896, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x4002a9e050>
+    └ <Handle _task_done(<Task finishe... a sequence')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+> File "/usr/local/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle _task_done(<Task finishe... a sequence')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle _task_done(<Task finishe... a sequence')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle _task_done(<Task finishe... a sequence')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+  File "/usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py", line 47, in _task_done
+    raise exc
+          └ TypeError('dict is not a sequence')
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 76, in _process_message
+    res = await self._create(mes)
+                │    │       └ {'action': 'create', 'data': {'template': {'comp_card': {'summary': {'constraints': {'required': True, 'data_type': 'str', 'm...
+                │    └ <function TemplateStorageApp._create at 0x4003ea0ca0>
+                └ <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 110, in _create
+    template_uuid = template_manager.save()
+                    │                └ <function TemplateManager.save at 0x4003ea0a60>
+                    └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c0d540>
+
+  File "/usr/src/template_storage_app/./src/template_storage/app/template_manager.py", line 30, in save
+    cursor.execute(sql, {'uuid': template_uuid, 'template': self.template.model_dump_json()})
+    │      │       │             │                          │    │        └ <function BaseModel.model_dump_json at 0x40039c5750>
+    │      │       │             │                          │    └ TemplateInDB(template={'comp_card': {'summary': TemplateFieldInDB(constraints=TemplateFieldCostraints(root=TemplateFieldStrin...
+    │      │       │             │                          └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c0d540>
+    │      │       │             └ '18111001877446549847346707947330838604'
+    │      │       └ '\n                INSERT INTO templates VALUES (%s(uuid), %s(template))\n            '
+    │      └ <method 'execute' of 'psycopg2.extensions.cursor' objects>
+    └ <cursor object at 0x400259df30; closed: -1>
+
+TypeError: dict is not a sequence
+2023-08-16 18:39:51.641 ERROR    :: Task exception was never retrieved
+future: <Task finished name='Task-19' coro=<consumer() done, defined at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/queue.py:31> exception=TypeError('dict is not a sequence')>
+Traceback (most recent call last):
+
+> File "/usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/queue.py", line 37, in consumer
+    return await create_task(callback, message)
+                 │           │         └ IncomingMessage:{'app_id': None,
+                 │           │            'body_size': 452,
+                 │           │            'cluster_id': '',
+                 │           │            'consumer_tag': 'ctag1.f1b40c666b8a45ef93541eaf494dc0...
+                 │           └ <bound method TemplateStorageApp._process_message of <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>>
+                 └ <function create_task at 0x40031d5c60>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 76, in _process_message
+    res = await self._create(mes)
+                │    │       └ {'action': 'create', 'data': {'template': {'comp_card': {'summary': {'constraints': {'required': True, 'data_type': 'str', 'm...
+                │    └ <function TemplateStorageApp._create at 0x4003ea0ca0>
+                └ <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 110, in _create
+    template_uuid = template_manager.save()
+                    │                └ <function TemplateManager.save at 0x4003ea0a60>
+                    └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c0d540>
+
+  File "/usr/src/template_storage_app/./src/template_storage/app/template_manager.py", line 30, in save
+    cursor.execute(sql, {'uuid': template_uuid, 'template': self.template.model_dump_json()})
+    │      │       │             │                          │    │        └ <function BaseModel.model_dump_json at 0x40039c5750>
+    │      │       │             │                          │    └ TemplateInDB(template={'comp_card': {'summary': TemplateFieldInDB(constraints=TemplateFieldCostraints(root=TemplateFieldStrin...
+    │      │       │             │                          └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c0d540>
+    │      │       │             └ '18111001877446549847346707947330838604'
+    │      │       └ '\n                INSERT INTO templates VALUES (%s(uuid), %s(template))\n            '
+    │      └ <method 'execute' of 'psycopg2.extensions.cursor' objects>
+    └ <cursor object at 0x400259df30; closed: -1>
+
+TypeError: dict is not a sequence
+2023-08-16 18:41:42.624 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 18:41:51.832 INFO     :: Связь с AMQP сервером установлена.
+2023-08-16 18:41:54.750 ERROR    :: Exception in callback _task_done(<Task finishe...rying(20)\n')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py:43
+handle: <Handle _task_done(<Task finishe...rying(20)\n')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py:43>
+Traceback (most recent call last):
+
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 633, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x4002b3caf0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 600, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x4002b3e5f0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 1896, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x4002a9e050>
+    └ <Handle _task_done(<Task finishe...rying(20)\n')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+> File "/usr/local/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle _task_done(<Task finishe...rying(20)\n')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle _task_done(<Task finishe...rying(20)\n')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle _task_done(<Task finishe...rying(20)\n')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+  File "/usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py", line 47, in _task_done
+    raise exc
+          └ StringDataRightTruncation('value too long for type character varying(20)\n')
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 76, in _process_message
+    res = await self._create(mes)
+                │    │       └ {'action': 'create', 'data': {'template': {'comp_card': {'summary': {'constraints': {'required': True, 'data_type': 'str', 'm...
+                │    └ <function TemplateStorageApp._create at 0x4003e98ca0>
+                └ <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 110, in _create
+    template_uuid = template_manager.save()
+                    │                └ <function TemplateManager.save at 0x4003e98a60>
+                    └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c09540>
+
+  File "/usr/src/template_storage_app/./src/template_storage/app/template_manager.py", line 30, in save
+    cursor.execute(sql, {'uuid': template_uuid, 'template': self.template.model_dump_json()})
+    │      │       │             │                          │    │        └ <function BaseModel.model_dump_json at 0x40039c5750>
+    │      │       │             │                          │    └ TemplateInDB(template={'comp_card': {'summary': TemplateFieldInDB(constraints=TemplateFieldCostraints(root=TemplateFieldStrin...
+    │      │       │             │                          └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c09540>
+    │      │       │             └ '334560922763081882413804241516252390260'
+    │      │       └ '\n                INSERT INTO templates VALUES (%(uuid)s, %(template)s)\n            '
+    │      └ <method 'execute' of 'psycopg2.extensions.cursor' objects>
+    └ <cursor object at 0x400259df30; closed: -1>
+
+psycopg2.errors.StringDataRightTruncation: value too long for type character varying(20)
+
+2023-08-16 18:41:54.792 ERROR    :: Task exception was never retrieved
+future: <Task finished name='Task-19' coro=<consumer() done, defined at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/queue.py:31> exception=StringDataRightTruncation('value too long for type character varying(20)\n')>
+Traceback (most recent call last):
+
+> File "/usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/queue.py", line 37, in consumer
+    return await create_task(callback, message)
+                 │           │         └ IncomingMessage:{'app_id': None,
+                 │           │            'body_size': 452,
+                 │           │            'cluster_id': '',
+                 │           │            'consumer_tag': 'ctag1.ee11bf5252d440d5b50f6a53615e58...
+                 │           └ <bound method TemplateStorageApp._process_message of <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>>
+                 └ <function create_task at 0x40031d5c60>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 76, in _process_message
+    res = await self._create(mes)
+                │    │       └ {'action': 'create', 'data': {'template': {'comp_card': {'summary': {'constraints': {'required': True, 'data_type': 'str', 'm...
+                │    └ <function TemplateStorageApp._create at 0x4003e98ca0>
+                └ <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 110, in _create
+    template_uuid = template_manager.save()
+                    │                └ <function TemplateManager.save at 0x4003e98a60>
+                    └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c09540>
+
+  File "/usr/src/template_storage_app/./src/template_storage/app/template_manager.py", line 30, in save
+    cursor.execute(sql, {'uuid': template_uuid, 'template': self.template.model_dump_json()})
+    │      │       │             │                          │    │        └ <function BaseModel.model_dump_json at 0x40039c5750>
+    │      │       │             │                          │    └ TemplateInDB(template={'comp_card': {'summary': TemplateFieldInDB(constraints=TemplateFieldCostraints(root=TemplateFieldStrin...
+    │      │       │             │                          └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c09540>
+    │      │       │             └ '334560922763081882413804241516252390260'
+    │      │       └ '\n                INSERT INTO templates VALUES (%(uuid)s, %(template)s)\n            '
+    │      └ <method 'execute' of 'psycopg2.extensions.cursor' objects>
+    └ <cursor object at 0x400259df30; closed: -1>
+
+psycopg2.errors.StringDataRightTruncation: value too long for type character varying(20)
+
+2023-08-17 13:44:34.196 INFO     :: Связь с AMQP сервером установлена.
+2023-08-17 13:44:43.965 INFO     :: Связь с AMQP сервером установлена.
+2023-08-17 13:44:47.360 ERROR    :: Exception in callback _task_done(<Task finishe...l, null).\n')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py:43
+handle: <Handle _task_done(<Task finishe...l, null).\n')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py:43>
+Traceback (most recent call last):
+
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 633, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x4002b3caf0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 600, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x4002b3e5f0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 1896, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x4002a9e050>
+    └ <Handle _task_done(<Task finishe...l, null).\n')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+> File "/usr/local/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle _task_done(<Task finishe...l, null).\n')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle _task_done(<Task finishe...l, null).\n')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle _task_done(<Task finishe...l, null).\n')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+  File "/usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py", line 47, in _task_done
+    raise exc
+          └ NotNullViolation('null value in column "created" of relation "templates" violates not-null constraint\nDETAIL:  Failing row c...
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 76, in _process_message
+    res = await self._create(mes)
+                │    │       └ {'action': 'create', 'data': {'template': {'comp_card': {'summary': {'constraints': {'required': True, 'data_type': 'str', 'm...
+                │    └ <function TemplateStorageApp._create at 0x4003ea0ca0>
+                └ <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 110, in _create
+    template_uuid = template_manager.save()
+                    │                └ <function TemplateManager.save at 0x4003ea0a60>
+                    └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c0d540>
+
+  File "/usr/src/template_storage_app/./src/template_storage/app/template_manager.py", line 30, in save
+    cursor.execute(sql, {'template': self.template.model_dump_json()})
+    │      │       │                 │    │        └ <function BaseModel.model_dump_json at 0x40039c5750>
+    │      │       │                 │    └ TemplateInDB(template={'comp_card': {'summary': TemplateFieldInDB(constraints=TemplateFieldCostraints(root=TemplateFieldStrin...
+    │      │       │                 └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c0d540>
+    │      │       └ '\n                INSERT INTO templates (template) VALUES (%(template)s)\n            '
+    │      └ <method 'execute' of 'psycopg2.extensions.cursor' objects>
+    └ <cursor object at 0x400259df30; closed: -1>
+
+psycopg2.errors.NotNullViolation: null value in column "created" of relation "templates" violates not-null constraint
+DETAIL:  Failing row contains (5de946e4-10a4-4473-b3be-2e6070411803, {"template":{"comp_card":{"summary":{"constraints":{"required":t..., null, null).
+
+2023-08-17 13:44:47.401 ERROR    :: Task exception was never retrieved
+future: <Task finished name='Task-19' coro=<consumer() done, defined at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/queue.py:31> exception=NotNullViolation('null value in column "created" of relation "templates" violates not-null constraint\nDETAIL:  Failing row contains (5de946e4-10a4-4473-b3be-2e6070411803, {"template":{"comp_card":{"summary":{"constraints":{"required":t..., null, null).\n')>
+Traceback (most recent call last):
+
+> File "/usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/queue.py", line 37, in consumer
+    return await create_task(callback, message)
+                 │           │         └ IncomingMessage:{'app_id': None,
+                 │           │            'body_size': 452,
+                 │           │            'cluster_id': '',
+                 │           │            'consumer_tag': 'ctag1.1002a7ce79ae4bf29287be323bca7a...
+                 │           └ <bound method TemplateStorageApp._process_message of <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>>
+                 └ <function create_task at 0x40031d5c60>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 76, in _process_message
+    res = await self._create(mes)
+                │    │       └ {'action': 'create', 'data': {'template': {'comp_card': {'summary': {'constraints': {'required': True, 'data_type': 'str', 'm...
+                │    └ <function TemplateStorageApp._create at 0x4003ea0ca0>
+                └ <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 110, in _create
+    template_uuid = template_manager.save()
+                    │                └ <function TemplateManager.save at 0x4003ea0a60>
+                    └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c0d540>
+
+  File "/usr/src/template_storage_app/./src/template_storage/app/template_manager.py", line 30, in save
+    cursor.execute(sql, {'template': self.template.model_dump_json()})
+    │      │       │                 │    │        └ <function BaseModel.model_dump_json at 0x40039c5750>
+    │      │       │                 │    └ TemplateInDB(template={'comp_card': {'summary': TemplateFieldInDB(constraints=TemplateFieldCostraints(root=TemplateFieldStrin...
+    │      │       │                 └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c0d540>
+    │      │       └ '\n                INSERT INTO templates (template) VALUES (%(template)s)\n            '
+    │      └ <method 'execute' of 'psycopg2.extensions.cursor' objects>
+    └ <cursor object at 0x400259df30; closed: -1>
+
+psycopg2.errors.NotNullViolation: null value in column "created" of relation "templates" violates not-null constraint
+DETAIL:  Failing row contains (5de946e4-10a4-4473-b3be-2e6070411803, {"template":{"comp_card":{"summary":{"constraints":{"required":t..., null, null).
+
+2023-08-17 17:28:27.135 INFO     :: Связь с AMQP сервером установлена.
+2023-08-17 17:28:44.186 ERROR    :: Exception in callback _task_done(<Task finishe...3, null).\n')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py:43
+handle: <Handle _task_done(<Task finishe...3, null).\n')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py:43>
+Traceback (most recent call last):
+
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 633, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x4002b3caf0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 600, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x4002b3e5f0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 1896, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x4002a9e050>
+    └ <Handle _task_done(<Task finishe...3, null).\n')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+> File "/usr/local/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle _task_done(<Task finishe...3, null).\n')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle _task_done(<Task finishe...3, null).\n')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle _task_done(<Task finishe...3, null).\n')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+  File "/usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py", line 47, in _task_done
+    raise exc
+          └ NotNullViolation('null value in column "template_user" of relation "templates" violates not-null constraint\nDETAIL:  Failing...
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 76, in _process_message
+    res = await self._create(mes)
+                │    │       └ {'action': 'create', 'data': {'template': {'comp_card': {'summary': {'constraints': {'required': True, 'data_type': 'str', 'm...
+                │    └ <function TemplateStorageApp._create at 0x4003e98ca0>
+                └ <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 110, in _create
+    template_uuid = template_manager.save()
+                    │                └ <function TemplateManager.save at 0x4003e98a60>
+                    └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c09540>
+
+  File "/usr/src/template_storage_app/./src/template_storage/app/template_manager.py", line 30, in save
+    cursor.execute(sql, {'template': self.template.model_dump_json()})
+    │      │       │                 │    │        └ <function BaseModel.model_dump_json at 0x40039c5750>
+    │      │       │                 │    └ TemplateInDB(template={'comp_card': {'summary': TemplateFieldInDB(constraints=TemplateFieldCostraints(root=TemplateFieldStrin...
+    │      │       │                 └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c09540>
+    │      │       └ '\n                INSERT INTO templates (template) VALUES (%(template)s)\n            '
+    │      └ <method 'execute' of 'psycopg2.extensions.cursor' objects>
+    └ <cursor object at 0x400259df30; closed: -1>
+
+psycopg2.errors.NotNullViolation: null value in column "template_user" of relation "templates" violates not-null constraint
+DETAIL:  Failing row contains (dde68a65-08b0-44a7-a19c-3db892749dab, null, null, null, {"template":{"comp_card":{"summary":{"constraints":{"required":t..., 2023-08-17 17:28:44.173123, 2023-08-17 17:28:44.173123, null).
+
+2023-08-17 17:28:44.225 ERROR    :: Task exception was never retrieved
+future: <Task finished name='Task-19' coro=<consumer() done, defined at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/queue.py:31> exception=NotNullViolation('null value in column "template_user" of relation "templates" violates not-null constraint\nDETAIL:  Failing row contains (dde68a65-08b0-44a7-a19c-3db892749dab, null, null, null, {"template":{"comp_card":{"summary":{"constraints":{"required":t..., 2023-08-17 17:28:44.173123, 2023-08-17 17:28:44.173123, null).\n')>
+Traceback (most recent call last):
+
+> File "/usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/queue.py", line 37, in consumer
+    return await create_task(callback, message)
+                 │           │         └ IncomingMessage:{'app_id': None,
+                 │           │            'body_size': 452,
+                 │           │            'cluster_id': '',
+                 │           │            'consumer_tag': 'ctag1.246a3123429349b2b8b5962dd0bad6...
+                 │           └ <bound method TemplateStorageApp._process_message of <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>>
+                 └ <function create_task at 0x40031d5c60>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 76, in _process_message
+    res = await self._create(mes)
+                │    │       └ {'action': 'create', 'data': {'template': {'comp_card': {'summary': {'constraints': {'required': True, 'data_type': 'str', 'm...
+                │    └ <function TemplateStorageApp._create at 0x4003e98ca0>
+                └ <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 110, in _create
+    template_uuid = template_manager.save()
+                    │                └ <function TemplateManager.save at 0x4003e98a60>
+                    └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c09540>
+
+  File "/usr/src/template_storage_app/./src/template_storage/app/template_manager.py", line 30, in save
+    cursor.execute(sql, {'template': self.template.model_dump_json()})
+    │      │       │                 │    │        └ <function BaseModel.model_dump_json at 0x40039c5750>
+    │      │       │                 │    └ TemplateInDB(template={'comp_card': {'summary': TemplateFieldInDB(constraints=TemplateFieldCostraints(root=TemplateFieldStrin...
+    │      │       │                 └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c09540>
+    │      │       └ '\n                INSERT INTO templates (template) VALUES (%(template)s)\n            '
+    │      └ <method 'execute' of 'psycopg2.extensions.cursor' objects>
+    └ <cursor object at 0x400259df30; closed: -1>
+
+psycopg2.errors.NotNullViolation: null value in column "template_user" of relation "templates" violates not-null constraint
+DETAIL:  Failing row contains (dde68a65-08b0-44a7-a19c-3db892749dab, null, null, null, {"template":{"comp_card":{"summary":{"constraints":{"required":t..., 2023-08-17 17:28:44.173123, 2023-08-17 17:28:44.173123, null).
+
+2023-08-17 17:32:10.783 ERROR    :: Exception in callback _task_done(<Task finishe...eady closed')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py:43
+handle: <Handle _task_done(<Task finishe...eady closed')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py:43>
+Traceback (most recent call last):
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 110, in _create
+    template_uuid = template_manager.save()
+                    │                └ <function TemplateManager.save at 0x4003e98a60>
+                    └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c06680>
+
+  File "/usr/src/template_storage_app/./src/template_storage/app/template_manager.py", line 30, in save
+    cursor.execute(sql, {'template': self.template.model_dump_json()})
+    │      │       │                 │    │        └ <function BaseModel.model_dump_json at 0x40039c5750>
+    │      │       │                 │    └ TemplateInDB(template={'comp_card': {'summary': TemplateFieldInDB(constraints=TemplateFieldCostraints(root=TemplateFieldStrin...
+    │      │       │                 └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c06680>
+    │      │       └ '\n                INSERT INTO templates (template) VALUES (%(template)s)\n            '
+    │      └ <method 'execute' of 'psycopg2.extensions.cursor' objects>
+    └ <cursor object at 0x400259df30; closed: -1>
+
+psycopg2.OperationalError: server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 633, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x4002b3caf0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 600, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x4002b3e5f0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 1896, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x4002a9e050>
+    └ <Handle _task_done(<Task finishe...eady closed')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+> File "/usr/local/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle _task_done(<Task finishe...eady closed')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle _task_done(<Task finishe...eady closed')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle _task_done(<Task finishe...eady closed')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+  File "/usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py", line 47, in _task_done
+    raise exc
+          └ InterfaceError('connection already closed')
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 76, in _process_message
+    res = await self._create(mes)
+                │    │       └ {'action': 'create', 'data': {'template': {'comp_card': {'summary': {'constraints': {'required': True, 'data_type': 'str', 'm...
+                │    └ <function TemplateStorageApp._create at 0x4003e98ca0>
+                └ <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 108, in _create
+    with connection as conn:
+         │             └ <connection object at 0x4003aab740; dsn: 'user=crwl password=xxx dbname=templates host=psql port=5432', closed: 2>
+         └ <connection object at 0x4003aab740; dsn: 'user=crwl password=xxx dbname=templates host=psql port=5432', closed: 2>
+
+psycopg2.InterfaceError: connection already closed
+2023-08-17 17:32:10.813 ERROR    :: Task exception was never retrieved
+future: <Task finished name='Task-28' coro=<consumer() done, defined at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/queue.py:31> exception=InterfaceError('connection already closed')>
+Traceback (most recent call last):
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 110, in _create
+    template_uuid = template_manager.save()
+                    │                └ <function TemplateManager.save at 0x4003e98a60>
+                    └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c06680>
+
+  File "/usr/src/template_storage_app/./src/template_storage/app/template_manager.py", line 30, in save
+    cursor.execute(sql, {'template': self.template.model_dump_json()})
+    │      │       │                 │    │        └ <function BaseModel.model_dump_json at 0x40039c5750>
+    │      │       │                 │    └ TemplateInDB(template={'comp_card': {'summary': TemplateFieldInDB(constraints=TemplateFieldCostraints(root=TemplateFieldStrin...
+    │      │       │                 └ <src.template_storage.app.template_manager.TemplateManager object at 0x4005c06680>
+    │      │       └ '\n                INSERT INTO templates (template) VALUES (%(template)s)\n            '
+    │      └ <method 'execute' of 'psycopg2.extensions.cursor' objects>
+    └ <cursor object at 0x400259df30; closed: -1>
+
+psycopg2.OperationalError: server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+> File "/usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/queue.py", line 37, in consumer
+    return await create_task(callback, message)
+                 │           │         └ IncomingMessage:{'app_id': None,
+                 │           │            'body_size': 452,
+                 │           │            'cluster_id': '',
+                 │           │            'consumer_tag': 'ctag1.246a3123429349b2b8b5962dd0bad6...
+                 │           └ <bound method TemplateStorageApp._process_message of <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>>
+                 └ <function create_task at 0x40031d5c60>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 76, in _process_message
+    res = await self._create(mes)
+                │    │       └ {'action': 'create', 'data': {'template': {'comp_card': {'summary': {'constraints': {'required': True, 'data_type': 'str', 'm...
+                │    └ <function TemplateStorageApp._create at 0x4003e98ca0>
+                └ <template_storage_app_svc.TemplateStorageApp object at 0x4002831690>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 108, in _create
+    with connection as conn:
+         │             └ <connection object at 0x4003aab740; dsn: 'user=crwl password=xxx dbname=templates host=psql port=5432', closed: 2>
+         └ <connection object at 0x4003aab740; dsn: 'user=crwl password=xxx dbname=templates host=psql port=5432', closed: 2>
+
+psycopg2.InterfaceError: connection already closed
+2023-08-17 17:32:32.103 INFO     :: Связь с AMQP сервером установлена.
+2023-08-17 17:36:01.019 INFO     :: Связь с AMQP сервером установлена.
+2023-08-17 17:36:10.104 INFO     :: Связь с AMQP сервером установлена.
+2023-08-17 18:12:25.787 INFO     :: Связь с AMQP сервером установлена.
+2023-08-17 18:12:34.966 INFO     :: Связь с AMQP сервером установлена.
+2023-08-17 18:13:45.687 INFO     :: Связь с AMQP сервером установлена.
+2023-08-17 18:13:54.823 INFO     :: Связь с AMQP сервером установлена.
+2023-08-17 18:15:21.186 ERROR    :: Exception in callback _task_done(<Task finishe... 'template'")>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py:43
+handle: <Handle _task_done(<Task finishe... 'template'")>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py:43>
+Traceback (most recent call last):
+
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 633, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x4002b3caf0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 600, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x4002b3e5f0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 1896, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x4002a9e050>
+    └ <Handle _task_done(<Task finishe... 'template'")>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+> File "/usr/local/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle _task_done(<Task finishe... 'template'")>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle _task_done(<Task finishe... 'template'")>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle _task_done(<Task finishe... 'template'")>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+  File "/usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py", line 47, in _task_done
+    raise exc
+          └ TypeError("TemplateManager.__init__() missing 1 required positional argument: 'template'")
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 80, in _process_message
+    res = await self._read(mes)
+                │    │     └ {'action': 'read', 'task_id': 'fbb841ea-5708-4798-8b32-3d13996ee0fe'}
+                │    └ <function TemplateStorageApp._read at 0x4003e54dc0>
+                └ <template_storage_app_svc.TemplateStorageApp object at 0x40028316f0>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 105, in _read
+    template_manager = TemplateManager(logger=self._logger, psql_connection=conn)
+                       │                      │    │                        └ <connection object at 0x40043dde40; dsn: 'user=crwl password=xxx dbname=templates host=psql port=5432', closed: 0>
+                       │                      │    └ <loguru.logger handlers=[(id=1, level=20, sink=<stdout>), (id=2, level=20, sink='log/template_storage_app.log')]>
+                       │                      └ <template_storage_app_svc.TemplateStorageApp object at 0x40028316f0>
+                       └ <class 'src.template_storage.app.template_manager.TemplateManager'>
+
+TypeError: TemplateManager.__init__() missing 1 required positional argument: 'template'
+2023-08-17 18:15:21.245 ERROR    :: Task exception was never retrieved
+future: <Task finished name='Task-21' coro=<consumer() done, defined at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/queue.py:31> exception=TypeError("TemplateManager.__init__() missing 1 required positional argument: 'template'")>
+Traceback (most recent call last):
+
+> File "/usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/queue.py", line 37, in consumer
+    return await create_task(callback, message)
+                 │           │         └ IncomingMessage:{'app_id': None,
+                 │           │            'body_size': 69,
+                 │           │            'cluster_id': '',
+                 │           │            'consumer_tag': 'ctag1.ecbdabb1356247fb8f9f5d38e3ded22...
+                 │           └ <bound method TemplateStorageApp._process_message of <template_storage_app_svc.TemplateStorageApp object at 0x40028316f0>>
+                 └ <function create_task at 0x40031d5c60>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 80, in _process_message
+    res = await self._read(mes)
+                │    │     └ {'action': 'read', 'task_id': 'fbb841ea-5708-4798-8b32-3d13996ee0fe'}
+                │    └ <function TemplateStorageApp._read at 0x4003e54dc0>
+                └ <template_storage_app_svc.TemplateStorageApp object at 0x40028316f0>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 105, in _read
+    template_manager = TemplateManager(logger=self._logger, psql_connection=conn)
+                       │                      │    │                        └ <connection object at 0x40043dde40; dsn: 'user=crwl password=xxx dbname=templates host=psql port=5432', closed: 0>
+                       │                      │    └ <loguru.logger handlers=[(id=1, level=20, sink=<stdout>), (id=2, level=20, sink='log/template_storage_app.log')]>
+                       │                      └ <template_storage_app_svc.TemplateStorageApp object at 0x40028316f0>
+                       └ <class 'src.template_storage.app.template_manager.TemplateManager'>
+
+TypeError: TemplateManager.__init__() missing 1 required positional argument: 'template'
+2023-08-17 18:16:37.442 INFO     :: Связь с AMQP сервером установлена.
+2023-08-17 18:16:46.656 INFO     :: Связь с AMQP сервером установлена.
+2023-08-17 18:17:51.265 INFO     :: Связь с AMQP сервером установлена.
+2023-08-17 18:18:00.785 INFO     :: Связь с AMQP сервером установлена.
+2023-08-17 18:18:14.699 INFO     :: Связь с AMQP сервером установлена.
+2023-08-17 18:18:24.027 INFO     :: Связь с AMQP сервером установлена.
+2023-08-17 18:18:32.296 ERROR    :: Exception in callback _task_done(<Task finishe...de_validate')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py:43
+handle: <Handle _task_done(<Task finishe...de_validate')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py:43>
+Traceback (most recent call last):
+
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 633, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x4002b3caf0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 600, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x4002b3e5f0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 1896, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x4002a9e050>
+    └ <Handle _task_done(<Task finishe...de_validate')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+> File "/usr/local/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle _task_done(<Task finishe...de_validate')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle _task_done(<Task finishe...de_validate')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle _task_done(<Task finishe...de_validate')>) at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pi...
+  File "/usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/tools.py", line 47, in _task_done
+    raise exc
+          └ AttributeError('mode_validate')
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 80, in _process_message
+    res = await self._read(mes)
+                │    │     └ {'action': 'read', 'template_id': 'fbb841ea-5708-4798-8b32-3d13996ee0fe'}
+                │    └ <function TemplateStorageApp._read at 0x4003e9ce50>
+                └ <template_storage_app_svc.TemplateStorageApp object at 0x40028316c0>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 108, in _read
+    processed_template = TemplateForTask.mode_validate(template)
+                         │                             └ {'template': {'comp_card': {'summary': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500}}, 'title': {...
+                         └ <class 'src.common.schema.template.TemplateForTask'>
+
+  File "/usr/src/template_storage_app/.venv/lib/python3.10/site-packages/pydantic/_internal/_model_construction.py", line 205, in __getattr__
+    raise AttributeError(item)
+                         └ 'mode_validate'
+
+AttributeError: mode_validate
+2023-08-17 18:18:32.345 ERROR    :: Task exception was never retrieved
+future: <Task finished name='Task-19' coro=<consumer() done, defined at /usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/queue.py:31> exception=AttributeError('mode_validate')>
+Traceback (most recent call last):
+
+> File "/usr/src/template_storage_app/.venv/lib/python3.10/site-packages/aio_pika/queue.py", line 37, in consumer
+    return await create_task(callback, message)
+                 │           │         └ IncomingMessage:{'app_id': None,
+                 │           │            'body_size': 73,
+                 │           │            'cluster_id': '',
+                 │           │            'consumer_tag': 'ctag1.009da6ddb3254518b28cd6bc81ccfc7...
+                 │           └ <bound method TemplateStorageApp._process_message of <template_storage_app_svc.TemplateStorageApp object at 0x40028316c0>>
+                 └ <function create_task at 0x40031d5c60>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 80, in _process_message
+    res = await self._read(mes)
+                │    │     └ {'action': 'read', 'template_id': 'fbb841ea-5708-4798-8b32-3d13996ee0fe'}
+                │    └ <function TemplateStorageApp._read at 0x4003e9ce50>
+                └ <template_storage_app_svc.TemplateStorageApp object at 0x40028316c0>
+
+  File "/usr/src/template_storage_app/src/template_storage/app/template_storage_app_svc.py", line 108, in _read
+    processed_template = TemplateForTask.mode_validate(template)
+                         │                             └ {'template': {'comp_card': {'summary': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500}}, 'title': {...
+                         └ <class 'src.common.schema.template.TemplateForTask'>
+
+  File "/usr/src/template_storage_app/.venv/lib/python3.10/site-packages/pydantic/_internal/_model_construction.py", line 205, in __getattr__
+    raise AttributeError(item)
+                         └ 'mode_validate'
+
+AttributeError: mode_validate
+2023-08-17 18:18:59.771 INFO     :: Связь с AMQP сервером установлена.
+2023-08-17 18:19:08.860 INFO     :: Связь с AMQP сервером установлена.
+2023-08-17 22:19:39.811 INFO     :: Связь с AMQP сервером установлена.
+2023-08-17 22:19:48.980 INFO     :: Связь с AMQP сервером установлена.
+2023-08-22 21:05:42.989 INFO     :: Связь с AMQP сервером установлена.
+2023-08-22 21:05:50.066 INFO     :: Связь с AMQP сервером установлена.
+2023-08-22 21:10:45.472 INFO     :: Связь с AMQP сервером установлена.
+2023-08-22 21:10:53.644 INFO     :: Связь с AMQP сервером установлена.
+2023-08-22 21:12:18.444 INFO     :: Связь с AMQP сервером установлена.
+2023-08-22 21:50:56.038 INFO     :: Связь с AMQP сервером установлена.
+2023-08-22 21:51:59.197 INFO     :: Связь с AMQP сервером установлена.
+2023-08-22 21:52:06.394 INFO     :: Связь с AMQP сервером установлена.
+2023-08-22 21:52:10.179 INFO     :: {'error': "'NoneType' object is not subscriptable"}
+2023-08-22 21:52:13.750 INFO     :: Связь с AMQP сервером установлена.
+2023-08-22 21:57:13.377 INFO     :: Связь с AMQP сервером установлена.
+2023-08-22 21:57:20.580 INFO     :: Связь с AMQP сервером установлена.
+2023-08-22 22:59:58.004 INFO     :: Связь с AMQP сервером установлена.
+2023-08-22 23:00:06.199 INFO     :: Связь с AMQP сервером установлена.
+2023-08-23 10:20:00.430 INFO     :: Связь с AMQP сервером установлена.
+2023-08-23 10:43:44.080 INFO     :: Связь с AMQP сервером установлена.
+2023-08-23 10:43:51.212 INFO     :: Связь с AMQP сервером установлена.
+2023-08-23 15:15:21.511 INFO     :: Связь с AMQP сервером установлена.
+2023-08-23 15:15:29.500 INFO     :: Связь с AMQP сервером установлена.
+2023-08-23 15:19:55.176 INFO     :: Связь с AMQP сервером установлена.
+2023-08-23 15:21:47.518 INFO     :: Связь с AMQP сервером установлена.
+2023-08-23 15:21:54.725 INFO     :: Связь с AMQP сервером установлена.
+2023-08-23 15:29:42.363 INFO     :: Связь с AMQP сервером установлена.
+2023-08-23 15:29:49.699 INFO     :: Связь с AMQP сервером установлена.
+2023-08-23 15:30:26.330 INFO     :: Связь с AMQP сервером установлена.
+2023-08-23 15:33:33.014 INFO     :: Связь с AMQP сервером установлена.
+2023-08-23 15:34:05.823 INFO     :: Связь с AMQP сервером установлена.
+2023-08-23 15:34:12.963 INFO     :: Связь с AMQP сервером установлена.
+2023-08-23 16:09:15.272 INFO     :: Связь с AMQP сервером установлена.
+2023-08-23 16:09:23.297 INFO     :: Связь с AMQP сервером установлена.
+2023-08-23 16:09:34.603 INFO     :: Связь с AMQP сервером установлена.
+2023-08-23 16:10:48.533 INFO     :: Связь с AMQP сервером установлена.
+2023-08-23 16:16:52.570 INFO     :: Связь с AMQP сервером установлена.
+2023-08-23 16:18:11.922 INFO     :: Связь с AMQP сервером установлена.
+2023-08-23 16:18:19.323 INFO     :: Связь с AMQP сервером установлена.
+2023-08-23 16:19:06.085 INFO     :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500}}, 'title': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500}}, 'block_type': 'list'}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500}}}}}
+2023-08-23 16:20:16.983 INFO     :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500}}, 'title': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500}}, 'block_type': 'list'}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500}}}}}
+2023-08-23 16:21:40.819 INFO     :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500}}, 'title': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500}}, 'block_type': 'list'}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500}}}}}
+2023-08-23 17:44:35.834 INFO     :: Связь с AMQP сервером установлена.
+2023-08-23 17:44:45.289 INFO     :: Связь с AMQP сервером установлена.
+2023-08-23 17:46:50.463 INFO     :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500}}, 'title': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500}}, 'block_type': 'list'}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500}}}}}
+2023-08-23 17:55:01.857 ERROR    :: Unexpected connection close from remote "amqp://crwl:******@rabbitmq:5672/", Connection.Close(reply_code=320, reply_text="CONNECTION_FORCED - broker forced connection closure with reason 'shutdown'")
+NoneType: None
+2023-08-23 17:55:01.919 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-24 08:53:23.768 INFO     :: Связь с AMQP сервером установлена.
+2023-08-24 09:53:24.497 INFO     :: Связь с AMQP сервером установлена.
+2023-08-24 09:53:34.070 INFO     :: Связь с AMQP сервером установлена.
+2023-08-24 11:16:56.650 ERROR    :: Unexpected connection close from remote "amqp://crwl:******@rabbitmq:5672/", Connection.Close(reply_code=320, reply_text="CONNECTION_FORCED - broker forced connection closure with reason 'shutdown'")
+NoneType: None
+2023-08-24 11:16:56.805 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-24 11:16:56.880 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-24 11:16:56.891 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno 111] Connection refused. Reconnecting after 5 seconds.
+2023-08-24 11:17:01.949 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-24 11:17:01.959 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno 111] Connection refused. Reconnecting after 5 seconds.
+2023-08-24 14:48:15.275 INFO     :: Связь с AMQP сервером установлена.
+2023-08-24 15:00:08.408 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-24 15:00:08.451 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-24 15:00:08.455 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno 111] Connection refused. Reconnecting after 5 seconds.
+2023-08-24 15:00:13.485 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-24 15:00:13.490 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno -2] Name or service not known. Reconnecting after 5 seconds.
+2023-08-24 15:00:18.509 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-24 15:00:18.526 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno 111] Connection refused. Reconnecting after 5 seconds.
+2023-08-24 15:02:51.139 ERROR    :: Unexpected connection close from remote "amqp://crwl:******@rabbitmq:5672/", Connection.Close(reply_code=320, reply_text="CONNECTION_FORCED - broker forced connection closure with reason 'shutdown'")
+NoneType: None
+2023-08-24 15:02:51.341 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-24 15:02:51.387 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-24 15:02:51.415 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno 111] Connection refused. Reconnecting after 5 seconds.
+2023-08-24 15:02:56.445 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-24 15:02:56.454 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno 111] Connection refused. Reconnecting after 5 seconds.
+2023-08-24 15:50:08.358 INFO     :: Связь с AMQP сервером установлена.
+2023-08-24 15:50:21.719 INFO     :: Связь с AMQP сервером установлена.
+2023-08-24 15:54:20.519 ERROR    :: Unexpected connection close from remote "amqp://crwl:******@rabbitmq:5672/", Connection.Close(reply_code=320, reply_text="CONNECTION_FORCED - broker forced connection closure with reason 'shutdown'")
+NoneType: None
+2023-08-24 15:54:20.663 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-24 21:24:00.104 INFO     :: Связь с AMQP сервером установлена.
+2023-08-24 21:24:08.037 INFO     :: Связь с AMQP сервером установлена.
+2023-08-24 21:27:07.397 INFO     :: Связь с AMQP сервером установлена.
+2023-08-24 21:30:26.814 INFO     :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500}}, 'title': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500}}, 'block_type': 'list'}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500}}}}}
+2023-08-24 21:37:50.922 INFO     :: Связь с AMQP сервером установлена.
+2023-08-24 21:38:00.448 INFO     :: Связь с AMQP сервером установлена.
+2023-08-24 21:38:25.213 INFO     :: Связь с AMQP сервером установлена.
+2023-08-24 21:40:30.864 INFO     :: Связь с AMQP сервером установлена.
+2023-08-24 21:40:38.311 INFO     :: Связь с AMQP сервером установлена.
+2023-08-24 21:42:32.151 INFO     :: Связь с AMQP сервером установлена.
+2023-08-24 21:42:39.393 INFO     :: Связь с AMQP сервером установлена.
+2023-08-24 21:47:06.219 ERROR    :: Unexpected connection close from remote "amqp://crwl:******@rabbitmq:5672/", Connection.Close(reply_code=320, reply_text="CONNECTION_FORCED - broker forced connection closure with reason 'shutdown'")
+NoneType: None
+2023-08-24 21:47:06.270 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-24 21:47:06.287 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-24 21:47:06.296 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno 111] Connection refused. Reconnecting after 5 seconds.
+2023-08-24 21:47:11.319 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-24 21:47:11.328 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno 111] Connection refused. Reconnecting after 5 seconds.
+2023-08-24 21:47:16.341 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-24 21:47:16.347 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno 111] Connection refused. Reconnecting after 5 seconds.
+2023-08-24 21:47:38.816 INFO     :: None
+2023-08-24 21:57:55.465 INFO     :: Связь с AMQP сервером установлена.
+2023-08-24 21:58:03.747 INFO     :: Связь с AMQP сервером установлена.
+2023-08-24 21:58:29.209 INFO     :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500}}, 'title': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500}}, 'block_type': 'list'}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500}}}}}
+2023-08-24 22:03:44.392 ERROR    :: Unexpected connection close from remote "amqp://crwl:******@rabbitmq:5672/", Connection.Close(reply_code=320, reply_text="CONNECTION_FORCED - broker forced connection closure with reason 'shutdown'")
+NoneType: None
+2023-08-24 22:03:44.498 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-24 22:03:44.644 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-24 22:03:44.662 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno 111] Connection refused. Reconnecting after 5 seconds.
+2023-08-24 22:03:49.684 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-08-24 22:03:49.688 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno 111] Connection refused. Reconnecting after 5 seconds.
+2023-08-24 22:20:43.300 INFO     :: Связь с AMQP сервером установлена.
+2023-08-24 22:20:52.388 INFO     :: Связь с AMQP сервером установлена.
+2023-08-24 22:37:24.188 ERROR    :: Unexpected connection close from remote "amqp://crwl:******@rabbitmq:5672/", Connection.Close(reply_code=320, reply_text="CONNECTION_FORCED - broker forced connection closure with reason 'shutdown'")
+NoneType: None
+2023-08-24 22:37:24.352 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-09-01 14:35:43.888 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 14:35:53.478 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 14:46:46.742 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 14:59:18.273 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 14:59:28.230 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 15:00:32.048 INFO     :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 15:05:10.720 INFO     :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 15:05:32.387 INFO     :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 15:45:25.211 ERROR    :: Unexpected connection close from remote "amqp://crwl:******@rabbitmq:5672/", Connection.Close(reply_code=320, reply_text="CONNECTION_FORCED - broker forced connection closure with reason 'shutdown'")
+NoneType: None
+2023-09-01 15:45:25.327 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-09-01 15:45:25.501 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-09-01 15:45:25.522 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno 111] Connection refused. Reconnecting after 5 seconds.
+2023-09-01 15:45:30.584 INFO     :: Connection to amqp://crwl:******@rabbitmq/ closed. Reconnecting after 5 seconds.
+2023-09-01 15:45:30.592 WARNING  :: Connection attempt to "amqp://crwl:******@rabbitmq/" failed: [Errno 111] Connection refused. Reconnecting after 5 seconds.
+2023-09-01 16:07:10.885 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 16:07:20.143 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 16:07:32.787 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 16:09:29.142 INFO     :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 16:09:32.820 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 16:09:35.128 INFO     :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 16:09:38.791 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 16:10:45.362 INFO     :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 16:10:48.975 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 16:12:59.268 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 16:13:08.500 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 16:13:57.159 INFO     :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 16:14:00.924 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 16:16:11.354 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 16:16:11.588 INFO     :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 16:16:11.591 ERROR    :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 16:16:18.902 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 16:16:22.821 INFO     :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 16:16:22.826 ERROR    :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 16:16:26.436 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 20:44:17.822 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 20:44:27.406 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 20:44:34.151 INFO     :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 20:44:34.155 ERROR    :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 20:56:21.741 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 20:56:29.121 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 20:56:44.386 INFO     :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'request': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 20:56:44.390 ERROR    :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'request': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 20:58:17.493 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 20:58:24.834 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 20:58:28.473 INFO     :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'request': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 20:58:28.478 ERROR    :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'request': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 20:58:32.030 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 20:59:19.852 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 20:59:27.018 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 20:59:34.578 INFO     :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'request': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 20:59:34.581 ERROR    :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'request': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 20:59:38.154 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 21:03:15.775 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 21:03:25.866 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 21:03:44.770 INFO     :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'request': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 21:03:44.773 ERROR    :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'request': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 21:03:48.330 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 21:04:28.795 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 21:04:37.889 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 21:04:46.794 INFO     :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'request': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 21:04:46.799 ERROR    :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'request': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 21:06:31.981 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 21:06:32.280 INFO     :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'request': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 21:06:32.286 ERROR    :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'request': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 21:06:41.368 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 21:31:44.942 INFO     :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'request': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 21:31:44.947 ERROR    :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'request': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 21:34:57.106 INFO     :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'request': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 21:34:57.110 ERROR    :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'request': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 21:42:28.804 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 21:42:39.063 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 21:42:50.649 ERROR    :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'request': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 21:46:49.286 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 21:46:59.228 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 21:46:59.472 ERROR    :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'request': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 21:58:36.861 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 21:58:46.255 INFO     :: Связь с AMQP сервером установлена.
+2023-09-01 21:59:29.876 ERROR    :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'request': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-01 21:59:33.566 INFO     :: Связь с AMQP сервером установлена.
+2023-09-02 00:07:03.758 INFO     :: Связь с AMQP сервером установлена.
+2023-09-02 00:07:11.010 INFO     :: Связь с AMQP сервером установлена.
+2023-09-02 00:07:15.317 ERROR    :: {'template': {'competition_card': {'about': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'request': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}, 'title': {'constraints': {'required': True, 'data_type': 'array', 'internal_type': 'str', 'max_length': 30, 'group': False}}}, 'competition_item': {'meta': {'constraints': {'required': True, 'data_type': 'str', 'max_length': 500, 'index': False}}}}}
+2023-09-02 00:07:18.829 INFO     :: Связь с AMQP сервером установлена.
+2023-09-02 00:10:06.870 INFO     :: Связь с AMQP сервером установлена.
+2023-09-02 00:10:14.156 INFO     :: Связь с AMQP сервером установлена.
+2023-09-02 00:10:28.971 INFO     :: Связь с AMQP сервером установлена.
+2023-09-02 00:31:54.078 INFO     :: Связь с AMQP сервером установлена.
+2023-09-02 00:32:03.465 INFO     :: Связь с AMQP сервером установлена.
+2023-09-02 10:38:38.018 INFO     :: Связь с AMQP сервером установлена.
+2023-09-02 10:38:45.557 INFO     :: Связь с AMQP сервером установлена.
+2023-09-02 19:59:49.070 INFO     :: Связь с AMQP сервером установлена.
+2023-09-02 19:59:58.970 INFO     :: Связь с AMQP сервером установлена.
+2023-09-02 20:56:30.905 INFO     :: Связь с AMQP сервером установлена.
+2023-09-02 20:56:41.135 INFO     :: Связь с AMQP сервером установлена.
+2023-09-03 11:51:27.413 INFO     :: Связь с AMQP сервером установлена.
+2023-09-03 12:17:46.991 INFO     :: Связь с AMQP сервером установлена.
+2023-09-03 12:17:54.627 INFO     :: Связь с AMQP сервером установлена.

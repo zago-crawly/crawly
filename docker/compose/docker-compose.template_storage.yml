@@ -1,0 +1,17 @@
+version: "3.10"
+
+services:
+  template_storage:
+    hostname: template_storage
+    build:
+      context: ../..
+      dockerfile: docker/docker-files/template_storage/Dockerfile.template_storage
+
+    environment:
+      TZ: ${TIME_ZONE}
+    ports:
+      - "8004:80"
+
+    volumes:
+      - ./logs/template_storage/api/:/usr/src/template_storage_api/log/:rw
+      - ./logs/template_storage/app/:/usr/src/template_storage_app/log/:rw

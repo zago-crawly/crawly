@@ -1,0 +1,81 @@
+{
+  "task_uuid": "789a0dd1-be7a-40de-af06-382962ac4b87",
+  "cron": "* * * * *",
+  "settings": {
+    "max_items": 10
+  },
+  "resource": {
+    "resource_name": "archi competition",
+    "resource_url": "https://archi.ru/contests",
+    "lang": "ru",
+    "schema": {
+      "comp_card": {
+        "summary": {
+          "selectors": {
+            "xpath": "//article[@class=\"article1\"]/div[@class=\"text1\"]/text()"
+          },
+          "constraints": {
+            "required": "true",
+            "data_type": "str"
+          },
+          "postprocessors": {
+            "prefix": "",
+            "suffix": ""
+          }
+        },
+        "request": {
+          "selectors": {
+            "xpath": "//article[@class=\"article1\"]/header/a/@href"
+          },
+          "constraints": {
+            "required": "true",
+            "data_type": "array"
+          }
+        },
+        "title": {
+          "selectors": {
+            "xpath": "//article[@class=\"article1\"]/header/a/text()"
+          },
+          "constraints": {
+            "required": "true",
+            "data_type": "str"
+          }
+        },
+        "pagination": {
+          "pagination_type": "link",
+          "pagination_link": "https://archi.ru/contests/?page=<<page_num>>"
+        },
+        "block_type": "list"
+      },
+      "comp_item": {
+        "meta": {
+          "selectors": {
+            "xpath": "(//td[@class='rec_value_2 border_no'])[3]/text()"
+          },
+          "constraints": {
+            "required": "true",
+            "data_type": "list"
+          },
+          "postprocessors": {
+            "translate": "en",
+            "strip": "true"
+          }
+        },
+        "register_date": {
+          "selectors": {
+            "xpath": "(//td[@class='rec_value_1'])[1]/text()"
+          },
+          "constraints": {
+            "required": "true",
+            "data_type": "list"
+          },
+          "postprocessors": {
+            "strip": "true",
+            "initial_date_format": "%d.%m.%Y",
+            "new_date_format": "%Y|%m|%d"
+          }
+        }
+      }
+    }
+  }
+}

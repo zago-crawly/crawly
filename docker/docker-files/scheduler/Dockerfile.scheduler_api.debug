@@ -1,0 +1,30 @@
+FROM python:3.10
+
+WORKDIR /home
+RUN pip3 install fastapi pydantic aio-pika loguru six uvicorn
+
+# для сервиса создадим каталог -------------------
+WORKDIR /usr/src
+RUN mkdir scheduler_api 
+COPY /src/scheduler/api/Pipfile /usr/src/scheduler_api/
+WORKDIR /usr/src/scheduler_api
+
+RUN apt-get -y purge slapd
+
+# копируем исходники --------------------------------------------
+ADD src/common/ /usr/src/scheduler_api/src/common
+COPY /src/__init__.py /usr/src/scheduler_api/src/
+WORKDIR /usr/src/scheduler_api/src
+RUN mkdir scheduler
+WORKDIR /usr/src/scheduler_api/src/scheduler
+ADD /src/scheduler/api/ api/
+WORKDIR /usr/src/scheduler_api
+
+RUN addgroup --gid 1024 volume_group
+
+# Задаем значения переменных окружения -------------------
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+
+EXPOSE 80

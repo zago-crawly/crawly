@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  scheduler_api:
+    command:
+      [
+        'sh',
+        '-c',
+        'pip install debugpy && python -m debugpy --wait-for-client --listen 0.0.0.0:5678 -m uvicorn src.scheduler.api.scheduler_api_svc:app --reload --host 0.0.0.0 --port 80',
+      ]
+    ports:
+      - 80:80
+      - 5678:5678
+
+  # ldap:
+  #   ports:
+  #     - 389:389
