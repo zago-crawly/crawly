@@ -57,7 +57,7 @@ class SchedulerApp(AppSvc):
                                 kwargs={"amqp_url": self._config.amqp_url,
                                         "exchange_name": self._config.publish["main"]["name"],
                                         "body": {"action": "spider.start", "data": mes_data},
-                                        "routing_key": "spider_api_consume"
+                                        "routing_key": "spider_app_consume"
                                         },
                                 )
         self._logger.info(f'Создано задание {job.id} для парсинга ресурса {resource_url} с расписанием {cron}')

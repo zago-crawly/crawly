@@ -18,4 +18,4 @@ services:
       - "8002:80"
 
     volumes:
-      - ./logs/spider/api/:/usr/src/spider_svc/log/:rw
+      - ./logs/spider/app/:/usr/src/spider_svc/log/:rw
