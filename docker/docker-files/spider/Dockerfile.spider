@@ -21,7 +21,6 @@ COPY src/__init__.py /usr/src/spider_svc/src
 WORKDIR /usr/src/spider_svc/src
 RUN mkdir spider
 WORKDIR /usr/src/spider_svc/src/spider
-ADD src/spider/api/ api/
 ADD src/spider/app/ app/
 WORKDIR /usr/src/spider_svc
 

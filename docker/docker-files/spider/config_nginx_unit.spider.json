@@ -1,19 +1,19 @@
 {
   "listeners": {
     "*:80": {
-      "pass": "applications/spider_api"
+      "pass": "applications/spider_app"
     }
   },
   "applications": {
-    "spider_api": {
+    "spider_app": {
       "type": "python 3.10",
       "working_directory": "/usr/src/spider_svc",
-      "path": "/usr/src/spider_svc/src/spider/api/",
+      "path": "/usr/src/spider_svc/src/spider/app/",
       "home": "/usr/src/spider_svc/.venv/",
-      "module": "spider_api_svc",
+      "module": "spider_app_svc",
       "callable": "app",
       "environment": {
-        "log": "{\"level\": \"INFO\", \"file_name\": \"log/spider_api.log\", \"retention\": \"1 months\", \"rotation\": \"20 days\"}"
+        "log": "{\"level\": \"INFO\", \"file_name\": \"log/spider_app.log\", \"retention\": \"1 months\", \"rotation\": \"20 days\"}"
       }
     }
   }
