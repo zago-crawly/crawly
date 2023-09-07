@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  psql:
+    hostname: psql
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      # TZ: ${TIME_ZONE}
+    ports:
+      - 5432:5432
+    volumes:
+      - ../docker-files/psql/migration.sql:/usr/src/migration.sql:ro

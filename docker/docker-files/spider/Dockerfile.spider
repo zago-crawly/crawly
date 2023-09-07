@@ -1,0 +1,38 @@
+FROM nginx/unit:1.28.0-python3.10
+
+WORKDIR /home
+RUN pip3 install pipenv
+RUN apt-get update
+RUN apt-get -y install musl-dev gcc python3-dev libffi-dev
+RUN apt-get -y remove gcc
+
+# для сервиса создадим каталог -------------------
+WORKDIR /usr/src
+RUN mkdir spider_svc
+COPY src/spider/Pipfile /usr/src/spider_svc/
+WORKDIR /usr/src/spider_svc/
+RUN PIPENV_VENV_IN_PROJECT=1 pipenv install --deploy
+
+RUN apt-get -y purge slapd
+
+# копируем исходники --------------------------------------------
+ADD src/common/ /usr/src/spider_svc/src/common
+COPY src/__init__.py /usr/src/spider_svc/src
+WORKDIR /usr/src/spider_svc/src
+RUN mkdir spider
+WORKDIR /usr/src/spider_svc/src/spider
+ADD src/spider/app/ app/
+WORKDIR /usr/src/spider_svc
+
+RUN addgroup --gid 1024 volume_group
+RUN usermod -a -G volume_group unit
+
+# set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+
+# copy spider
+COPY docker/docker-files/spider/config_nginx_unit.spider.json /docker-entrypoint.d/
+
+EXPOSE 80

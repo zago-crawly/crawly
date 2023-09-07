@@ -1,0 +1,45 @@
+{
+  "template": {
+    "comp_card": {
+      "summary": {
+        "constraints": {
+          "required": "true",
+          "data_type": "str"
+        }
+      },
+      "request": {
+        "constraints": {
+          "required": "true",
+          "data_type": "list",
+          "internal_type": "str"
+        }
+      },
+      "title": {
+        "constraints": {
+          "required": "true",
+          "data_type": "str"
+        }
+      },
+      "pagination": {
+        "pagination_type": "link",
+        "pagination_link": "https://archi.ru/contests/?page=<<page_num>>"
+      },
+      "block_type": "list"
+    },
+    "comp_item": {
+      "meta": {
+        "constraints": {
+          "required": "true",
+          "data_type": "array",
+          "internal_type": "str"
+        }
+      },
+      "register_date": {
+        "constraints": {
+          "required": "true",
+          "data_type": "date"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1 @@
+docker-compose -f docker/compose/docker-compose.rabbitmq.yml -f docker/compose/docker-compose.scheduler_api.debug.yml -f docker/compose/docker-compose.scheduler_api.uvicorn.yml up --build -d

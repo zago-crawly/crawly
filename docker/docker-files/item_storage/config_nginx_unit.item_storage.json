@@ -1,0 +1,31 @@
+{
+  "listeners": {
+    "*:80": {
+      "pass": "applications/item_storage_api"
+    }
+  },
+  "applications": {
+    "item_storage_api": {
+      "type": "python 3.10",
+      "working_directory": "/usr/src/item_storage_api",
+      "path": "/usr/src/item_storage_api/src/item_storage/api/",
+      "home": "/usr/src/item_storage_api/.venv/",
+      "module": "item_storage_api_svc",
+      "callable": "app",
+      "environment": {
+        "log": "{\"level\": \"INFO\", \"file_name\": \"log/item_storage_api.log\", \"retention\": \"1 months\", \"rotation\": \"20 days\"}"
+      }
+    },
+    "item_storage_app": {
+      "type": "python 3.10",
+      "working_directory": "/usr/src/item_storage_app",
+      "path": "/usr/src/item_storage_app/src/item_storage/app/",
+      "home": "/usr/src/item_storage_app/.venv/",
+      "module": "item_storage_app_svc",
+      "callable": "app",
+      "environment": {
+        "log": "{\"level\": \"INFO\", \"file_name\": \"log/item_storage_app.log\", \"retention\": \"1 months\", \"rotation\": \"20 days\"}"
+      }
+    }
+  }
+}

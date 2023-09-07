@@ -1,0 +1,19 @@
+version: "3.10"
+
+services:
+  item_storage:
+    hostname: item_storage
+    build:
+      context: ../..
+      dockerfile: docker/docker-files/item_storage/Dockerfile.item_storage
+
+    environment:
+      TZ: ${TIME_ZONE}
+      MONGO_URI: ${MONGO_URI}
+      MONGO_DB: ${MONGO_DB}
+    ports:
+      - "8003:80"
+
+    volumes:
+      - ./logs/item_storage/api/:/usr/src/item_storage_api/log/:rw
+      - ./logs/item_storage/app/:/usr/src/item_storage_app/log/:rw
