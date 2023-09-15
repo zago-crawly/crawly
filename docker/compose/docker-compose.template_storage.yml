@@ -13,5 +13,5 @@ services:
       - "8004:80"
 
     volumes:
-      - ./logs/template_storage/api/:/usr/src/template_storage_api/log/:rw
-      - ./logs/template_storage/app/:/usr/src/template_storage_app/log/:rw
+      - ./logs/template_storage/api/:/usr/src/log/:rw
+      - ./logs/template_storage/app/:/usr/src/log/:rw
