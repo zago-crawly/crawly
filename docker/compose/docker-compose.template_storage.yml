@@ -1,4 +1,4 @@
-version: "3.10"
+version: '3.10'
 
 services:
   template_storage:
@@ -10,8 +10,8 @@ services:
     environment:
       TZ: ${TIME_ZONE}
     ports:
-      - "8004:80"
+      - '8004:80'
 
     volumes:
-      - ./logs/template_storage/api/:/usr/src/log/:rw
-      - ./logs/template_storage/app/:/usr/src/log/:rw
+      - ./logs/template_storage/api/:/usr/src/log/template_storage_api/:rw
+      - ./logs/template_storage/app/:/usr/src/log/template_storage_app/:rw

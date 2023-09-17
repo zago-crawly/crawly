@@ -6,14 +6,14 @@
   },
   "applications": {
     "spider_app": {
-      "type": "python 3.10",
-      "working_directory": "/usr/src/spider_svc",
-      "path": "/usr/src/spider_svc/src/spider/app/",
-      "home": "/usr/src/spider_svc/.venv/",
+      "type": "python 3.11",
+      "working_directory": "/usr",
+      "path": "/usr/src/spider/app/",
+      "home": "/usr/src/.venv/",
       "module": "spider_app_svc",
       "callable": "app",
       "environment": {
-        "log": "{\"level\": \"INFO\", \"file_name\": \"log/spider_app.log\", \"retention\": \"1 months\", \"rotation\": \"20 days\"}"
+        "log": "{\"level\": \"INFO\", \"file_name\": \"src/log/spider_app.log\", \"retention\": \"1 months\", \"rotation\": \"20 days\"}"
       }
     }
   }
