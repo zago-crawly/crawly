@@ -1,0 +1,42 @@
+{
+  "listeners": {
+    "*:80": {
+      "pass": "applications/signal_api"
+    }
+  },
+  "applications": {
+    "signal_api": {
+      "type": "python 3.11",
+      "working_directory": "/usr",
+      "path": "/usr/src/signal/api/",
+      "home": "/usr/src/.venv/",
+      "module": "signal_api_svc",
+      "callable": "app",
+      "environment": {
+        "log": "{\"level\": \"INFO\", \"file_name\": \"src/log/signal_api.log\", \"retention\": \"1 months\", \"rotation\": \"20 days\"}"
+      }
+    },
+    "signal_app": {
+      "type": "python 3.11",
+      "working_directory": "/usr",
+      "path": "/usr/src/signal/app/",
+      "home": "/usr/src/.venv/",
+      "module": "signal_app_svc",
+      "callable": "app",
+      "environment": {
+        "log": "{\"level\": \"INFO\", \"file_name\": \"src/log/signal_app.log\", \"retention\": \"1 months\", \"rotation\": \"20 days\"}"
+      }
+    },
+    "signal_app_api": {
+      "type": "python 3.11",
+      "working_directory": "/usr",
+      "path": "/usr/src/signal/app_api/",
+      "home": "/usr/src/.venv/",
+      "module": "signal_app_api_svc",
+      "callable": "app",
+      "environment": {
+        "log": "{\"level\": \"INFO\", \"file_name\": \"src/log/signal_app_api.log\", \"retention\": \"1 months\", \"rotation\": \"20 days\"}"
+      }
+    }
+  }
+}
