@@ -1,4 +1,4 @@
-version: "3.10"
+version: '3.10'
 
 services:
   spider:
@@ -15,7 +15,7 @@ services:
       MONGO_URI: ${MONGO_URI}
       MONGO_DB: ${MONGO_DB}
     ports:
-      - "8002:80"
+      - '8002:80'
 
     volumes:
-      - ./logs/spider/app/:/usr/src/spider_svc/log/:rw
+      - ./logs/spider/app/:/usr/src/log/spider_app/:rw

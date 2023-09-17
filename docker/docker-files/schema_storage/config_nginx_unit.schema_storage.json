@@ -6,25 +6,25 @@
   },
   "applications": {
     "schema_storage_api": {
-      "type": "python 3.10",
-      "working_directory": "/usr/src/schema_storage_api",
-      "path": "/usr/src/schema_storage_api/src/schema_storage/api/",
-      "home": "/usr/src/schema_storage_api/.venv/",
+      "type": "python 3.11",
+      "working_directory": "/usr",
+      "path": "/usr/src/schema_storage/api/",
+      "home": "/usr/src/.venv/",
       "module": "schema_storage_api_svc",
       "callable": "app",
       "environment": {
-        "log": "{\"level\": \"INFO\", \"file_name\": \"log/schema_storage_api.log\", \"retention\": \"1 months\", \"rotation\": \"20 days\"}"
+        "log": "{\"level\": \"INFO\", \"file_name\": \"src/log/schema_storage_api.log\", \"retention\": \"1 months\", \"rotation\": \"20 days\"}"
       }
     },
     "schema_storage_app": {
-      "type": "python 3.10",
-      "working_directory": "/usr/src/schema_storage_app",
-      "path": "/usr/src/schema_storage_app/src/schema_storage/app/",
-      "home": "/usr/src/schema_storage_app/.venv/",
+      "type": "python 3.11",
+      "working_directory": "/usr",
+      "path": "/usr/src/schema_storage/app/",
+      "home": "/usr/src/.venv/",
       "module": "schema_storage_app_svc",
       "callable": "app",
       "environment": {
-        "log": "{\"level\": \"INFO\", \"file_name\": \"log/schema_storage_app.log\", \"retention\": \"1 months\", \"rotation\": \"20 days\"}"
+        "log": "{\"level\": \"INFO\", \"file_name\": \"src/log/schema_storage_app.log\", \"retention\": \"1 months\", \"rotation\": \"20 days\"}"
       }
     }
   }

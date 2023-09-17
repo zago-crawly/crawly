@@ -1,4 +1,4 @@
-version: "3.10"
+version: '3.10'
 
 services:
   scheduler:
@@ -10,8 +10,8 @@ services:
     environment:
       TZ: ${TIME_ZONE}
     ports:
-      - "8001:80"
+      - '8001:80'
 
     volumes:
-      - ./logs/scheduler/api/:/usr/src/scheduler_api/log/:rw
-      - ./logs/scheduler/app/:/usr/src/scheduler_app/log/:rw
+      - ./logs/scheduler/api/:/usr/src/log/scheduler_api/:rw
+      - ./logs/scheduler/app/:/usr/src/log/scheduler_app/:rw
