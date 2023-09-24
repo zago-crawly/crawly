@@ -1,6 +1,7 @@
 import psycopg2
 import psycopg2.pool
 import sys
+from contextlib import contextmanager
 
 sys.path.append(".")
 from src.common.psql_connection_pool_settings import PSQLConnectionPoolSettings
@@ -36,19 +37,14 @@ class PSQLConnectionPool():
             return
             # self._logger.error("Error while creating PostgreSQL connection pool:", error)
             
-    def get_psql_connection(self):
+    @contextmanager
+    def connect(self):
         if self.connection_pool:
-            return self.connection_pool.getconn()
-        else:
-            return
-            # self._logger.error("Connection pool is not initialized. Call create_pool() first.")
-            
-    def release_psql_connection(self, connection):
-        if self.connection_pool and connection:
+            connection = self.connection_pool.getconn()
+            yield connection
             self.connection_pool.putconn(connection)
         else:
             return
-            # self._logger.error("Connection pool is not initialized. Call create_pool() first.")
     
     def close_pool(self):
         if self.connection_pool:
