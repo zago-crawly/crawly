@@ -2,6 +2,10 @@
 Модуль содержит базовый класс ``Svc`` - предок всех сервисов.
 """
 import sys
+from typing import Optional
+import json
+import operator
+from functools import reduce
 
 sys.path.append(".")
 
@@ -45,6 +49,17 @@ class AppSvc(BaseSvc):
             "mayDelete": self._may_delete,
             "deleting": self._deleting
         }
+
+    def set_signals(before: Optional[str] = None, after: Optional[str] = None, path_to_item_id: Optional[str] = "data"):
+        def inner(fn):
+            async def wrap(self, mes):
+                obj_id = reduce(operator.getitem, path_to_item_id.split('.'), mes)
+                await self._post_message(mes=json.dumps({"signal": before, "obj_id": obj_id}))
+                res = await fn(self, mes)
+                await self._post_message(mes=json.dumps({"signal": after, "obj_id": obj_id}))
+                return res
+            return wrap
+        return inner
 
     async def _amqp_connect(self) -> None:
         await super()._amqp_connect()
