@@ -1,0 +1,17 @@
+version: '3.10'
+
+services:
+  signal:
+    hostname: signal
+    build:
+      context: ../..
+      dockerfile: docker/docker-files/signal/Dockerfile.signal
+
+    environment:
+      TZ: ${TIME_ZONE}
+    ports:
+      - '8007:80'
+
+    volumes:
+      - ./logs/signal/api/:/usr/src/log/signal_api/:rw
+      - ./logs/signal/app/:/usr/src/log/signal_app/:rw
