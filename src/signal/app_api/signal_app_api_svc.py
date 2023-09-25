@@ -1,6 +1,6 @@
-import asyncio
 import json
 import sys
+from pydantic import BaseModel
 from typing import Any
 import aio_pika
 import aio_pika.abc
@@ -10,46 +10,43 @@ sys.path.append(".")
 from src.common.app_svc import AppSvc
 from src.signal.app_api.signal_app_api_svc_settings import SignalAppAPISettings
 
+class Signal(BaseModel):
+    signal: str
+    obj_id: str
 
 class SignalAppAPI(AppSvc):
-
-    # _outgoing_commands = {
-    #     "created": "template.created",
-    #     "mayUpdate": "template.mayUpdate",
-    #     "updating": "template.updating",
-    #     "updated": "template.updated",
-    #     "mayDelete": "template.mayDelete",
-    #     "deleting": "template.deleting",
-    #     "deleted": "template.deleted"
-    # }
 
     def __init__(self, settings: SignalAppAPISettings, *args, **kwargs):
         super().__init__(settings, *args, **kwargs)
         
     def _set_incoming_commands(self) -> dict:
-        return {
-            "template.create": self._create,
-            "template.read": self._read,
-            "template.update": self._update,
-            "template.delete": self._delete,
-        }
+        return {}
 
     async def _process_message(self, message: aio_pika.abc.AbstractIncomingMessage) -> Any:
-        print(message)
-        return await super()._process_message(message)
+        async with message.process(ignore_processed=True):
+            mes = message.body.decode()
 
-    async def _read(self, mes) -> dict:
-        pass    
+            try:
+                mes = json.loads(mes)
+            except json.decoder.JSONDecodeError:
+                self._logger.error(f"Сообщение {mes} не в формате json.")
+                await message.ack()
+                return
+            
+            reject = await self._reject_message(mes)
+            if reject:
+                await message.reject(True)
+                return
+            try:
+                validated_signal = Signal.model_validate_json(mes)
+                await self._post_message(mes=validated_signal.model_dump())
+            except ValueError:
+                self._logger.error(f"Неверный формат сигнала")
+                await message.ack()
+                return
+
+            await message.ack()
         
-    async def _create(self, mes) -> dict:
-        pass
-
-    async def _delete(self, mes) -> bool:
-        pass
-
-    async def _update(self, mes) -> dict:
-        pass
-
     async def on_startup(self) -> None:
         await super().on_startup()
         

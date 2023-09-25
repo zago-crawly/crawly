@@ -12,8 +12,8 @@ class SignalAppSettings(AppSettings):
 
     publish: dict = {
         "main": {
-            "name": "crawly",
-            "type": "direct",
+            "name": "signal",
+            "type": "topic",
             "routing_key": "signal_app_publish"
         }
     }
@@ -27,7 +27,7 @@ class SignalAppSettings(AppSettings):
                 "type": "direct",
                 #: привязка для очереди
                 "routing_key": ["signal_app_consume",
-                                "signal_api_publish",
+                                # "signal_api_publish",
                                 "signal_app_api_publish"]
             }
         }

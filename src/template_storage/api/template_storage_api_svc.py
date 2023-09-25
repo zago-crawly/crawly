@@ -54,7 +54,6 @@ async def create(payload: TemplateCreate):
             status_code=200)
 async def read(template_id: str):
     res = await app.read(template_id)
-    app._logger.error(res)
     return res
 
 @router.delete("/{template_id}")
@@ -71,5 +70,6 @@ async def read(template_id: str):
 #     res = await app.update(task_id, payload)
 #     app._logger.info(res)
 #     return res
+
 
 app.include_router(router, prefix=f"/template_storage")

@@ -19,8 +19,8 @@ class SignalAPI(APISvc):
     async def create(self) -> None:
         pass
 
-    async def read(self, template_id: str) -> dict:
-        return await super().read(payload=template_id)
+    async def read(self) -> dict:
+        return await super().read(payload={"test": "ok"})
         
     async def delete(self, template_id: str) -> dict:
         return await super().delete(payload=template_id)
@@ -42,10 +42,10 @@ async def create():
 
 @router.get("/",
             status_code=200)
-async def read(template_id: str):
-    res = await app.read(template_id)
-    app._logger.error(res)
-    return res
+async def read():
+    app._logger.error("Get signal")
+    app.read()
+    return
 
 @router.delete("/{template_id}")
 async def read(template_id: str):
