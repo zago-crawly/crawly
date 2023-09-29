@@ -1,11 +1,4 @@
-import asyncio
-import json
 import sys
-from typing import MutableMapping
-from uuid import uuid4
-import aio_pika
-from fastapi import APIRouter
-
 
 sys.path.append(".")
 from src.common.app_svc import AppSvc
@@ -42,6 +35,7 @@ class SchemaStorageApp(AppSvc):
             "schema.delete": self._delete,
         }
 
+    @AppSvc.set_signals(before="schema.create.start", after="schema.create.end")
     async def _read(self, mes) -> dict:
         schema_id = mes.get('data')
         connection = self.psql_connection_pool.get_psql_connection()
@@ -53,7 +47,8 @@ class SchemaStorageApp(AppSvc):
                 return processed_template.model_dump(by_alias=True)
             else:
                 return {"error": {"code": "404", "message": f"Schema {schema_id} not found"}}
-        
+    
+    @AppSvc.set_signals(before="schema.create.start", after="schema.create.end")
     async def _create(self, mes) -> dict:
         schema = mes.get('data')
         connection = self.psql_connection_pool.get_psql_connection()
@@ -74,9 +69,11 @@ class SchemaStorageApp(AppSvc):
                 return {"error": {"message": "Insertion error"}}
             return {"id": schema_uuid} 
 
+    @AppSvc.set_signals(before="schema.delete.start", after="schema.delete.end")
     async def _delete(self, mes) -> bool:
         pass
 
+    @AppSvc.set_signals(before="schema.update.start", after="schema.update.end")
     async def _update(self, mes) -> dict:
         pass
 

@@ -30,7 +30,8 @@ class SpiderApp(AppSvc):
             for _ in range(task_batch_size):
                 task_batch.append(self.task_queue.get())
             self.run_spiders(tasks=task_batch)
-            
+    
+    @AppSvc.set_signals(before="spider.run.start", after="spider.run.end")       
     async def run_spider_batch(self, tasks: List[TaskForSpider]):
         proc_list = []
         for task in tasks:

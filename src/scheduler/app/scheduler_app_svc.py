@@ -37,7 +37,8 @@ class SchedulerApp(AppSvc):
             "task.pause": self._pause,
             "task.resume": self._resume,
         }
-    
+        
+    @AppSvc.set_signals(before="task.create.start", after="task.create.end")
     async def _create(self, mes) -> dict:
         cron, resource_url, schema_uuid, settings = mes.get('data').get('cron'),\
                                                     mes.get('data').get('resource_url'),\
@@ -68,7 +69,7 @@ class SchedulerApp(AppSvc):
         }
         return res
 
-
+    @AppSvc.set_signals(before="task.read.start", after="task.read.end")
     async def _read(self, mes) -> dict:
         task_id = mes.get('task_id')
         job: Job = self.scheduler.get_job(job_id=task_id)
@@ -85,6 +86,7 @@ class SchedulerApp(AppSvc):
             }
             return res
 
+    @AppSvc.set_signals(before="task.delete.start", after="task.dekete.end")
     async def _delete(self, mes) -> bool:
         task_id = mes.get('task_id')
         job: Job = self.scheduler.get_job(job_id=task_id)
@@ -95,6 +97,7 @@ class SchedulerApp(AppSvc):
             self._logger.error(f"Задача с указанным task_id {task_id} не найдена") 
             return False
 
+    @AppSvc.set_signals(before="task.update.start", after="task.update.end")
     async def _update(self, mes) -> dict:
         task_id = mes.get('task_id')
         body = mes.get('body')
@@ -121,6 +124,7 @@ class SchedulerApp(AppSvc):
             self._logger.error(f"Задача с указанным task_id {task_id} не найдена или не указан параметр обновления") 
             return False
             
+    @AppSvc.set_signals(after="task.pause")
     async def _pause(self, mes) -> bool:
         task_id = mes.get('task_id')
         job: Job = self.scheduler.get_job(job_id=task_id)
@@ -131,6 +135,7 @@ class SchedulerApp(AppSvc):
             self._logger.error(f"Задача с указанным task_id {task_id} не найдена") 
             return False
         
+    @AppSvc.set_signals(after="task.resume")
     async def _resume(self, mes) -> bool:
         task_id = mes.get('task_id')
         job: Job = self.scheduler.get_job(job_id=task_id)
