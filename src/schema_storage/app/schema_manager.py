@@ -6,6 +6,12 @@ sys.path.append('.')
 from src.common.models.schema import SchemaInDB
 from src.common.logger import CrwlLogger
 
+class SchemaManagerError(Exception):
+    def __init__(self, err: str) -> None:
+        self.err = err
+        super().__init__(self.err)
+    
+
 class SchemaManager():
     
     def __init__(self,
@@ -51,7 +57,7 @@ class SchemaManager():
                 self._logger.info(schema)
                 return schema
             except BaseException as e:
-                return {"error": str(e)}
+                return SchemaManagerError(err=str(e))
     
     def get_template_by_schema(self, schema_id) -> dict | str:
         with self.psql_connection.cursor() as cursor:
@@ -64,7 +70,7 @@ class SchemaManager():
                 self._logger.info(template_uuid)
                 return template_uuid
             except BaseException as e:
-                return {"error": str(e)}
+                return SchemaManagerError(err=str(e))
 
 
     

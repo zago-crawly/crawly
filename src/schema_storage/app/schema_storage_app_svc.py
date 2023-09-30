@@ -11,7 +11,7 @@ sys.path.append(".")
 from src.common.app_svc import AppSvc
 from src.common.models.schema import SchemaInDB, SchemaRead
 from src.common.psql_connection_pool import PSQLConnectionPool
-from src.schema_storage.app.schema_manager import SchemaManager
+from src.schema_storage.app.schema_manager import SchemaManager, SchemaManagerError
 from src.schema_storage.app.schema_storage_app_svc_settings import SchemaStorageAppSettings
 
 
@@ -47,12 +47,12 @@ class SchemaStorageApp(AppSvc):
         schema_id = mes.get('data')
         with self.psql_connection_pool.connect() as conn:
             schema_manager = SchemaManager(logger=self._logger, psql_connection=conn)
-            schema = schema_manager.get(schema_id=schema_id)
-            if schema:
-                processed_template = SchemaRead.model_validate(schema)
-                return processed_template.model_dump(by_alias=True)
-            else:
-                return {"error": {"code": "404", "message": f"Schema {schema_id} not found"}}
+            res = schema_manager.get(schema_id=schema_id)
+            if isinstance(res, SchemaManagerError):
+                return {"error": {"code": "404", "message": f"{res.err}"}}
+            processed_template = SchemaRead.model_validate(res)
+            return processed_template.model_dump(by_alias=True)
+                
         
     async def _create(self, mes) -> dict:
         schema = mes.get('data')
@@ -83,8 +83,10 @@ class SchemaStorageApp(AppSvc):
         schema_uuid = mes.get('data')
         with self.psql_connection_pool.connect() as conn:
             schema_manager = SchemaManager(logger=self._logger, psql_connection=conn)
-            template_uuid = schema_manager.get_template_by_schema(schema_id=schema_uuid)
-            return {"id": template_uuid} # TODO implement error handling if response from schema manager is an error
+            res = schema_manager.get_template_by_schema(schema_id=schema_uuid)
+            if isinstance(res, SchemaManagerError):
+                return {"error": res.err}
+            return {"id": res} # TODO implement error handling if response from schema manager is an error
 
     async def on_startup(self) -> None:
         await super().on_startup()
