@@ -1,12 +1,10 @@
 import sys
 from typing import Optional, Dict
 from uuid import uuid4, UUID
-from psycopg2.errors import UniqueViolation
 
 sys.path.append('.')
 from src.common.models.schema import SchemaInDB
 from src.common.logger import CrwlLogger
-
 
 class SchemaManager():
     
@@ -54,4 +52,19 @@ class SchemaManager():
                 return schema
             except BaseException as e:
                 return {"error": str(e)}
+    
+    def get_template_by_schema(self, schema_id) -> dict | str:
+        with self.psql_connection.cursor() as cursor:
+            sql = """
+                SELECT template FROM schemas WHERE id = %(schema_id)s
+            """
+            try: 
+                cursor.execute(sql, {'schema_id': schema_id})
+                template_uuid = cursor.fetchone()[0]
+                self._logger.info(template_uuid)
+                return template_uuid
+            except BaseException as e:
+                return {"error": str(e)}
+
+
     

@@ -40,12 +40,12 @@ class SchemaStorageApp(AppSvc):
             "schema.read": self._read,
             "schema.update": self._update,
             "schema.delete": self._delete,
+            "schema.get_template_by_schema": self._get_template_by_schema
         }
 
     async def _read(self, mes) -> dict:
         schema_id = mes.get('data')
-        connection = self.psql_connection_pool.get_psql_connection()
-        with connection as conn:
+        with self.psql_connection_pool.connect() as conn:
             schema_manager = SchemaManager(logger=self._logger, psql_connection=conn)
             schema = schema_manager.get(schema_id=schema_id)
             if schema:
@@ -56,8 +56,7 @@ class SchemaStorageApp(AppSvc):
         
     async def _create(self, mes) -> dict:
         schema = mes.get('data')
-        connection = self.psql_connection_pool.get_psql_connection()
-        with connection as conn:
+        with self.psql_connection_pool.connect() as conn:
             template_uuid = schema.get('template_uuid', None)
             schema_processed = SchemaInDB.model_validate(schema)
             schema_manager = SchemaManager(logger=self._logger, psql_connection=conn)
@@ -79,6 +78,13 @@ class SchemaStorageApp(AppSvc):
 
     async def _update(self, mes) -> dict:
         pass
+
+    async def _get_template_by_schema(self, mes) -> dict:
+        schema_uuid = mes.get('data')
+        with self.psql_connection_pool.connect() as conn:
+            schema_manager = SchemaManager(logger=self._logger, psql_connection=conn)
+            template_uuid = schema_manager.get_template_by_schema(schema_id=schema_uuid)
+            return {"id": template_uuid} # TODO implement error handling if response from schema manager is an error
 
     async def on_startup(self) -> None:
         await super().on_startup()
