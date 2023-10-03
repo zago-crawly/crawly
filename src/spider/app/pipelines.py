@@ -30,6 +30,7 @@ class SpiderMainPipeline:
         indexes = spider.item_tree.get_indexes()
         for index, item in zip(indexes, items):
             if index != spider.last_item_hash:
+                item['__processed'] = False
                 item['__hash'] = index
                 self.insert_item(item)
             else:
