@@ -39,7 +39,7 @@ class TemplateStorageApp(AppSvc):
             "template.delete": self._delete,
         }
 
-    @AppSvc.set_signals(before="template_read_start", after="template_read_end")
+    @AppSvc.set_signals(before="template.read.start", after="template.read.end")
     async def _read(self, mes) -> dict:
         template_id = mes.get('data')
         with self.psql_connection_pool.connect() as conn:
@@ -48,6 +48,7 @@ class TemplateStorageApp(AppSvc):
             if template:
                 inner_template = template.get('template')
                 processed_template = TemplateRead.model_validate(inner_template)
+                self._logger.error(processed_template.model_dump())
                 return processed_template.model_dump()
             else:
                 return {"error": {"code": "404", "message": f"Template {template_id} not found"}}
