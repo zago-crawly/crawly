@@ -29,13 +29,14 @@ class SpiderApp(AppSvc):
             task_batch = []
             for _ in range(task_batch_size):
                 task_batch.append(self.task_queue.get())
-            self.run_spiders(tasks=task_batch)
+            self._logger.error(task_batch)
+            self.run_spider_batch(tasks=task_batch)
             
     async def run_spider_batch(self, tasks: List[TaskForSpider]):
         proc_list = []
         for task in tasks:
             spider_id = task.task_uuid
-            await self._post_message(mes={"action": "signal.spider.start", "data": spider_id})
+            await self._post_message(mes={"signal": "spider.start", "data": spider_id})
             self._logger.error(f"spider {spider_id} started")
             process = subprocess.Popen([f"{sys.executable}",
                                         "-m",
@@ -48,7 +49,7 @@ class SpiderApp(AppSvc):
                                         stderr=subprocess.DEVNULL,
                                         shell=False)
             proc_list.append((spider_id, process))
-            await self._post_message(mes={"action": "signal.spider.closed", "data": spider_id})
+            await self._post_message(mes={"signal": "spider.stop", "data": {"spider_id": spider_id, "task": task}})
         for spider_id, proc in proc_list:
             proc.wait()
             self._logger.error(f"spider {spider_id} ended")

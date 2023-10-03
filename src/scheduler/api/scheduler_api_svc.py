@@ -76,6 +76,11 @@ async def create(payload: TaskCreate):
 async def read(task_id: str):
     res = await app.read(task_id)
     app._logger.info(res)
+    try:
+        model = TaskRead.model_validate(res)
+        app._logger.error(model)
+    except BaseException as e:
+        app._logger.error(e)
     return res
 
 @router.get("/task/{task_id}/pause")
