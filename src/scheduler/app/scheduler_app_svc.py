@@ -4,7 +4,7 @@ from uuid import uuid4
 from pytz import utc
 from apscheduler.job import Job
 from apscheduler.triggers.cron import CronTrigger
-from apscheduler.schedulers.asyncio import AsyncIOScheduler
+from apscheduler.schedulers.background import BackgroundScheduler
 
 
 sys.path.append(".")
@@ -20,8 +20,7 @@ class SchedulerApp(AppSvc):
 
     def __init__(self, settings: SchedulerAppSettings, *args, **kwargs):
         super().__init__(settings, *args, **kwargs)
-        self.scheduler = AsyncIOScheduler(event_loop=asyncio.get_event_loop(),
-                                          jobstores=jobstores,
+        self.scheduler = BackgroundScheduler(jobstores=jobstores,
                                           job_defaults=job_defaults,
                                           timezone=utc)
     
