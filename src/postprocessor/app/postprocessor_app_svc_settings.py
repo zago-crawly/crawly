@@ -1,4 +1,5 @@
 import sys
+from typing import List
 
 sys.path.append(".")
 from src.common.app_svc_settings import AppSettings
@@ -17,6 +18,7 @@ class PostprocessorAppSettings(AppSettings):
             "routing_key": "postprocessor_app_publish"
         }
     }
+    
     consume: dict = {
         "queue_name": "postprocessor_app_consume",
         "exchanges": {
@@ -26,8 +28,10 @@ class PostprocessorAppSettings(AppSettings):
                 #: тип обменника
                 "type": "direct",
                 #: привязка для очереди
-                "routing_key": ["postprocessor_app_consume", "postprocessor_api_publish"]
+                "routing_key": ["postprocessor_app_consume"]
             }
         }
     }
+    
+    signals: dict = {"queue": "postprocessor_app_signal_consume", "topics": ['spider.stop']}
 

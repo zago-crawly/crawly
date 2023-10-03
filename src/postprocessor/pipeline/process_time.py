@@ -4,7 +4,7 @@ from fastcore.transform import Transform
 from datetime import datetime, timezone as tz
 
 sys.path.append('.')
-from src.spider.app.processors.models import PipelineError, SchemaBlockField
+from src.postprocessor.pipeline.models import PipelineError, SchemaBlockField
 
 
 class ProcessTime(Transform): # ToDo make this processor more concise

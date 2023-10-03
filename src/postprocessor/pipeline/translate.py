@@ -4,7 +4,7 @@ from fastcore.transform import Transform
 import json
 
 sys.path.append('.')
-from src.spider.app.processors.models import PipelineError, SchemaBlockField
+from src.postprocessor.pipeline.models import PipelineError, SchemaBlockField
 
 class Translate(Transform):
     

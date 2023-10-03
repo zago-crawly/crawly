@@ -53,9 +53,9 @@ class AppSvc(BaseSvc):
     def set_signals(before: Optional[str] = None, after: Optional[str] = None, path_to_item_id: Optional[str] = "data"):
         def inner(fn):
             async def wrap(self, mes):
+                obj_id = reduce(operator.getitem, path_to_item_id.split('.'), mes)
                 await self._post_message(mes=json.dumps({"signal": before, "obj_id": obj_id}))
                 res = await fn(self, mes)
-                obj_id = reduce(operator.getitem, path_to_item_id.split('.'), res)
                 await self._post_message(mes=json.dumps({"signal": after, "obj_id": obj_id}))
                 return res
             return wrap

@@ -4,7 +4,7 @@ from geopy.exc import GeocoderServiceError
 from fastcore.transform import Transform
 
 sys.path.append('.')
-from src.spider.app.processors.models import PipelineError, SchemaBlockField
+from src.postprocessor.pipeline.models import PipelineError, SchemaBlockField
 
 
 class Geocode(Transform):

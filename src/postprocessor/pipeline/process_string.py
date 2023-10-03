@@ -1,11 +1,9 @@
 import sys
-# import re
-from typing import List
 from fastcore.transform import Transform
 from functools import wraps
 
 sys.path.append(".")
-from src.spider.app.processors.models import SchemaBlockField, PipelineError
+from src.postprocessor.pipeline.models import SchemaBlockField, PipelineError
 
 class ProcessString(Transform):
     

@@ -1,6 +1,6 @@
-import asyncio
 import sys
 import os
+import asyncio
 import pymongo
 from fastcore.transform import Pipeline
 
@@ -20,7 +20,8 @@ class PostprocessorApp(AppSvc):
         super().__init__(settings, *args, **kwargs)
         self.mongo_uri=os.environ.get('MONGO_URI')
         self.mongo_db=os.environ.get('MONGO_DB')
-        self.client = pymongo.MongoClient(self.mongo_uri)
+        # self.client = pymongo.MongoClient(self.mongo_uri)
+        # self.task_broker = AioPikaBroker(self._conf.amqp_url)
     
     async def _amqp_connect(self) -> None:
         await super()._amqp_connect()
@@ -29,24 +30,42 @@ class PostprocessorApp(AppSvc):
         return {
         }
 
-    @AppSvc.set_signals(before="postprocessor.process.start", after="postprocessor.process.end")
+    async def signal_processor(self, mes):
+        
+        self._logger.error(mes)
+
+    # @AppSvc.set_signals(before="postprocessor.process.start", after="postprocessor.process.end")
     async def _process(self, mes) -> dict:
-        task = None # TODO Get task from incoming message
-        schema_uuid = None # TODO Get schema_uuid from incoming task
-        db = self.client[self.mongo_db] # Get db by template_uuid
-        schema = await self._post_message(
-                mes={"action": "schema.read", "data": schema_uuid}, reply=True
-            )
-        self._logger.error(schema)
-        if schema.get('error'):
-            return schema
-        data_pipeline = Pipeline([ProcessString, ProcessTime, Translate, Geocode])
+        self._logger.error(mes)
+        # task = None # TODO Get task from incoming message
+        # schema_uuid = None # TODO Get schema_uuid from incoming task
+        # db = self.client[self.mongo_db] # Get db by template_uuid
+        # schema = await self._post_message(
+        #         mes={"action": "schema.read", "data": schema_uuid}, reply=True
+        #     )
+        # if schema.get('error'):
+        #     return
+        # template_uuid = await self._post_message(
+        #         mes={"action": "schema.get_template_by_schema", "data": schema_uuid}, reply=True
+        #     )
+        # if template_uuid.get('error'):
+        #     return
+        # # data_pipeline = Pipeline([ProcessString, ProcessTime, Translate, Geocode])
         return 
 
     async def on_startup(self) -> None:
+        # await self.task_broker.startup()
+        # self.postprocess_task = self.task_broker.register_task(self.postprocess, task_name="postprocess")
+        # self.worker_task = asyncio.create_task(run_receiver_task(self.task_broker))
+        # self._logger.error("created worker")
+        # self._logger.error("created task")
         await super().on_startup()
-
+        
+    async def on_shutdown(self):
+        # self.worker_task.cancel()
+        # await self.task_broker.shutdown()
+        return await super().on_shutdown()
     
-settings = SchedulerAppSettings()
+settings = PostprocessorAppSettings()
 
-app = SchedulerApp(settings=settings, title="`SchedulerApp` service")
+app = PostprocessorApp(settings=settings, title="`PostprocessorApp` service")

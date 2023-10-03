@@ -1,0 +1,17 @@
+version: '3.10'
+
+services:
+  postprocessor:
+    hostname: postprocessor
+    build:
+      context: ../..
+      dockerfile: docker/docker-files/postprocessor/Dockerfile.postprocessor
+
+    environment:
+      TZ: ${TIME_ZONE}
+
+    ports:
+      - '8010:80'
+
+    volumes:
+      - ./logs/postprocessor/app/:/usr/src/log/postprocessor_app/:rw
