@@ -4,6 +4,7 @@ from itertools import repeat, zip_longest
 from typing import List, Optional
 
 import scrapy
+from scrapy.exceptions import CloseSpider
 import validators
 from fastcore.transform import Pipeline
 from lxml.html import fromstring
