@@ -1,6 +1,4 @@
 import sys
-import asyncio
-from collections.abc import MutableMapping
 from fastapi import APIRouter, Response, HTTPException
 
 sys.path.append(".")
@@ -27,6 +25,13 @@ class SchemaStorageAPI(APISvc):
     async def read(self, schema_id: str) -> dict:
         return await super().read(payload=schema_id)
         
+    async def get_template_by_schema(self, schema_id: str) -> dict:
+        body = {
+         "action": "schema.get_template_by_schema",
+         "data": schema_id  
+        }
+        return await self._post_message(mes=body, reply=True)
+        
     async def delete(self, schema_id: str) -> dict:
         return await super().delete(payload=schema_id)
     
@@ -51,19 +56,24 @@ router = APIRouter(tags=['Schema'])
 async def create(payload: SchemaCreate):
     return await app.create(payload)
 
-@router.get("/{template_id}",
+@router.get("/{schema_id}",
             response_model={},
             status_code=200)
-async def read(template_id: str):
-    res = await app.read(template_id)
+async def read(schema_id: str):
+    res = await app.read(schema_id)
     return res
 
-@router.delete("/task/{task_id}")
-async def read(task_id: str):
-    res = await app.delete(task_id)
-    if res:
-        return Response(status_code=204)
-    return HTTPException(status_code=404)
+@router.get("/{schema_id}/template", status_code=200)
+async def get_template_by_schema(schema_id: str):
+    res = await app.get_template_by_schema(schema_id)
+    return res
+
+# @router.delete("/{schema_id}")
+# async def read(schema_id: str):
+#     res = await app.delete(schema_id)
+#     if res:
+#         return Response(status_code=204)
+#     return HTTPException(status_code=404)
 
 # @router.put("/task/{task_id}",
 #             response_model=TaskPartialUpdateResult,
@@ -74,3 +84,4 @@ async def read(task_id: str):
 #     return res
 
 app.include_router(router, prefix=f"/schema_storage")
+

@@ -17,7 +17,7 @@ class SpiderApp(AppSvc):
     def _set_incoming_commands(self) -> dict:
         return {
             "spider.start": self._start,
-        }        
+        }
             
     @AppSvc.set_signals(before="spider.start", after="spider.stop", path_to_obj_id="data.template_uuid")
     async def _start(self, mes: dict):

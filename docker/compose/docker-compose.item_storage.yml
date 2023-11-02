@@ -1,4 +1,4 @@
-version: "3.10"
+version: '3.10'
 
 services:
   item_storage:
@@ -12,8 +12,8 @@ services:
       MONGO_URI: ${MONGO_URI}
       MONGO_DB: ${MONGO_DB}
     ports:
-      - "8003:80"
+      - '8003:80'
 
     volumes:
-      - ./logs/item_storage/api/:/usr/src/item_storage_api/log/:rw
-      - ./logs/item_storage/app/:/usr/src/item_storage_app/log/:rw
+      - ./logs/item_storage/api/:/usr/src/log/item_storage_api/:rw
+      - ./logs/item_storage/app/:/usr/src/log/item_storage_app/:rw

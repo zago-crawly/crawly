@@ -1,7 +1,7 @@
 import asyncio
 import json
 import sys
-from typing import MutableMapping
+from typing import MutableMapping, Optional
 from uuid import uuid4
 import aio_pika
 from fastapi import APIRouter
@@ -30,7 +30,7 @@ class TemplateStorageApp(AppSvc):
     def __init__(self, settings: TemplateStorageAppSettings, *args, **kwargs):
         super().__init__(settings, *args, **kwargs)
         self.psql_connection_pool = PSQLConnectionPool()
-        
+    
     def _set_incoming_commands(self) -> dict:
         return {
             "template.create": self._create,
@@ -39,27 +39,27 @@ class TemplateStorageApp(AppSvc):
             "template.delete": self._delete,
         }
 
+    @AppSvc.set_signals(before="template.read.start", after="template.read.end")
     async def _read(self, mes) -> dict:
         template_id = mes.get('data')
-        connection = self.psql_connection_pool.get_psql_connection()
-        with connection as conn:
+        with self.psql_connection_pool.connect() as conn:
             template_manager = TemplateManager(logger=self._logger, psql_connection=conn)
             template = template_manager.get(template_id=template_id)
             if template:
                 inner_template = template.get('template')
                 processed_template = TemplateRead.model_validate(inner_template)
+                self._logger.error(processed_template.model_dump())
                 return processed_template.model_dump()
             else:
                 return {"error": {"code": "404", "message": f"Template {template_id} not found"}}
-        
+    
     async def _create(self, mes) -> dict:
         template = mes.get('data')
         try:
             template_valid = TemplateInDB.model_validate(template)
         except BaseException as e:
             return {"error"}
-        connection = self.psql_connection_pool.get_psql_connection()
-        with connection as conn:
+        with self.psql_connection_pool.connect() as conn:
             template_manager = TemplateManager(logger=self._logger, psql_connection=conn)
             template_uuid = template_manager.save(template=template_valid)
             if template_uuid:

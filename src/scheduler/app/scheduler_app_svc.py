@@ -4,7 +4,7 @@ from uuid import uuid4
 from pytz import utc
 from apscheduler.job import Job
 from apscheduler.triggers.cron import CronTrigger
-from apscheduler.schedulers.asyncio import AsyncIOScheduler
+from apscheduler.schedulers.background import BackgroundScheduler
 
 
 sys.path.append(".")
@@ -20,8 +20,7 @@ class SchedulerApp(AppSvc):
 
     def __init__(self, settings: SchedulerAppSettings, *args, **kwargs):
         super().__init__(settings, *args, **kwargs)
-        self.scheduler = AsyncIOScheduler(event_loop=asyncio.get_event_loop(),
-                                          jobstores=jobstores,
+        self.scheduler = BackgroundScheduler(jobstores=jobstores,
                                           job_defaults=job_defaults,
                                           timezone=utc)
     
@@ -45,10 +44,12 @@ class SchedulerApp(AppSvc):
                                                     mes.get('data').get('settings')
         
         task_id = str(uuid4())
-        schema = await self._post_message(mes={"action": "schema.read", "data": schema_uuid}, reply=True)
+        resp = await self._post_message(mes={"action": "schema.read", "data": schema_uuid}, reply=True)
+        schema, template_uuid = resp.get('schema'), resp.get('template_uuid')
         mes_data = mes.get('data')
         mes_data['item_collection_uuid'] = schema_uuid
-        mes_data['schema'] = schema.get('schema')
+        mes_data['schema'] = schema
+        mes_data['template_uuid'] = template_uuid
         mes_data['task_uuid'] = task_id
         job = self.scheduler.add_job(
                                 job_send_message,

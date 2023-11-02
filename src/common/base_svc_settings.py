@@ -11,7 +11,7 @@ import os
 
 import json
 from pathlib import Path
-from typing import Any
+from typing import Any, List, Optional
 from pydantic_settings import BaseSettings
 
 def json_config_settings_source(settings: BaseSettings) -> dict[str, Any]:
@@ -65,6 +65,14 @@ class BaseSvcSettings(BaseSettings):
             }
         }
         '''
+    }
+
+    # Список сигналов к которым подключается сервис. Указываются топики в виде `template.read.start`
+    signals: dict = {
+        # '''
+        # "queue": "signal queue name"
+        # "topics": "signal topics"
+        # '''
     }
 
     log: dict = {

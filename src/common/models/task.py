@@ -62,5 +62,6 @@ class TaskUpdateResult(TaskRead):
 
 class TaskForSpider(TaskCreate):
     task_uuid: str = Field(title="", description="")
+    template_uuid: str = Field(title="UUID шаблона схемы парсинга")
     schema_for_spider: dict = Field(alias='schema')
     

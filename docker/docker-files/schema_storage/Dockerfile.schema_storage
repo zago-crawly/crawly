@@ -1,51 +1,65 @@
-FROM nginx/unit:1.28.0-python3.10
+# Attribution
+# Source: https://github.com/haizaar/docker-python-minimal
+# This Dockerfile is super-slim python/nginx-unit build 
+# Official nginx-unit builds weights ~1000Mb and uses Debian as base image
+# This build will weight 120Mb. 
+# Still WIP
 
-WORKDIR /home
+
+FROM --platform=linux/amd64 python:3.11-alpine as builder
+# ------
+RUN apk add --no-cache binutils py3-pip
+RUN find /usr/local -name '*.so' | xargs strip -s
+RUN pip uninstall -y pip
+RUN set -ex RUN  \
+    cd /usr/local/lib/python*/config-*-x86_64-linux-gnu/ RUN  \
+    rm -rf *.o *.a
+RUN rm -rf /usr/local/lib/python*/ensurepip
+RUN rm -rf /usr/local/lib/python*/idlelib
+RUN rm -rf /usr/local/lib/python*/distutils/command
+RUN rm -rf /usr/local/lib/python*/lib2to3
+RUN rm -rf /usr/local/lib/python*/__pycache__/*
+RUN find /usr/local/include/python* -not -name pyconfig.h -type f -exec rm {} \;
+RUN find /usr/local/bin -not -name 'python*' \( -type f -o -type l \) -exec rm {} \;
+RUN rm -rf /usr/local/share/*
+RUN apk del binutils
 RUN pip3 install pipenv
-RUN apt-get update
-RUN apt-get -y install musl-dev gcc python3-dev libffi-dev
-RUN apt-get -y remove gcc
-
-# для сервиса создадим каталог -------------------
+# ------
 WORKDIR /usr/src
-RUN mkdir schema_storage_api schema_storage_app
-COPY src/schema_storage/Pipfile /usr/src/schema_storage_api/
-COPY src/schema_storage/Pipfile /usr/src/schema_storage_app/
-
-WORKDIR /usr/src/schema_storage_api/
+# ------
+COPY src/schema_storage/Pipfile /usr/src/
+# ------
 RUN PIPENV_VENV_IN_PROJECT=1 pipenv install --deploy
-
-WORKDIR /usr/src/schema_storage_app/
-RUN PIPENV_VENV_IN_PROJECT=1 pipenv install --deploy
-
-RUN apt-get -y purge slapd
-
-# копируем исходники --------------------------------------------
-ADD src/common/ /usr/src/schema_storage_api/src/common
-COPY src/__init__.py /usr/src/schema_storage_api/src
-WORKDIR /usr/src/schema_storage_api/src
+# ------
+RUN mkdir common log
+RUN chmod -R 777 log/
+ADD src/common/ /usr/src/common/
+COPY src/__init__.py /usr/src/
 RUN mkdir schema_storage
-WORKDIR /usr/src/schema_storage_api/src/schema_storage
-ADD src/schema_storage/api/ api/
-WORKDIR /usr/src/schema_storage_api
-
-ADD src/common/ /usr/src/schema_storage_app/src/common
-COPY src/__init__.py /usr/src/schema_storage_app/src
-WORKDIR /usr/src/schema_storage_app/src
-RUN mkdir schema_storage
-WORKDIR /usr/src/schema_storage_app/src/schema_storage
-ADD src/schema_storage/app/ app/
-WORKDIR /usr/src/schema_storage_app
-
-RUN addgroup --gid 1024 volume_group
-RUN usermod -a -G volume_group unit
-
-# set environment variables
+WORKDIR /usr/src/schema_storage
+RUN mkdir api app
+ADD src/schema_storage/api/ /usr/src/schema_storage/api/
+ADD src/schema_storage/app/ /usr/src/schema_storage/app/
+# ------
+FROM --platform=linux/amd64 alpine:latest as final
+# ------
+ENV LANG C.UTF-8
+RUN apk add --no-cache libbz2 expat libffi-dev xz-libs sqlite-libs readline ca-certificates unit-python3 curl unit
+COPY --from=builder /usr/local/ /usr/local/
+COPY --from=builder /usr/src/ /usr/src/
+WORKDIR /usr/src
+# ------
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-
-
-#
-COPY docker/docker-files/schema_storage/config_nginx_unit.schema_storage.json /docker-entrypoint.d/
+ENV PYTHONPATH=/usr/src
+# ------
+RUN addgroup --gid 1024 volume_group
+RUN adduser unit volume_group
+# ------
+COPY ["/docker/docker-files/schema_storage/config_nginx_unit.schema_storage.json", "/docker-entrypoint.d/"]
+COPY ["/docker/docker-files/docker-entrypoint.sh", "/usr/local/bin/"]
+RUN chmod 755 /usr/local/bin/docker-entrypoint.sh
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 
 EXPOSE 80
+CMD ["unitd", "--no-daemon", "--control", "unix:/var/run/control.unit.sock"]
