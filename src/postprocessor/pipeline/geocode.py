@@ -18,7 +18,7 @@ class Geocode(Transform):
         if postprocessors:
             geocode_flag = postprocessors.get("geocode", False)
             if geocode_flag:
-                locations = x.output_field[x.field_name]
+                locations = x.output_field
                 for loc in locations:
                     output_locations = []
                     try:
@@ -30,7 +30,7 @@ class Geocode(Transform):
                             output_locations.append(result)
                     except GeocoderServiceError:
                         return PipelineError("Error while trying to geocode location")
-                x.output_field[x.field_name] = output_locations
+                x.output_field = output_locations
         return x
         
         

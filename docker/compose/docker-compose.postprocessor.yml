@@ -9,7 +9,8 @@ services:
 
     environment:
       TZ: ${TIME_ZONE}
-
+      MONGO_DB: ${MONGO_DB}
+      MONGO_URI: ${MONGO_URI}
     ports:
       - '8010:80'
 

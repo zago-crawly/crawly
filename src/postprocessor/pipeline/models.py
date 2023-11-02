@@ -9,4 +9,3 @@ class SchemaBlockField():
     field_name: str
     field_processors: dict
     output_field: dict
-    index: List

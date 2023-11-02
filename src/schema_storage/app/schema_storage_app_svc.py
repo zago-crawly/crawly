@@ -50,8 +50,8 @@ class SchemaStorageApp(AppSvc):
             res = schema_manager.get(schema_id=schema_id)
             if isinstance(res, SchemaManagerError):
                 return {"error": {"code": "404", "message": f"{res.err}"}}
-            processed_template = SchemaRead.model_validate(res)
-            return processed_template.model_dump(by_alias=True)
+            processed_schema = SchemaRead.model_validate(res)
+            return processed_schema.model_dump(by_alias=True)
                 
         
     async def _create(self, mes) -> dict:

@@ -10,18 +10,16 @@ from src.postprocessor.pipeline.models import PipelineError, SchemaBlockField
 class ProcessTime(Transform): # ToDo make this processor more concise
     
     def encodes(self, x: SchemaBlockField) -> SchemaBlockField | PipelineError:
-        field_name = x.field_name
         output_field = x.output_field
         postprocessors = x.field_processors.get('postprocessors')
-        parsed_field_data = output_field[field_name]
         
-        if postprocessors and isinstance(parsed_field_data, str):
+        if postprocessors and isinstance(output_field, str):
             initial_date_format = postprocessors.get('initial_date_format')
             new_date_format = postprocessors.get('new_date_format')
             if initial_date_format and new_date_format:
                 try:
-                    converted_data = self.convert_date_format(parsed_field_data, initial_date_format, new_date_format)
-                    x.output_field[x.field_name] = converted_data
+                    converted_data = self.convert_date_format(output_field, initial_date_format, new_date_format)
+                    x.output_field = converted_data
                     return x
                 except ValueError:
                     return PipelineError("Error converting date")

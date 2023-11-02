@@ -26,7 +26,7 @@ class SchemaStorageAppSettings(AppSettings):
                 #: тип обменника
                 "type": "direct",
                 #: привязка для очереди
-                "routing_key": ["schema_storage_app_consume", "schema_storage_api_publish", "scheduler_app_publish"]
+                "routing_key": ["schema_storage_app_consume", "schema_storage_api_publish", "scheduler_app_publish", "postprocessor_app_publish"]
             }
         }
     }
