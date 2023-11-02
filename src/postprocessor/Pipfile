@@ -4,19 +4,20 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+PyMongo = "*"
+apscheduler= "*"
 fastapi = "*"
+requests = "*"
+fastcore = "*"
+geopy = "*"
 pydantic = "*"
+pymongo = "*"
+pytz = "*"
 pydantic-settings = "*"
 aio-pika = "*"
-scrapy = "*"
-lxml = "*"
-validators = "*"
-fastcore = "*"
 loguru = "*"
 six = "*"
 uvloop = "*"
-pymongo = "*"
-apscheduler = "*"
 
 [requires]
 python_version = "3.11"

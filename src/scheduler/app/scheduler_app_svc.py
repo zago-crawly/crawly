@@ -44,10 +44,12 @@ class SchedulerApp(AppSvc):
                                                     mes.get('data').get('settings')
         
         task_id = str(uuid4())
-        schema = await self._post_message(mes={"action": "schema.read", "data": schema_uuid}, reply=True)
+        resp = await self._post_message(mes={"action": "schema.read", "data": schema_uuid}, reply=True)
+        schema, template_uuid = resp.get('schema'), resp.get('template_uuid')
         mes_data = mes.get('data')
         mes_data['item_collection_uuid'] = schema_uuid
-        mes_data['schema'] = schema.get('schema')
+        mes_data['schema'] = schema
+        mes_data['template_uuid'] = template_uuid
         mes_data['task_uuid'] = task_id
         job = self.scheduler.add_job(
                                 job_send_message,

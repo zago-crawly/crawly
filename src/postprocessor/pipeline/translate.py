@@ -4,9 +4,9 @@ from fastcore.transform import Transform
 import json
 
 sys.path.append('.')
-from src.spider.app.processors.models import PipelineError, SchemaBlockField
+from src.postprocessor.pipeline.models import PipelineError, SchemaBlockField
 
-class TranslatorProcessor(Transform):
+class Translate(Transform):
     
     def encodes(self, x: SchemaBlockField) -> SchemaBlockField | PipelineError:
         
@@ -17,7 +17,7 @@ class TranslatorProcessor(Transform):
             max_length = int(constraints.get('max_length'))
             source_lang = postprocessors.get('source_lang')
             target_lang = postprocessors.get('target_lang')
-            parsed_field_data = x.output_field[x.field_name]
+            parsed_field_data = x.output_field
         
             if int(max_length) > 1000:
                 return PipelineError('Text is too big for translator. Max length is 1000 chars')
@@ -34,7 +34,7 @@ class TranslatorProcessor(Transform):
                     headers={ "Content-Type": "application/json" }
                 )
                 translated_text = response.json()['translatedText']
-                x.output_field[x.field_name] = translated_text
+                x.output_field = translated_text
                 return x
         return x
 

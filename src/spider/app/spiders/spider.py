@@ -1,29 +1,22 @@
-from itertools import zip_longest, repeat
-import sys
-import os
-import scrapy
-from scrapy.exceptions import CloseSpider
-from scrapy import signals
-import validators
 import logging
-import pymongo
-from scrapy.spiders import CrawlSpider
-from lxml.html import fromstring
-from fastcore.transform import Pipeline
+import sys
+from itertools import repeat, zip_longest
 from typing import List, Optional
 
-from scrapy.crawler import CrawlerProcess
+import scrapy
+import validators
+from fastcore.transform import Pipeline
+from lxml.html import fromstring
+from scrapy.exceptions import CloseSpider
+from scrapy.spiders import CrawlSpider
 
 sys.path.append(".")
-from src.spider.app.processors.models import SchemaBlockField, PipelineError
-from src.spider.app.processors.selector_processor import SelectorProcessor
-from src.spider.app.processors.constraints_processor import ConstraintsProcessor
-from src.spider.app.processors.string_processor import StringProcessor
-from src.spider.app.processors.time_processor import TimeProcessor
-from src.spider.app.processors.geocoder_processor import GeocoderProcessor
-from src.spider.app.processors.translator_processor import TranslatorProcessor
 from src.common.models.task import TaskForSpider
-from src.spider.app.item_tree import ItemTree, ItemNodeChildrenOverflow
+from src.spider.app.item_tree import ItemNodeChildrenOverflow, ItemTree
+from src.spider.app.processors.constraints_processor import \
+    ConstraintsProcessor
+from src.spider.app.processors.models import PipelineError, SchemaBlockField
+from src.spider.app.processors.selector_processor import SelectorProcessor
 
 
 class Spider(CrawlSpider):
@@ -117,12 +110,7 @@ class Spider(CrawlSpider):
             
     def parse_schema_field(self, schema_block: SchemaBlockField) -> SchemaBlockField:
         field_pipeline = Pipeline([SelectorProcessor,
-                                   ConstraintsProcessor,
-                                   StringProcessor,
-                                   TimeProcessor,
-                                   GeocoderProcessor,
-                                   TranslatorProcessor
-                                ])
+                                   ConstraintsProcessor])
         processed_field: SchemaBlockField | PipelineError = field_pipeline(schema_block) # Push field data through field processing pipeline
         if isinstance(processed_field, SchemaBlockField):
             return processed_field

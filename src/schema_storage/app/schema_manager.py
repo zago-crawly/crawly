@@ -49,13 +49,12 @@ class SchemaManager():
     def get(self, schema_id):
         with self.psql_connection.cursor() as cursor:
             sql = """
-                SELECT schema FROM schemas WHERE id = %(schema_id)s
+                SELECT schema, template FROM schemas WHERE id = %(schema_id)s
             """
             try:
                 cursor.execute(sql, {'schema_id': schema_id})
-                schema = cursor.fetchone()[0]
-                self._logger.info(schema)
-                return schema
+                schema, template_uuid = cursor.fetchone()
+                return {"schema": schema.get('schema'), "template_uuid": template_uuid}
             except BaseException as e:
                 return SchemaManagerError(err=str(e))
     

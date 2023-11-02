@@ -49,6 +49,7 @@ class SchemaInDB(SchemaBaseClass):
     pass
 
 class SchemaRead(SchemaBaseClass):
+    template_uuid: str = Field(title="UUID шаблона схемы для парсинга")
     pass
 
 class SchemaForTask(SchemaBaseClass):
