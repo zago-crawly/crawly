@@ -12,8 +12,8 @@ class SignalAppSettings(AppSettings):
 
     publish: dict = {
         "main": {
-            "name": "signal",
-            "type": "topic",
+            "name": "crawly",
+            "type": "direct",
             "routing_key": "signal_app_publish"
         }
     }

@@ -143,7 +143,13 @@ class BaseSvc(FastAPI):
         
         async with message.process(ignore_processed=True):
             mes = message.body.decode()
-            await self.signal_processor(mes)
+            try:
+                mes = json.loads(mes)
+                await self.signal_processor(mes)
+            except json.decoder.JSONDecodeError:
+                self._logger.error(f"Сообщение {mes} не в формате json.")
+                await message.ack()
+                return
             await message.ack()
             return
 
@@ -287,15 +293,14 @@ class BaseSvc(FastAPI):
                 if self._conf.signals:
                     self._logger.error(self._conf.signals)
                     signal_exchange = await self._amqp_channel.declare_exchange(
-                            'signal', 'topic', durable=True
+                            'signals', 'topic', durable=True
                         )
                     signal_queue = await self._amqp_channel.declare_queue(
                             self._conf.signals["queue"], durable=True
                         )
                     for signal_route in self._conf.signals['topics']:
-                        signal_queue.bind(signal_exchange, signal_route)
+                        await signal_queue.bind(signal_exchange, signal_route)
                     await signal_queue.consume(self._process_signal)
-
 
                 self._amqp_callback_queue = await self._amqp_channel.declare_queue(
                     durable=True, exclusive=True
