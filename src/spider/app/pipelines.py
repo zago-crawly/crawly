@@ -20,17 +20,20 @@ class SpiderMainPipeline:
         self.client = pymongo.MongoClient(self.mongo_uri)
         self.db = self.client[self.mongo_db]
         try: 
-            spider.last_item_hash = self.db[spider.schema_uuid].find({}, {"__hash":1}, sort=[("_id", pymongo.ASCENDING)]).limit(1)[0].get('__hash')
+            spider.last_item_hash = self.db[spider.template_uuid].find({}, {"__hash":1}, sort=[("_id", pymongo.ASCENDING)]).limit(1)[0].get('__hash')
         except IndexError:
             pass
-        self.item_collection = spider.schema_uuid
+        self.item_collection = spider.template_uuid
 
     def close_spider(self, spider):
         items = spider.item_tree.get_items()
         indexes = spider.item_tree.get_indexes()
+        schema_uuid = spider.schema_uuid
         for index, item in zip(indexes, items):
             if index != spider.last_item_hash:
+                item['__processed'] = False
                 item['__hash'] = index
+                item['__schema_uuid'] = schema_uuid
                 self.insert_item(item)
             else:
                 break

@@ -1,13 +1,11 @@
 import sys
-# import re
-from typing import List
 from fastcore.transform import Transform
 from functools import wraps
 
 sys.path.append(".")
-from src.spider.app.processors.models import SchemaBlockField, PipelineError
+from src.postprocessor.pipeline.models import SchemaBlockField, PipelineError
 
-class StringProcessor(Transform):
+class ProcessString(Transform):
     
     def type_coercion_middleware(func):
         """Функция является оберткой для строкового процессора, которая приводит
@@ -20,23 +18,23 @@ class StringProcessor(Transform):
         @wraps(func)
         def inner(self, x: SchemaBlockField): 
             postprocessors = x.field_processors.get('postprocessors')
-            field_data = x.output_field[x.field_name]    
+            field_data = x.output_field  
                
             if not postprocessors:
                 return x
             
             if isinstance(field_data, str):
-                x.output_field[x.field_name] = [field_data]
+                x.output_field = [field_data]
                 res = func(self, x)
-                res.output_field[res.field_name] = res.output_field[res.field_name][0]
+                res.output_field = res.output_field[0]
                 return res
             if isinstance(field_data, list) and all([isinstance(el, str) for el in field_data]):
                 res = func(self, x)
                 return res
             if isinstance(field_data, list) and all([isinstance(sub_el, str) for el in field_data for sub_el in el]):
-                x.output_field[x.field_name] = [sub_el for el in field_data for sub_el in el]
+                x.output_field = [sub_el for el in field_data for sub_el in el]
                 res = func(self, x)
-                res.output_field[res.field_name] = [[el for el in res.output_field[res.field_name]]]
+                res.output_field = [[el for el in res.output_field]]
                 return res
             
             return x
@@ -45,7 +43,7 @@ class StringProcessor(Transform):
     @type_coercion_middleware
     def encodes(self, x: SchemaBlockField) -> SchemaBlockField | PipelineError:
         postprocessors = x.field_processors.get('postprocessors')
-        field_data = x.output_field[x.field_name]
+        field_data = x.output_field
 
         prefix = postprocessors.get('prefix', "")
         suffix = postprocessors.get('suffix', "")
@@ -61,7 +59,7 @@ class StringProcessor(Transform):
             if strip:
                 item = item.strip()
             processed_data_item.append(item)    
-        x.output_field[x.field_name] = processed_data_item
+        x.output_field = processed_data_item
         
         return x
     

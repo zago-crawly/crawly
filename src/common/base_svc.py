@@ -157,7 +157,7 @@ class BaseSvc(FastAPI):
         ...
 
     async def _process_message(self, message: aio_pika.abc.AbstractIncomingMessage) -> None:
-
+        
         async with message.process(ignore_processed=True):
             mes = message.body.decode()
 
@@ -172,7 +172,7 @@ class BaseSvc(FastAPI):
                 self._logger.error(f"В сообщении {mes} не указано действие.")
                 await message.ack()
                 return
-            #mes["action"] = mes["action"].lower()
+
             if not mes["action"] in self._incoming_commands.keys():
                 self._logger.error(f"Неизвестное действие {mes['action']}.")
                 await message.ack()
@@ -301,7 +301,6 @@ class BaseSvc(FastAPI):
                     for signal_route in self._conf.signals['topics']:
                         await signal_queue.bind(signal_exchange, signal_route)
                     await signal_queue.consume(self._process_signal)
-
 
                 self._amqp_callback_queue = await self._amqp_channel.declare_queue(
                     durable=True, exclusive=True

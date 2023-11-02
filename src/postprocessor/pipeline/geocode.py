@@ -4,10 +4,10 @@ from geopy.exc import GeocoderServiceError
 from fastcore.transform import Transform
 
 sys.path.append('.')
-from src.spider.app.processors.models import PipelineError, SchemaBlockField
+from src.postprocessor.pipeline.models import PipelineError, SchemaBlockField
 
 
-class GeocoderProcessor(Transform):
+class Geocode(Transform):
     
     def __init__(self, enc=None, dec=None, split_idx=None, order=None):
         super().__init__(enc, dec, split_idx, order)
@@ -18,7 +18,7 @@ class GeocoderProcessor(Transform):
         if postprocessors:
             geocode_flag = postprocessors.get("geocode", False)
             if geocode_flag:
-                locations = x.output_field[x.field_name]
+                locations = x.output_field
                 for loc in locations:
                     output_locations = []
                     try:
@@ -30,7 +30,7 @@ class GeocoderProcessor(Transform):
                             output_locations.append(result)
                     except GeocoderServiceError:
                         return PipelineError("Error while trying to geocode location")
-                x.output_field[x.field_name] = output_locations
+                x.output_field = output_locations
         return x
         
         
