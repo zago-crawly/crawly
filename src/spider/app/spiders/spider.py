@@ -8,10 +8,6 @@ import validators
 import logging
 import pymongo
 from scrapy.spiders import CrawlSpider
-from lxml.html import fromstring
-from fastcore.transform import Pipeline
-from typing import List, Optional
-
 from scrapy.crawler import CrawlerProcess
 
 sys.path.append(".")
@@ -42,6 +38,7 @@ class Spider(CrawlSpider):
         self.spider_settings = self.task.settings
         self._task_id: str = self.task.task_uuid
         self.schema: dict = self.task.schema_for_spider
+        self.template_uuid: str = self.task.template_uuid
         self.schema_uuid: str = self.task.schema_uuid
         self.name: str = self._task_id
         self.domain: str = self.task.resource_url
