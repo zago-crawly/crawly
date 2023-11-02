@@ -12,7 +12,7 @@ from src.signal.app_api.signal_app_api_svc_settings import SignalAppAPISettings
 
 class Signal(BaseModel):
     signal: str
-    obj_id: str
+    data: dict | str
 
 class SignalAppAPI(AppSvc):
 
@@ -37,11 +37,14 @@ class SignalAppAPI(AppSvc):
             if reject:
                 await message.reject(True)
                 return
+                        
             try:
                 validated_signal = Signal.model_validate_json(mes)
                 await self._post_message(mes=validated_signal.model_dump())
-            except ValueError:
+                self._logger.info(validated_signal)
+            except ValueError as e:
                 self._logger.error(f"Неверный формат сигнала")
+                self._logger.error(e)
                 await message.ack()
                 return
 

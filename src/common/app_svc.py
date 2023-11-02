@@ -50,13 +50,16 @@ class AppSvc(BaseSvc):
             "deleting": self._deleting
         }
 
-    def set_signals(before: Optional[str] = None, after: Optional[str] = None, path_to_item_id: Optional[str] = "data"):
+    def set_signals(before: Optional[str] = None,
+                    after: Optional[str] = None,
+                    data: Optional[dict | str] = {},
+                    path_to_obj_id: Optional[str] = "data"):
         def inner(fn):
             async def wrap(self, mes):
-                obj_id = reduce(operator.getitem, path_to_item_id.split('.'), mes)
-                await self._post_message(mes=json.dumps({"signal": before, "obj_id": obj_id}))
+                obj_id = reduce(operator.getitem, path_to_obj_id.split('.'), mes)
+                await self._post_message(mes=json.dumps({"signal": before, "data": {"id": obj_id, "data": data}}))
                 res = await fn(self, mes)
-                await self._post_message(mes=json.dumps({"signal": after, "obj_id": obj_id}))
+                await self._post_message(mes=json.dumps({"signal": after, "data": {"id": obj_id, "data": res if res else data}}))
                 return res
             return wrap
         return inner

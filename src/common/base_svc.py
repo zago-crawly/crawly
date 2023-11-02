@@ -139,6 +139,23 @@ class BaseSvc(FastAPI):
 
         return False
 
+    async def _process_signal(self, message: aio_pika.abc.AbstractIncomingMessage) -> None:
+        
+        async with message.process(ignore_processed=True):
+            mes = message.body.decode()
+            try:
+                mes = json.loads(mes)
+                await self.signal_processor(mes)
+            except json.decoder.JSONDecodeError:
+                self._logger.error(f"Сообщение {mes} не в формате json.")
+                await message.ack()
+                return
+            await message.ack()
+            return
+
+    async def signal_processor(self, mes):
+        ...
+
     async def _process_message(self, message: aio_pika.abc.AbstractIncomingMessage) -> None:
 
         async with message.process(ignore_processed=True):
@@ -271,6 +288,20 @@ class BaseSvc(FastAPI):
                             )
 
                 await self._amqp_consume["queue"].consume(self._process_message)
+
+                # Connect to signals
+                if self._conf.signals:
+                    self._logger.error(self._conf.signals)
+                    signal_exchange = await self._amqp_channel.declare_exchange(
+                            'signals', 'topic', durable=True
+                        )
+                    signal_queue = await self._amqp_channel.declare_queue(
+                            self._conf.signals["queue"], durable=True
+                        )
+                    for signal_route in self._conf.signals['topics']:
+                        await signal_queue.bind(signal_exchange, signal_route)
+                    await signal_queue.consume(self._process_signal)
+
 
                 self._amqp_callback_queue = await self._amqp_channel.declare_queue(
                     durable=True, exclusive=True
