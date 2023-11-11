@@ -23,6 +23,10 @@ class SchedulerApp(AppSvc):
         self.scheduler = BackgroundScheduler(jobstores=jobstores,
                                           job_defaults=job_defaults,
                                           timezone=utc)
+        # self.psql_connection_pool = PSQLConnectionPool()
+        # self._logger.error(self.psql_connection_pool.host,
+        #                    self.psql_connection_pool.dbname,
+        #                    self.psql_connection_pool.password,)
     
     async def _amqp_connect(self) -> None:
         await super()._amqp_connect()
@@ -60,12 +64,14 @@ class SchedulerApp(AppSvc):
                                         "body": {"action": "spider.start", "data": mes_data},
                                         "routing_key": "spider_app_consume"
                                         },
+                                
                                 )
         self._logger.info(f'Создано задание {job.id} для парсинга ресурса {resource_url} с расписанием {cron}')
         res = {
             "task_uuid": job.id,
             "resource_url": resource_url,
-            "schema_uuid": schema_uuid
+            "schema_uuid": schema_uuid,
+            "template_uuid": template_uuid
         }
         return res
 
@@ -143,9 +149,13 @@ class SchedulerApp(AppSvc):
             return False
 
     async def on_startup(self) -> None:
+        # self.psql_connection_pool.create_pool()
         await super().on_startup()
         self.scheduler.start()
 
+    async def on_shutdown(self):
+        await super().on_shutdown()
+        # self.psql_connection_pool.close_pool()
     
 settings = SchedulerAppSettings()
 

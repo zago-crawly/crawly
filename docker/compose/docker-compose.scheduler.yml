@@ -9,6 +9,12 @@ services:
 
     environment:
       TZ: ${TIME_ZONE}
+      PSQL_DB_HOST: ${PSQL_DB_HOST}
+      PSQL_DB_USER: ${PSQL_DB_USER}
+      PSQL_DB_NAME: ${PSQL_DB_NAME}
+      PSQL_DB_PORT: ${PSQL_DB_PORT}
+      PSQL_DB_PASS: ${PSQL_DB_PASS}
+
     ports:
       - '8001:80'
 
