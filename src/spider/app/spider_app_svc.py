@@ -1,9 +1,16 @@
 import sys
-import os
-import subprocess
-import asyncio
+# import os
+# import subprocess
+# import asyncio
+# import crochet
+# import json
+from crochet import setup
+
+from scrapy.crawler import CrawlerRunner
+from scrapy.utils.project import get_project_settings
 
 sys.path.append(".")
+from src.spider.app.spiders.spider import Spider
 from src.common.app_svc import AppSvc
 from src.spider.app.spider_app_svc_settings import SpiderAppSettings
 from src.common.models.task import TaskForSpider
@@ -11,8 +18,11 @@ from src.common.models.task import TaskForSpider
 
 class SpiderApp(AppSvc):
 
+    setup()
+
     def __init__(self, settings: SpiderAppSettings, *args, **kwargs):
         super().__init__(settings, *args, **kwargs)
+        self.spider_settings = get_project_settings()
 
     def _set_incoming_commands(self) -> dict:
         return {
@@ -24,7 +34,8 @@ class SpiderApp(AppSvc):
         task = TaskForSpider.model_validate(mes.get('data'))
         spider_id = task.task_uuid
         self._logger.error(f"spider {spider_id} started")
-        subprocess.call([f"{sys.executable}", "-m", "scrapy", "runspider", f"{os.environ.get('SPIDER_SCRIPT_DIR')}/spider.py", "-a", f"task={task.model_dump_json(by_alias=True)}"], shell=False)
+        runner = CrawlerRunner(self.spider_settings)
+        runner.crawl(Spider, task)
         self._logger.error(f"spider {spider_id} ended")
         return task.schema_uuid
                           

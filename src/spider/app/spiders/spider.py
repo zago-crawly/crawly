@@ -1,3 +1,4 @@
+import json
 import logging
 import sys
 from itertools import repeat, zip_longest
@@ -5,6 +6,7 @@ from typing import List, Optional
 
 import scrapy
 from scrapy.exceptions import CloseSpider
+from scrapy.spiders.crawl import CrawlSpider
 import validators
 from fastcore.transform import Pipeline
 from lxml.html import fromstring
@@ -30,7 +32,8 @@ class Spider(CrawlSpider):
 
     def __init__(self, task, *args, **kwargs):
         super(Spider, self).__init__(*args, **kwargs)
-        self.task = TaskForSpider.model_validate_json(task)
+        self.task = TaskForSpider.model_validate(task)
+        print(self.task)
         self.spider_settings = self.task.settings
         self._task_id: str = self.task.task_uuid
         self.schema: dict = self.task.schema_for_spider
