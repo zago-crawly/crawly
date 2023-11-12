@@ -6,6 +6,11 @@
   },
   "applications": {
     "spider_app": {
+      "processes": {
+        "max": 10,
+        "spare": 5,
+        "idle_timeout": 120
+      },
       "type": "python 3.11",
       "working_directory": "/usr",
       "path": "/usr/src/spider/app/",
