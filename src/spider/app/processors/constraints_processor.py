@@ -3,11 +3,11 @@ from fastcore.transform import Transform
 from typing import Optional, Union
 
 sys.path.append(".")
-from src.spider.app.processors.models import SchemaBlockField, PipelineError
+from src.spider.app.processors.models import SchemaBlockField, SpiderError
 
 class ConstraintsProcessor(Transform):
     
-    def encodes(self, x: SchemaBlockField) -> SchemaBlockField | PipelineError:
+    def encodes(self, x: SchemaBlockField) -> SchemaBlockField | SpiderError:
         field_name = x.field_name
         field_processors = x.field_processors
         output_field = x.output_field
@@ -26,8 +26,10 @@ class ConstraintsProcessor(Transform):
                     constraints.get('max_length'),\
                     constraints.get('index'), \
                     constraints.get('group')
-            if not parsed_field_data and required_constr == "true":
-                return PipelineError("Data is empty but is required")
+                                        
+            if (parsed_field_data is None or len(parsed_field_data) == 0) and required_constr == True:
+                return SpiderError("Data is empty but is required")
+            
             coerced_field_data = type_coercion(parsed_field_data=parsed_field_data,
                                                data_type=data_type_constr,
                                                internal_type=internal_data_type_const,
@@ -35,7 +37,7 @@ class ConstraintsProcessor(Transform):
             trimmed_field_data = trim_data(parsed_field_data=coerced_field_data,
                                            max_length=max_length)
             match trimmed_field_data:
-                case PipelineError():
+                case SpiderError():
                     return trimmed_field_data
                 case _:
                     x.output_field[field_name] = trimmed_field_data
@@ -46,15 +48,15 @@ class ConstraintsProcessor(Transform):
                             x.index.append(trimmed_field_data)
                     return x
 
-    def encodes(self, x: PipelineError):
+    def encodes(self, x: SpiderError):
         """Метод пропускающий обработку при возникновении ошибки в предыдущем обработчике
 
         Args:
-            x (PipelineError): _description_
+            x (SpiderError): _description_
         """
         return x
     
-def trim_data(parsed_field_data, max_length: int) -> Union[str,list,int,float] | PipelineError:
+def trim_data(parsed_field_data, max_length: int) -> Union[str,list,int,float] | SpiderError:
     
     if isinstance(parsed_field_data, list):
         if isinstance(parsed_field_data[0], list):
@@ -71,9 +73,9 @@ def trim_data(parsed_field_data, max_length: int) -> Union[str,list,int,float] |
         return float(str(parsed_field_data)[:max_length])
     
     else:
-        raise PipelineError("Param max_length oveflow. Can't trim data to specific length")
+        return SpiderError("Param max_length oveflow. Can't trim data to specific length")
 
-def type_coercion(parsed_field_data, data_type: str, internal_type: Optional[str], group: Optional[bool]) -> Union[str,list,int,float] | PipelineError:
+def type_coercion(parsed_field_data, data_type: str, internal_type: Optional[str], group: Optional[bool]) -> Union[str,list,int,float] | SpiderError:
     match data_type:
         case 'str':
             return coerce_to_str(parsed_field_data)
@@ -93,12 +95,12 @@ def coerce_to_str(value):
         try:
             return ' '.join(str(item) for item in value)
         except TypeError:
-            PipelineError(f'Coercion from list of {type(value[0]).__name__} to str failed')
+            return SpiderError(f'Coercion from list of {type(value[0]).__name__} to str failed')
     else:
         try:
             return str(value)      
         except ValueError:
-            return PipelineError(f'Coercion from {type(value).__name__} to str failed')
+            return SpiderError(f'Coercion from {type(value).__name__} to str failed')
         
 def coerce_to_list(value):
     if isinstance(value, list):
