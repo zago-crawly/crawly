@@ -29,6 +29,8 @@ class SpiderStats(BaseModel):
     start_time: datetime = Field(alias='start_time')
     startup_mem_usage: int = Field(alias='memusage/startup')
     max_mem_usage: int = Field(alias='memusage/max')
+    spider_schema: str = Field(alias='spider_schema')
+    spider_task: str = Field(alias='spider_task')
     log_warning: int = Field(default=0, alias='log_count/WARNING')
     log_error: int = Field(default=0, alias='log_count/ERROR')
     log_info: int = Field(default=0, alias='log_count/INFO')
