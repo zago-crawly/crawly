@@ -1,9 +1,5 @@
 import sys
-# import os
-# import subprocess
-# import asyncio
-# import crochet
-# import json
+import logging
 from crochet import setup
 
 from scrapy.crawler import CrawlerRunner
@@ -40,6 +36,7 @@ class SpiderApp(AppSvc):
         return task.schema_uuid
                           
     async def on_startup(self) -> None:
+        logging.getLogger('scrapy').setLevel('ERROR')
         await super().on_startup()
 
 settings = SpiderAppSettings()
