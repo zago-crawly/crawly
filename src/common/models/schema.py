@@ -4,6 +4,7 @@ from pydantic import (BaseModel,
                       Field,
                       model_validator,
                       ValidationError)
+from pydantic_core import PydanticCustomError
 
 sys.path.append(".")
 from src.common.models.template import (TemplateFieldForSchema,
@@ -34,16 +35,30 @@ class SchemaBaseClass(BaseModel):
     
     @model_validator(mode='after')
     def add_validate_req_pag_fields(self):
-        inner_template = self.schema_field
-        for index, block_name in enumerate(list(inner_template.keys())[:-1]):
-            block = inner_template.get(block_name)
+        inner_schema = self.schema_field
+        for index, block_name in enumerate(list(inner_schema.keys())[:-1]):
+            block = inner_schema.get(block_name)
             if block:
-                # block['request'] = TemplateRequest.model_validate(self._request_fields[index])
                 block['pagination'] = TemplatePaginationOptional.model_validate(self._pagination_fields[index])
         return self
 
 class SchemaCreate(SchemaBaseClass):
     template_uuid: str
+    
+    @model_validator(mode='after')
+    def check_index_exists(self):
+        index_exists = False
+        for block in self.schema_field.values():
+            for field in block.values():
+                field_dict = field.model_dump()
+                if not field_dict.get('constraints'):
+                    continue
+                if field_dict.get('constraints').get('index'):
+                    index_exists = True
+        if not index_exists:
+            raise PydanticCustomError('No index field',
+                                      "No index field in schema. Please add index flag on one of the field in schema")
+        return self
 
 class SchemaInDB(SchemaBaseClass):
     pass
