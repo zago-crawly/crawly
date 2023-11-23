@@ -27,16 +27,18 @@ class SpiderMainPipeline:
         self.client = pymongo.MongoClient(self.mongo_uri)
         self.db = self.client[self.mongo_db]
         self.item_collection = spider.template_uuid
-        self.stat_collection = f"stat_{spider.schema_uuid}"
+        self.stat_collection = f"stat_{spider.template_uuid}"
 
     def close_spider(self, spider):
         if len(spider.error_list) == 0:
             self.bulk_upsert(spider)
         else:
-            return
+            pass
             # Implement return error values or signaling if errors exist
         self.spider_crawler.stats.set_value("error_count", len(spider.error_list))
         self.spider_crawler.stats.set_value("errors", spider.error_list)
+        self.spider_crawler.stats.set_value("spider_schema", spider.schema_uuid)
+        self.spider_crawler.stats.set_value("spider_task", spider.task.task_uuid)
         self.dump_spider_stats()
         self.client.close()
         
