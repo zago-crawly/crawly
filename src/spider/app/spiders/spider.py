@@ -7,7 +7,9 @@ from typing import List, Optional
 import scrapy
 from scrapy.exceptions import CloseSpider
 from scrapy.spiders.crawl import CrawlSpider
+from scrapy.crawler import CrawlerProcess
 import validators
+from urllib.parse import urljoin
 from fastcore.transform import Pipeline
 from lxml.html import fromstring
 
@@ -33,7 +35,6 @@ class Spider(CrawlSpider):
     def __init__(self, task, *args, **kwargs):
         super(Spider, self).__init__(*args, **kwargs)
         self.task = TaskForSpider.model_validate(task)
-        print(self.task)
         self.spider_settings = self.task.settings
         self._task_id: str = self.task.task_uuid
         self.schema: dict = self.task.schema_for_spider
@@ -42,7 +43,7 @@ class Spider(CrawlSpider):
         self.name: str = self._task_id
         self.domain: str = self.task.resource_url
         self.allowed_domains: str = self.domain
-        self.base_url = "https://" + self.domain
+        self.base_url = self.domain if self.domain[-1] == "/" else self.domain+"/"
         self.item_tree: ItemTree = ItemTree(maxchildren=self.spider_settings.max_items)
         self.last_item_hash: Optional[str] = None
         self.error_list: List[SpiderError] = []
@@ -57,19 +58,19 @@ class Spider(CrawlSpider):
         return [key for key in self.schema.keys()]
 
     def start_requests(self):
-        logging.error("Starting spider")
+        logging.info("Starting spider")
         yield scrapy.FormRequest(url=self.domain, callback=self.parse, cb_kwargs={'level': 0})
 
     def parse_schema_block(self, response, schema_block: dict, parent_node=None):
         pagination = schema_block.pop('pagination', "")
         parsed_schema_blocks = []
         for block_field_name, block_field_processors in schema_block.items():
-            new_schema_block = SchemaBlockField(html_doc=fromstring(response.text),
+            new_schema_block_field = SchemaBlockField(html_doc=fromstring(response.text),
                                        field_name=block_field_name,
                                        field_processors=block_field_processors,
                                        output_field={block_field_name: ""},
                                        index=[])
-            processed_block = self.parse_schema_field(schema_block=new_schema_block)
+            processed_block = self.parse_schema_field(schema_block_field=new_schema_block_field)
             parsed_schema_blocks.append(processed_block)
         return parsed_schema_blocks
 
@@ -101,29 +102,44 @@ class Spider(CrawlSpider):
             groups.append(item_with_index)
         return groups
 
-    def compile_item_tree_nodes(self, index, block, parent_node): 
+    def make_item_tree_nodes(self, index, block, parent_node): 
         try:
             new_node_item = self.item_tree.add(new_key=1,
-                                                data=block,
-                                                parent_node=parent_node,
-                                                index=index)
+                                               data=block,
+                                               parent_node=parent_node,
+                                               index=index)
             return new_node_item
         except ItemNodeChildrenOverflow:
             raise   
             
-    def parse_schema_field(self, schema_block: SchemaBlockField) -> SchemaBlockField:
+    def parse_schema_field(self, schema_block_field: SchemaBlockField) -> SchemaBlockField:
         field_pipeline = Pipeline([SelectorProcessor,
                                    ConstraintsProcessor])
-        processed_field: SchemaBlockField | PipelineError = field_pipeline(schema_block) # Push field data through field processing pipeline
+        processed_field: SchemaBlockField | SpiderError = field_pipeline(schema_block_field)
         if isinstance(processed_field, SchemaBlockField):
             return processed_field
-        elif isinstance(processed_field, PipelineError):
-            schema_block.output_field[schema_block.field_name] = processed_field.error
-            self.errors.append(processed_field) # Add error to error list to return to client
-            return schema_block
+        elif isinstance(processed_field, SpiderError):
+            processed_field.field_name = schema_block_field.field_name
+            schema_block_field.output_field[schema_block_field.field_name] = processed_field.error
+            self.error_list.append(processed_field)
+            return schema_block_field
+    
+    def request_url_check(self, requests: List[str]):
+        checked_request_urls = []
+        for request_url in requests:
+            url_is_valid = validators.url(request_url)
+            if url_is_valid:
+                checked_request_urls.append(request_url)
+            else:
+                joined_url = urljoin(self.base_url, request_url)
+                joined_url_is_valid = validators.url(joined_url)
+                if joined_url_is_valid:
+                    checked_request_urls.append(joined_url)
+                else:
+                    continue
+        return checked_request_urls
     
     def parse(self, response, **kwargs):
-        print(self.last_item_hash)
         level = kwargs.get('level')
         schema_block = self.schema[self.schema_block_keys[level]]
         parent_node = kwargs.get('parent_node')
@@ -132,25 +148,18 @@ class Spider(CrawlSpider):
                                                                   parent_node=parent_node)
         grouped_blocks = self.group_block_keys_indexes_values(schema_block=parsed_block)
         for index, block in grouped_blocks:
-            
             try:
-                new_item_tree_node = self.compile_item_tree_nodes(index=index,
-                                                                  block=block,
-                                                                  parent_node=parent_node)
+                new_item_tree_node = self.make_item_tree_nodes(index=index,
+                                                                block=block,
+                                                                parent_node=parent_node)
             except ItemNodeChildrenOverflow:
                 break
             
             next_requests = block.pop('request', [])
             next_requests = [next_requests] if isinstance(next_requests, str) else next_requests # !!!! May be removed
-            for request in next_requests:
-                url_is_valid = validators.url(request)
-                if not url_is_valid:
-                    continue
-                yield scrapy.FormRequest(url=request,
+            checked_requests = self.request_url_check(next_requests)
+            for request_url in checked_requests:
+                yield scrapy.FormRequest(url=request_url,
                                         dont_filter=True,
                                         callback=self.parse,
                                         cb_kwargs={'level': level + 1, 'parent_node': new_item_tree_node})
-        
-        if level + 1 == len(self.schema_block_keys):
-            if self.last_item_hash == self.item_tree.get_index_from_cur_node():
-                raise CloseSpider('Already been scraped.')
