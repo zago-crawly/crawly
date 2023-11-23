@@ -16,7 +16,7 @@ from src.common.models.task import TaskForSpider
 from src.spider.app.item_tree import ItemNodeChildrenOverflow, ItemTree
 from src.spider.app.processors.constraints_processor import \
     ConstraintsProcessor
-from src.spider.app.processors.models import PipelineError, SchemaBlockField
+from src.spider.app.processors.models import SpiderError, SchemaBlockField
 from src.spider.app.processors.selector_processor import SelectorProcessor
 
 
@@ -45,7 +45,7 @@ class Spider(CrawlSpider):
         self.base_url = "https://" + self.domain
         self.item_tree: ItemTree = ItemTree(maxchildren=self.spider_settings.max_items)
         self.last_item_hash: Optional[str] = None
-        self.errors: List[PipelineError] = []
+        self.error_list: List[SpiderError] = []
     
     @classmethod
     def from_crawler(cls, crawler, *args, **kwargs):
