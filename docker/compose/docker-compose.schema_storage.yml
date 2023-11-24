@@ -9,6 +9,13 @@ services:
 
     environment:
       TZ: ${TIME_ZONE}
+      PSQL_POOL_MIN_CONN: ${PSQL_POOL_MIN_CONN}
+      PSQL_POOL_MAX_CONN: ${PSQL_POOL_MAX_CONN}
+      PSQL_DB_NAME: ${PSQL_DB_NAME}
+      PSQL_DB_HOST: ${PSQL_DB_HOST}
+      PSQL_DB_USER: ${PSQL_DB_USER}
+      PSQL_DB_PORT: ${PSQL_DB_PORT}
+      PSQL_DB_PASS: ${PSQL_DB_PASS}
     ports:
       - '8005:80'
 
