@@ -1,0 +1,35 @@
+version: "3.10"
+
+services:
+  crawly:
+    hostname: crawly
+    build:
+      context: ../../../
+      dockerfile: docker/debug/docker-files/Dockerfile.debug.crawly.debian
+
+    environment:
+      TZ: ${TIME_ZONE}
+      MONGO_URI: ${MONGO_URI}
+      MONGO_DB: ${MONGO_DB}
+      PSQL_POOL_MIN_CONN: ${PSQL_POOL_MIN_CONN}
+      PSQL_POOL_MAX_CONN: ${PSQL_POOL_MAX_CONN}
+      PSQL_DB_NAME: ${PSQL_DB_NAME}
+      PSQL_DB_HOST: ${PSQL_DB_HOST}
+      PSQL_DB_USER: ${PSQL_DB_USER}
+      PSQL_DB_PORT: ${PSQL_DB_PORT}
+      PSQL_DB_PASS: ${PSQL_DB_PASS}
+    ports:
+      - "80:80"
+
+    volumes:
+      - ../../../src/common/:/usr/src/common/:rw
+      - ../../../src/template_storage/:/usr/src/template_storage/:rw
+      - ../../../src/schema_storage/:/usr/src/schema_storage/:rw
+      - ../../../src/scheduler/:/usr/src/scheduler/:rw
+      - ../../../src/spider/:/usr/src/spider/:rw
+      - ../../../src/signal/:/usr/src/signal/:rw
+      - ../../../src/postprocessor/:/usr/src/postprocessor/:rw
+      - ../../../src/item_storage/:/usr/src/item_storage/:rw
+
+      - ../../../docker/debug/docker-files/change_observer.py:/usr/local/change_observer.py:rw
+      - ../../../docker/debug/docker-files/nginx_server_controller.py:/usr/local/nginx_server_controller.py:rw

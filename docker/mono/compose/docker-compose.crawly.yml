@@ -1,0 +1,27 @@
+version: "3.10"
+
+services:
+  crawly:
+    hostname: crawly
+    build:
+      context: ../../../
+      dockerfile: docker/mono/docker-files/Dockerfile.crawly
+
+    environment:
+      TZ: ${TIME_ZONE}
+      MONGO_URI: ${MONGO_URI}
+      MONGO_DB: ${MONGO_DB}
+      PSQL_POOL_MIN_CONN: ${PSQL_POOL_MIN_CONN}
+      PSQL_POOL_MAX_CONN: ${PSQL_POOL_MAX_CONN}
+      PSQL_DB_NAME: ${PSQL_DB_NAME}
+      PSQL_DB_HOST: ${PSQL_DB_HOST}
+      PSQL_DB_USER: ${PSQL_DB_USER}
+      PSQL_DB_PORT: ${PSQL_DB_PORT}
+      PSQL_DB_PASS: ${PSQL_DB_PASS}
+    ports:
+      - "80:80"
+
+    # volumes:
+    # - ./logs/item_storage/api/:/usr/src/log/item_storage_api/:rw
+    # - ./logs/item_storage/app/:/usr/src/log/item_storage_app/:rw
+    # - ./logs/postprocessor/app/:/usr/src/log/postprocessor_app/:rw

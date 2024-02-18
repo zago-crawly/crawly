@@ -1,0 +1,32 @@
+FROM unit:python3.11
+
+RUN pip3 install pipenv
+WORKDIR /usr/src
+# ------
+COPY src/Pipfile /usr/src/
+# ------
+RUN PIPENV_VENV_IN_PROJECT=1 pipenv install --deploy
+# ------
+RUN mkdir log
+RUN chmod -R 777 log/
+COPY src/__init__.py /usr/src/
+# ------
+RUN mkdir common
+RUN mkdir scheduler
+RUN mkdir item_storage
+RUN mkdir postprocessor
+RUN mkdir schema_storage
+RUN mkdir signal
+RUN mkdir spider
+RUN mkdir template_storage
+
+RUN pip3 install watchdog
+
+RUN addgroup --gid 1024 volume_group
+RUN usermod -a -G volume_group unit
+
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+COPY ["/docker/debug/docker-files/config_nginx_unit.debug.crawly.json", "/docker-entrypoint.d/"]
+RUN python3 /usr/local/change_observer.py &
