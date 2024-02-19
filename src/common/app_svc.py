@@ -56,7 +56,9 @@ class AppSvc(BaseSvc):
                     path_to_obj_id: Optional[str] = "data"):
         def inner(fn):
             async def wrap(self, mes):
-                obj_id = reduce(operator.getitem, path_to_obj_id.split('.'), mes)
+                obj_id = ""
+                if path_to_obj_id:
+                    obj_id = reduce(operator.getitem, path_to_obj_id.split('.'), mes)
                 await self._post_message(mes=json.dumps({"signal": before, "data": {"id": obj_id, "data": data}}))
                 res = await fn(self, mes)
                 await self._post_message(mes=json.dumps({"signal": after, "data": {"id": obj_id, "data": res if res else data}}))
