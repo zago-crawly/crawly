@@ -29,8 +29,22 @@ class TemplateManager():
                 return template_uuid
             except UniqueViolation:
                 return None
+            
+    def delete(self, template_id: str) -> str:
+        with self.psql_connection.cursor() as cursor:
+            sql = """
+                DELETE FROM schemas WHERE template=%(template)s;
+                DELETE FROM templates WHERE id=%(template)s RETURNING id
+            """
+            try:
+                cursor.execute(sql, {'template': template_id})
+                self.psql_connection.commit()
+                deleted_template_uuid = cursor.fetchone()[0]
+                return deleted_template_uuid
+            except BaseException as e:
+                return None
     
-    def get(self, template_id):
+    def get(self, template_id: str):
         with self.psql_connection.cursor() as cursor:
             sql = """
                 SELECT template FROM templates WHERE id = %(template_id)s
@@ -39,6 +53,30 @@ class TemplateManager():
                 cursor.execute(sql, {'template_id': template_id})
                 template = cursor.fetchone()[0]
                 return template
+            except BaseException as e:
+                return None
+            
+    def get_all(self):
+        with self.psql_connection.cursor() as cursor:
+            sql = """
+                SELECT id FROM templates
+            """
+            try: 
+                cursor.execute(sql)
+                templates_all = cursor.fetchall()
+                return templates_all
+            except BaseException as e:
+                return None
+            
+    def get_schemas(self, template_id: str):
+        with self.psql_connection.cursor() as cursor:
+            sql = """
+                SELECT id FROM schemas WHERE template_uuid=%(template_id)s
+            """
+            try: 
+                cursor.execute(sql, {'template_id': template_id})
+                schema_ids = cursor.fetchall()
+                return schema_ids
             except BaseException as e:
                 return None
     
