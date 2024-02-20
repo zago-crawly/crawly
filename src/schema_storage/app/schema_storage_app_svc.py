@@ -52,7 +52,20 @@ class SchemaStorageApp(AppSvc):
                 return {"error": {"code": "404", "message": f"{res.err}"}}
             processed_schema = SchemaRead.model_validate(res)
             return processed_schema.model_dump(by_alias=True)
-                
+        
+    async def _read_all(self, mes) -> dict:
+        with self.psql_connection_pool.connect() as conn:
+            schema_manager = SchemaManager(logger=self._logger, psql_connection=conn)
+            schemas_all = schema_manager.get_all()
+            if isinstance(schemas_all, SchemaManagerError):
+                return {"error": {"code": "404", "message": f"{res.err}"}}
+            if len(schemas_all) > 0:
+                schema_processed_all = []
+                for schema_row in schemas_all:
+                    schema_id = schema_row[0][0]
+                    schema_name = schema_row[0][1]
+                    schema_processed_all.append({"id": schema_id, "name": schema_name})
+                return schema_processed_all
         
     async def _create(self, mes) -> dict:
         schema = mes.get('data')
@@ -62,7 +75,7 @@ class SchemaStorageApp(AppSvc):
             schema_manager = SchemaManager(logger=self._logger, psql_connection=conn)
             template = await self._post_message(
                 mes={"action": "template.read", "data": template_uuid}, reply=True
-            )
+            ) # TODO think about data transfering between microservices
             self._logger.error(template)
             if template.get('error'):
                 return template

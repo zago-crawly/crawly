@@ -1,3 +1,4 @@
+import logging
 from typing import Dict, Literal, Optional, Union
 from typing_extensions import Annotated
 from enum import Enum
@@ -12,6 +13,8 @@ from pydantic import (BaseModel,
                       field_serializer,
                       ConfigDict)
 from re import search as re_search
+
+from pydantic_core import PydanticCustomError
 
 
 class BaseTemplateFieldType(BaseModel):
@@ -56,6 +59,15 @@ class TemplateFieldListDataType(BaseTemplateFieldType):
     internal_type: ArrayDataTypesEnum
     max_length: Optional[int] = Field(default=30, ge=0, le=30)
     group: Optional[bool] = False
+
+    @model_validator(mode='after')
+    def no_index_validation(self):
+        logging.error(self.model_dump())
+        if self.model_dump().get('index'): # TODO Make more fast method for checking if index is in array field
+            raise PydanticCustomError('Can\'t index on array field type',
+                                      """Can\'t index on array field type.
+                                        Please provide other index field with types `str`, `float`, `int`, `date`, `time`""")
+        return self
 
 class TemplateFieldCostraints(RootModel):
     root: Annotated[Union[TemplateFieldStringDataType,

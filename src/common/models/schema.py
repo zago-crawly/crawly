@@ -5,6 +5,8 @@ from pydantic import (BaseModel,
                       model_validator,
                       ValidationError)
 from pydantic_core import PydanticCustomError
+import logging
+
 
 sys.path.append(".")
 from src.common.models.template import (TemplateFieldForSchema,
@@ -44,7 +46,7 @@ class SchemaBaseClass(BaseModel):
 
 class SchemaCreate(SchemaBaseClass):
     template_uuid: str
-    
+
     @model_validator(mode='after')
     def check_index_exists(self):
         index_exists = False
@@ -53,6 +55,7 @@ class SchemaCreate(SchemaBaseClass):
                 field_dict = field.model_dump()
                 if not field_dict.get('constraints'):
                     continue
+                logging.info(field_dict.get("constraints"))
                 if field_dict.get('constraints').get('index'):
                     index_exists = True
         if not index_exists:

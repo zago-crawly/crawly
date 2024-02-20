@@ -56,6 +56,19 @@ class SchemaManager():
                 schema, template_uuid = cursor.fetchone()
                 return {"schema": schema.get('schema'), "template_uuid": template_uuid}
             except BaseException as e:
+                return SchemaManagerError(err=str(e)) 
+            # TODO Standardize error handling in Template manager and Schema manager (disgusting)
+            
+    def get_all(self):
+        with self.psql_connection.cursor() as cursor:
+            sql = """
+                SELECT schema_id, name FROM schemas;
+            """
+            try:
+                cursor.execute(sql)
+                schemas_all = cursor.fetchall()
+                return schemas_all
+            except BaseException as e:
                 return SchemaManagerError(err=str(e))
     
     def get_template_by_schema(self, schema_id) -> dict | str:
