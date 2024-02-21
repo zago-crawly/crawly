@@ -30,18 +30,37 @@ class SchemaManager():
             self.psql_connection.commit()
             schema_uuid = cursor.fetchone()[0]
             return schema_uuid
+        
+    def delete(self, schema_id: str):
+        with self.psql_connection.cursor() as cursor:
+            sql = """
+                DELETE FROM schemas WHERE id=%(schema_id)s RETURNING id
+            """
+            cursor.execute(sql, {'schema_id': schema_id})
+            self.psql_connection.commit()
+            deleted_schema_uuid = cursor.fetchone()[0]
+            return deleted_schema_uuid
+        
+    def update(self, new_schema: SchemaInDB, schema_id: str):
+        with self.psql_connection.cursor() as cursor:
+            sql = """
+                UPDATE schemas SET schema=%(new_schema)s WHERE id=%(schema_id)s RETURNING schema
+            """
+            cursor.execute(sql, {'new_schema': new_schema.model_dump_json(by_alias=True),'schema_id': schema_id})
+            self.psql_connection.commit()
+            updated_schema = cursor.fetchone()[0]
+            return updated_schema
     
-    def verify(self, template: dict, schema: dict) -> bool:
-        inner_schema = schema.get('schema')
-        template_block_keys = template.keys()
-        schema_block_keys = inner_schema.keys()
-        for t_b_key, s_b_key in zip(template_block_keys, schema_block_keys):
-            if t_b_key != s_b_key:
+    def verify(self, reference: dict, schema: dict) -> bool:
+        reference_block_keys = reference.keys()
+        schema_block_keys = schema.keys()
+        for r_b_key, s_b_key in zip(reference_block_keys, schema_block_keys):
+            if r_b_key != s_b_key:
                 return False
-            template_field_keys = template.get(t_b_key)
-            schema_field_keys = inner_schema.get(s_b_key)
-            for t_f_key, s_f_key in zip(template_field_keys, schema_field_keys):
-                if t_f_key != s_f_key:
+            reference_field_keys = reference.get(r_b_key)
+            schema_field_keys = schema.get(s_b_key)
+            for r_f_key, s_f_key in zip(reference_field_keys, schema_field_keys):
+                if r_f_key != s_f_key:
                     return False
         return True
             
@@ -62,11 +81,12 @@ class SchemaManager():
     def get_all(self):
         with self.psql_connection.cursor() as cursor:
             sql = """
-                SELECT schema_id, name FROM schemas;
+                SELECT id, name FROM schemas;
             """
             try:
                 cursor.execute(sql)
                 schemas_all = cursor.fetchall()
+                self._logger.error(schemas_all)
                 return schemas_all
             except BaseException as e:
                 return SchemaManagerError(err=str(e))

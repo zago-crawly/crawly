@@ -2,7 +2,7 @@ import sys
 from fastapi import APIRouter, Response, HTTPException
 
 sys.path.append(".")
-from src.common.models.schema import SchemaCreate
+from src.common.models.schema import SchemaCreate, SchemaUpdate
 from src.schema_storage.api.schema_storage_api_svc_settings import SchemaStorageAPISettings
 from src.common.api_svc import APISvc
 
@@ -44,13 +44,12 @@ class SchemaStorageAPI(APISvc):
     async def delete(self, schema_id: str) -> dict:
         return await super().delete(payload=schema_id)
     
-    # async def update(self, template_id, payload) -> dict:
-    #     body = {
-    #         "action": "update",
-    #         "task_id": template_id,
-    #         "body": payload.dict()
-    #     }
-    #     return await self._post_message(mes=body, reply=True)
+    async def update(self, schema_id, payload) -> dict:
+        body = {
+            "action": self._outgoing_commands['update'],
+            "data": {"id": schema_id, "payload": payload.model_dump(by_alias=True)}
+        }
+        return await self._post_message(mes=body, reply=True)
 
 settings = SchemaStorageAPISettings()
 
@@ -85,17 +84,17 @@ async def get_template_by_schema(schema_id: str):
 @router.delete("/schemas/{schema_id}")
 async def read(schema_id: str):
     res = await app.delete(schema_id)
-    if res:
-        return Response(status_code=204)
-    return HTTPException(status_code=404)
+    if res.get("error"):
+        return Response(res.get("error").get("message"), status_code=res.get("error").get("code"))
+    return res
 
-# @router.put("/task/{task_id}",
-#             response_model=TaskPartialUpdateResult,
-#             status_code=200)
-# async def update(task_id: str, payload: TaskPartialUpdate):
-#     res = await app.update(task_id, payload)
-#     app._logger.info(res)
-#     return res
+@router.put("/schemas/{schema_id}",
+            # response_model=,
+            status_code=200)
+async def update(schema_id: str, payload: SchemaUpdate):
+    res = await app.update(schema_id, payload)
+    # app._logger.error(payload.model_dump(), schema_id)
+    return res
 
 app.include_router(router, prefix=f"/schema_storage")
 

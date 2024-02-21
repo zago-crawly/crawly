@@ -36,7 +36,7 @@ class TemplateFieldStringDataType(BaseTemplateFieldType):
         index = data.index
         max_length = data.max_length
         if index and max_length > 200:
-            raise ValidationError('Cant use field with max_length more than 200 for index')
+            raise ValueError('Cant use field with max_length more than 200 for index')
         return data
 
 class TemplateFieldIntDataType(BaseTemplateFieldType):
@@ -52,22 +52,12 @@ class ArrayDataTypesEnum(Enum):
     TemplateFieldFloatDataType = 'float'
 
 class TemplateFieldListDataType(BaseTemplateFieldType):
-    
-    model_config = ConfigDict(use_enum_values=True)
+    model_config = ConfigDict(use_enum_values=True, extra="forbid")
     
     data_type: Literal['array']
     internal_type: ArrayDataTypesEnum
     max_length: Optional[int] = Field(default=30, ge=0, le=30)
     group: Optional[bool] = False
-
-    @model_validator(mode='after')
-    def no_index_validation(self):
-        logging.error(self.model_dump())
-        if self.model_dump().get('index'): # TODO Make more fast method for checking if index is in array field
-            raise PydanticCustomError('Can\'t index on array field type',
-                                      """Can\'t index on array field type.
-                                        Please provide other index field with types `str`, `float`, `int`, `date`, `time`""")
-        return self
 
 class TemplateFieldCostraints(RootModel):
     root: Annotated[Union[TemplateFieldStringDataType,

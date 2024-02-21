@@ -66,6 +66,11 @@ class SchemaCreate(SchemaBaseClass):
 class SchemaInDB(SchemaBaseClass):
     pass
 
+class SchemaUpdate(BaseModel):
+    schema_field: Dict[str, Dict[str, TemplateFieldForSchema]] = Field(alias='schema', validation_alias='schema', serialization_alias='schema')
+    _request_fields: List
+    _pagination_fields: List
+
 class SchemaRead(SchemaBaseClass):
     template_uuid: str = Field(title="UUID шаблона схемы для парсинга")
     pass
