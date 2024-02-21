@@ -2,7 +2,7 @@ import sys
 from fastapi import APIRouter, Response, HTTPException
 
 sys.path.append(".")
-from src.common.models.schema import SchemaCreate
+from src.common.models.schema import SchemaCreate, SchemaUpdate
 from src.schema_storage.api.schema_storage_api_svc_settings import SchemaStorageAPISettings
 from src.common.api_svc import APISvc
 
@@ -12,8 +12,10 @@ class SchemaStorageAPI(APISvc):
     _outgoing_commands = {
         "create": "schema.create",
         "read": "schema.read",
+        "read_all": "schema.read_all",
         "update": "schema.update",
-        "delete": "schema.delete"
+        "delete": "schema.delete",
+        "get_template": "schema.get_template_by_schema"
     }
 
     def __init__(self, settings: SchemaStorageAPISettings, *args, **kwargs):
@@ -25,6 +27,13 @@ class SchemaStorageAPI(APISvc):
     async def read(self, schema_id: str) -> dict:
         return await super().read(payload=schema_id)
         
+    async def read_all(self) -> dict:
+        body = {
+         "action": self._outgoing_commands['read_all'],
+         "data": ""  
+        }
+        return await self._post_message(mes=body, reply=True)
+
     async def get_template_by_schema(self, schema_id: str) -> dict:
         body = {
          "action": "schema.get_template_by_schema",
@@ -35,13 +44,12 @@ class SchemaStorageAPI(APISvc):
     async def delete(self, schema_id: str) -> dict:
         return await super().delete(payload=schema_id)
     
-    # async def update(self, template_id, payload) -> dict:
-    #     body = {
-    #         "action": "update",
-    #         "task_id": template_id,
-    #         "body": payload.dict()
-    #     }
-    #     return await self._post_message(mes=body, reply=True)
+    async def update(self, schema_id, payload) -> dict:
+        body = {
+            "action": self._outgoing_commands['update'],
+            "data": {"id": schema_id, "payload": payload.model_dump(by_alias=True)}
+        }
+        return await self._post_message(mes=body, reply=True)
 
 settings = SchemaStorageAPISettings()
 
@@ -50,38 +58,43 @@ app = SchemaStorageAPI(docs_url="/schema_storage", redoc_url=None, settings=sett
 router = APIRouter(tags=['Schema'])
 
 
-@router.post("/",
+@router.post("/schemas",
              response_model={},
              status_code=201)
 async def create(payload: SchemaCreate):
     return await app.create(payload)
 
-@router.get("/{schema_id}",
+@router.get("/schemas/{schema_id}",
             response_model={},
             status_code=200)
 async def read(schema_id: str):
     res = await app.read(schema_id)
     return res
 
-@router.get("/{schema_id}/template", status_code=200)
+@router.get("/schemas")
+async def read_all():
+    res = await app.read_all()
+    return res
+
+@router.get("/schemas/{schema_id}/template", status_code=200)
 async def get_template_by_schema(schema_id: str):
     res = await app.get_template_by_schema(schema_id)
     return res
 
-# @router.delete("/{schema_id}")
-# async def read(schema_id: str):
-#     res = await app.delete(schema_id)
-#     if res:
-#         return Response(status_code=204)
-#     return HTTPException(status_code=404)
+@router.delete("/schemas/{schema_id}")
+async def read(schema_id: str):
+    res = await app.delete(schema_id)
+    if res.get("error"):
+        return Response(res.get("error").get("message"), status_code=res.get("error").get("code"))
+    return res
 
-# @router.put("/task/{task_id}",
-#             response_model=TaskPartialUpdateResult,
-#             status_code=200)
-# async def update(task_id: str, payload: TaskPartialUpdate):
-#     res = await app.update(task_id, payload)
-#     app._logger.info(res)
-#     return res
+@router.put("/schemas/{schema_id}",
+            # response_model=,
+            status_code=200)
+async def update(schema_id: str, payload: SchemaUpdate):
+    res = await app.update(schema_id, payload)
+    # app._logger.error(payload.model_dump(), schema_id)
+    return res
 
 app.include_router(router, prefix=f"/schema_storage")
 

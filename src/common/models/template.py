@@ -1,3 +1,4 @@
+import logging
 from typing import Dict, Literal, Optional, Union
 from typing_extensions import Annotated
 from enum import Enum
@@ -12,6 +13,8 @@ from pydantic import (BaseModel,
                       field_serializer,
                       ConfigDict)
 from re import search as re_search
+
+from pydantic_core import PydanticCustomError
 
 
 class BaseTemplateFieldType(BaseModel):
@@ -33,7 +36,7 @@ class TemplateFieldStringDataType(BaseTemplateFieldType):
         index = data.index
         max_length = data.max_length
         if index and max_length > 200:
-            raise ValidationError('Cant use field with max_length more than 200 for index')
+            raise ValueError('Cant use field with max_length more than 200 for index')
         return data
 
 class TemplateFieldIntDataType(BaseTemplateFieldType):
@@ -49,8 +52,7 @@ class ArrayDataTypesEnum(Enum):
     TemplateFieldFloatDataType = 'float'
 
 class TemplateFieldListDataType(BaseTemplateFieldType):
-    
-    model_config = ConfigDict(use_enum_values=True)
+    model_config = ConfigDict(use_enum_values=True, extra="forbid")
     
     data_type: Literal['array']
     internal_type: ArrayDataTypesEnum
