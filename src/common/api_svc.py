@@ -60,4 +60,4 @@ class APISvc(BaseSvc):
             "data": payload
         }
 
-        return await self._post_message(mes=body, reply=False)
+        return await self._post_message(mes=body, reply=True)

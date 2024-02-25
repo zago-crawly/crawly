@@ -4,8 +4,6 @@
 <сущность>_api_crud.
 """
 import sys
-import asyncio
-from collections.abc import MutableMapping
 from fastapi import APIRouter, Response, HTTPException
 
 sys.path.append(".")
@@ -24,6 +22,9 @@ class SchedulerAPI(APISvc):
     _outgoing_commands = {
         "create": "task.create",
         "read": "task.read",
+        "read_all": "task.read_all",
+        # "read": "task.read",
+        # "read": "task.read",
         "update": "task.update",
         "delete": "task.delete",
         "pause": "task.pause",
@@ -35,8 +36,24 @@ class SchedulerAPI(APISvc):
 
     async def create(self, payload: TaskCreate) -> dict:
         return await super().create(payload=payload.model_dump())
+    
+    async def delete(self, task_id: str) -> dict:
+        return await super().delete(payload=task_id)
 
     async def read(self, task_id: str) -> dict:
+        return await super().read(payload=task_id)
+    
+    async def read_all(self) -> dict:
+        body = {
+            "action": self._outgoing_commands["read_all"],
+            "data": ""    
+        }
+        return await self._post_message(mes=body, reply=True)
+    
+    async def read_by_schema(self, task_id: str) -> dict:
+        return await super().read(payload=task_id)
+    
+    async def read_by_template(self, task_id: str) -> dict:
         return await super().read(payload=task_id)
     
     async def resume(self, task_id: str) -> bool:
@@ -63,14 +80,14 @@ app = SchedulerAPI(docs_url="/scheduler", redoc_url=None, settings=settings, tit
 router = APIRouter(tags=['Task'])
 
 
-@router.post("/task",
+@router.post("/tasks",
              response_model=TaskCreateResult,
              status_code=201)
 async def create(payload: TaskCreate):
     app._logger.info(payload)
     return await app.create(payload)
 
-@router.get("/task/{task_id}",
+@router.get("/tasks/{task_id}",
             response_model=TaskRead,
             status_code=200)
 async def read(task_id: str):
@@ -83,28 +100,34 @@ async def read(task_id: str):
         app._logger.error(e)
     return res
 
-@router.get("/task/{task_id}/pause")
+@router.get("/tasks",
+            status_code=200)
+async def read_all():
+    res = await app.read_all()
+    return res
+
+@router.get("/tasks/{task_id}/pause")
 async def pause(task_id: str):
-    res = await app.read(task_id)
+    res = await app.pause(task_id)
     if res:
         return Response(status_code=200)
     return HTTPException(status_code=404)
 
-@router.get("/task/{task_id}/resume")
+@router.get("/tasks/{task_id}/resume")
 async def resume(task_id: str):
-    res = await app.read(task_id)
+    res = await app.resume(task_id)
     if res:
         return Response(status_code=200)
     return HTTPException(status_code=404)
 
-@router.delete("/task/{task_id}")
-async def read(task_id: str):
+@router.delete("/tasks/{task_id}")
+async def delete(task_id: str):
     res = await app.delete(task_id)
     if res:
         return Response(status_code=204)
     return HTTPException(status_code=404)
 
-@router.put("/task/{task_id}",
+@router.put("/tasks/{task_id}",
             response_model=TaskUpdateResult,
             status_code=200)
 async def update(task_id: str, payload: TaskUpdate):

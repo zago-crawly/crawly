@@ -1,16 +1,14 @@
 from pydantic import BaseModel, Field
 from pydantic_settings import BaseSettings
-from uuid import UUID
 from typing import Optional
 import sys
 
 sys.path.append(".")
-from src.common.models.schema import SchemaForTask
 
 class TaskBaseClass(BaseModel):
     cron: str = Field(title="", description="")
     resource_url: str = Field(title="", description="")
-    language: Optional[str]
+    language: Optional[str] = None
     schema_uuid: str = Field(title="UUID схемы для парсинга") 
 
 
@@ -33,7 +31,7 @@ class TaskCreate(TaskBaseClass):
     Наследуется от модели класса ResourceCreate, но добавляется поле cron –
     расписание, по которому будет работать календарь задач
     """
-    settings: SpiderSettings = Field()
+    settings: Optional[SpiderSettings] = None
 
 
 class TaskCreateResult(BaseModel):
