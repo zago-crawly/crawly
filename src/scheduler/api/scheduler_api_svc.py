@@ -8,9 +8,7 @@ from fastapi import APIRouter, Response, HTTPException
 
 sys.path.append(".")
 from src.common.models.task import (TaskCreate,
-                                    TaskCreateResult,
                                     TaskRead,
-                                    TaskDelete,
                                     TaskUpdate,
                                     TaskUpdateResult)
 from src.scheduler.api.scheduler_api_svc_settings import SchedulerAPISettings
