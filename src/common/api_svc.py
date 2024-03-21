@@ -1,5 +1,4 @@
 import sys
-from pydantic import BaseModel
 
 sys.path.append(".")
 from src.common.base_svc import BaseSvc

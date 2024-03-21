@@ -11,8 +11,9 @@ import os
 
 import json
 from pathlib import Path
-from typing import Any, List, Optional
+from typing import Any
 from pydantic_settings import BaseSettings
+
 
 def json_config_settings_source(settings: BaseSettings) -> dict[str, Any]:
     encoding = settings.__config__.env_file_encoding
@@ -20,6 +21,7 @@ def json_config_settings_source(settings: BaseSettings) -> dict[str, Any]:
         return json.loads(Path(os.getenv('config_file', 'config.json')).read_text(encoding))
     except Exception:
         return {}
+
 
 class BaseSvcSettings(BaseSettings):
     #: имя сервиса
@@ -34,14 +36,14 @@ class BaseSvcSettings(BaseSettings):
     publish: dict = {
         #: главный обменник
         # "main": {
-            #: имя обменника
+        #: имя обменника
         #   "name": "base_svc",
-            #: тип обменника
+        #: тип обменника
         #    "type": "direct",
-            #: routing_key, с которым будут публиковаться сообщения обменником
-            #: pub_exchange_type
+        #: routing_key, с которым будут публиковаться сообщения обменником
+        #: pub_exchange_type
         #    "routing_key": ["base_svc_publish"]
-        #}
+        # }
     }
 
     # описание обменников, из которых сервис получает сообщения
