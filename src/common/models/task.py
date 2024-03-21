@@ -1,17 +1,16 @@
 from pydantic import BaseModel, Field
 from pydantic_settings import BaseSettings
-from uuid import UUID
 from typing import Optional
 import sys
 
 sys.path.append(".")
-from src.common.models.schema import SchemaForTask
+
 
 class TaskBaseClass(BaseModel):
     cron: str = Field(title="", description="")
     resource_url: str = Field(title="", description="")
-    language: Optional[str]
-    schema_uuid: str = Field(title="UUID схемы для парсинга") 
+    language: Optional[str] = None
+    schema_uuid: str = Field(title="UUID схемы для парсинга")
 
 
 class SpiderSettings(BaseSettings):
@@ -23,9 +22,9 @@ class SpiderSettings(BaseSettings):
                                le=100, 
                                description="""Параметр максимального количества элементов, которая используется при парсинге ресурса
                                Размер имеет значение при частоте обновления ресурса. Если ресурс постоянно обновляется
-                               то при маленьком количестве некоторые новые данные 
+                               то при маленьком количестве некоторые новые данные
                                не смогут попасть в очередь из за ограничения размера.""")
-    
+
 
 class TaskCreate(TaskBaseClass):
     """
@@ -33,7 +32,7 @@ class TaskCreate(TaskBaseClass):
     Наследуется от модели класса ResourceCreate, но добавляется поле cron –
     расписание, по которому будет работать календарь задач
     """
-    settings: SpiderSettings = Field()
+    settings: Optional[SpiderSettings] = None
 
 
 class TaskCreateResult(BaseModel):
@@ -44,24 +43,27 @@ class TaskCreateResult(BaseModel):
     resource_url: str = Field(title="", description="")
     schema_uuid: str = Field(title="", description="")
 
+
 class TaskRead(TaskBaseClass):
     pass
+
 
 class TaskDelete(BaseModel):
     task_id: str = Field(title="", description="")
 
+
 class TaskUpdate(BaseModel):
-    task_uuid: str = Field()
-    cron: Optional[str] = Field(title="", description="")
-    resource_url: Optional[str] = Field(title="", description="")
-    language: Optional[str]
-    schema_uuid: Optional[str] = Field(title="UUID схемы для парсинга")
+    task_uuid: Optional[str] = None
+    cron: Optional[str] = None
+    resource_url: Optional[str] = None
+    language: Optional[str] = None
+
 
 class TaskUpdateResult(TaskRead):
     pass
+
 
 class TaskForSpider(TaskCreate):
     task_uuid: str = Field(title="", description="")
     template_uuid: str = Field(title="UUID шаблона схемы парсинга")
     schema_for_spider: dict = Field(alias='schema')
-    

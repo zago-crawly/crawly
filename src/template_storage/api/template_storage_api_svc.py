@@ -46,17 +46,19 @@ class TemplateStorageAPI(APISvc):
     async def delete(self, template_id: str) -> dict:
         return await super().delete(payload=template_id)
 
+
 settings = TemplateStorageAPISettings()
 
 app = TemplateStorageAPI(settings=settings, title="Template storage API service")
 
-
 router = APIRouter(tags=['Template'])
+
 
 @router.post("/templates", response_model={}, status_code=201)
 async def create(payload: TemplateCreate):
     app._logger.error(payload)
     return await app.create(payload.model_dump())
+
 
 @router.get("/templates/{template_id}",
             response_model=TemplateRead,
@@ -65,11 +67,13 @@ async def read(template_id: str):
     res = await app.read(template_id)
     return res
 
+
 @router.get("/templates/{template_id}/schemas")
 async def read_schemas(template_id: str):
     res = await app.read_schemas(template_id)
     return res
-    
+
+
 @router.delete("/templates/{template_id}")
 async def delete(template_id: str):
     res = await app.delete(template_id)
@@ -77,6 +81,7 @@ async def delete(template_id: str):
     if res.get("id"):
         return Response(status_code=204)
     return Response(json.dumps(res), status_code=404)
+
 
 @router.get("/templates",
             response_model=List[Dict[str, str]],

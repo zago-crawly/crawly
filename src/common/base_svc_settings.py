@@ -25,7 +25,7 @@ class BaseSvcSettings(BaseSettings):
     #: имя сервиса
     svc_name: str = ""
     #: строка коннекта к RabbitMQ
-    amqp_url: str = "amqp://prs:Peresvet21@rabbitmq/"
+    amqp_url: str = "amqp://crwl:Crawly97@rabbitmq/"
 
     # описание обменников, в которые сервис будет публиковать свои сообщения
     # наиболее часто это всего один обменник, описанный в ключе "main"
@@ -77,7 +77,7 @@ class BaseSvcSettings(BaseSettings):
 
     log: dict = {
         "level": "CRITICAL",
-        "file_name": "peresvet.log",
+        "file_name": "crawly.log",
         "retention": "1 months",
         "rotation": "20 days"
     }

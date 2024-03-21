@@ -50,8 +50,10 @@ class SchemaStorageApp(AppSvc):
         with self.psql_connection_pool.connect() as conn:
             schema_manager = SchemaManager(logger=self._logger, psql_connection=conn)
             res = schema_manager.get(schema_id=schema_id)
+            if not res:
+                return {"error": {"code": "404", "message": f"Schema {schema_id} not found"}}
             if isinstance(res, SchemaManagerError):
-                return {"error": {"code": "404", "message": f"{res.err}"}}
+                return {"error": {"code": "500", "message": f"{res.err}"}}
             processed_schema = SchemaRead.model_validate(res)
             return processed_schema.model_dump(by_alias=True)
         

@@ -44,7 +44,7 @@ class APISvc(BaseSvc):
             "data": payload
         }
 
-        return await self._post_message(mes=body, reply=False)
+        return await self._post_message(mes=body, reply=True)
 
     async def read(self, payload: dict | str) -> dict:
         body = {
@@ -60,4 +60,4 @@ class APISvc(BaseSvc):
             "data": payload
         }
 
-        return await self._post_message(mes=body, reply=False)
+        return await self._post_message(mes=body, reply=True)
