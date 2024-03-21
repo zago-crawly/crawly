@@ -1,0 +1,33 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+motor = "*"
+uvicorn = "0.20.0"
+gunicorn = "20.1.0"
+fastapi = "*"
+pydantic = "*"
+pydantic-settings = "*"
+sqlalchemy = "*"
+psycopg2-binary = "*"
+aio-pika = "*"
+scrapy = "*"
+crochet ="*"
+lxml = "*"
+validators = "*"
+loguru = "*"
+uvloop = "*"
+six = "*"
+pymongo = "*"
+PyMongo = "*"
+apscheduler= "*"
+requests = "*"
+fastcore = "*"
+geopy = "*"
+pytz = "*"
+tzdata = "*"
+
+[requires]
+python_version = "3.11"
