@@ -1,7 +1,7 @@
 # Crawly
 
 <p align="center">
-<img src="https://github.com/zago-tech/crawly/assets/72471805/42ab71f1-805b-44e1-9c8f-d4c6b827a58a" width="100"/>
+[crawly_logo](https://github.com/zago-crawly/crawly/assets/72471805/6e9135a8-fed9-442a-b55f-0f5ab4ac7749)
 </p>
 
 ### Платформа для создания, настройки, планирования и мониторинга веб краулеров.
