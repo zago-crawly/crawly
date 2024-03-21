@@ -12,6 +12,7 @@ sys.path.append(".")
 from src.common.models.template import (TemplateFieldForSchema,
                                         TemplatePaginationOptional) 
 
+
 class SchemaBaseClass(BaseModel):
     
     schema_field: Dict[str, Dict[str, TemplateFieldForSchema]] = Field(alias='schema', validation_alias='schema', serialization_alias='schema')
@@ -44,6 +45,7 @@ class SchemaBaseClass(BaseModel):
                 block['pagination'] = TemplatePaginationOptional.model_validate(self._pagination_fields[index])
         return self
 
+
 class SchemaCreate(SchemaBaseClass):
     template_uuid: str
 
@@ -63,17 +65,21 @@ class SchemaCreate(SchemaBaseClass):
                                       "No index field in schema. Please add index flag on one of the field in schema")
         return self
 
+
 class SchemaInDB(SchemaBaseClass):
     pass
+
 
 class SchemaUpdate(BaseModel):
     schema_field: Dict[str, Dict[str, TemplateFieldForSchema]] = Field(alias='schema', validation_alias='schema', serialization_alias='schema')
     _request_fields: List
     _pagination_fields: List
 
+
 class SchemaRead(SchemaBaseClass):
     template_uuid: str = Field(title="UUID шаблона схемы для парсинга")
     pass
+
 
 class SchemaForTask(SchemaBaseClass):
     pass

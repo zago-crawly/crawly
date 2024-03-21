@@ -36,42 +36,43 @@ class SchedulerAPI(APISvc):
 
     async def create(self, payload: TaskCreate) -> dict:
         return await super().create(payload=payload.model_dump())
-    
+
     async def delete(self, task_id: str) -> dict:
         return await super().delete(payload=task_id)
 
     async def read(self, task_id: str) -> dict:
         return await super().read(payload=task_id)
-    
+
     async def read_all(self) -> dict:
         body = {
             "action": self._outgoing_commands["read_all"],
-            "data": ""    
+            "data": ""
         }
         return await self._post_message(mes=body, reply=True)
-    
+
     async def read_by_schema(self, task_id: str) -> dict:
         return await super().read(payload=task_id)
-    
+
     async def read_by_template(self, task_id: str) -> dict:
         return await super().read(payload=task_id)
-    
+
     async def resume(self, task_id: str) -> bool:
         body = {
             "action": self._outgoing_commands["resume"],
-            "data": task_id    
+            "data": task_id
         }
         return await self._post_message(mes=body, reply=True)
-    
+
     async def pause(self, task_id: str) -> bool:
         body = {
             "action": self._outgoing_commands["pause"],
             "data": task_id
         }
         return await self._post_message(mes=body, reply=True)
-    
-    async def update(self, task_id: str, payload: TaskUpdate) -> dict:
-        return await super().update(payload=payload)
+
+    async def update(self, payload: TaskUpdate) -> dict:
+        return await super().update(payload=payload.model_dump())
+
 
 settings = SchedulerAPISettings()
 
@@ -81,11 +82,11 @@ router = APIRouter(tags=['Task'])
 
 
 @router.post("/tasks",
-             response_model=TaskCreateResult,
+             response_model=dict,
              status_code=201)
 async def create(payload: TaskCreate):
-    app._logger.info(payload)
     return await app.create(payload)
+
 
 @router.get("/tasks/{task_id}",
             response_model=TaskRead,
@@ -100,11 +101,13 @@ async def read(task_id: str):
         app._logger.error(e)
     return res
 
+
 @router.get("/tasks",
             status_code=200)
 async def read_all():
     res = await app.read_all()
     return res
+
 
 @router.get("/tasks/{task_id}/pause")
 async def pause(task_id: str):
@@ -113,12 +116,14 @@ async def pause(task_id: str):
         return Response(status_code=200)
     return HTTPException(status_code=404)
 
+
 @router.get("/tasks/{task_id}/resume")
 async def resume(task_id: str):
     res = await app.resume(task_id)
     if res:
         return Response(status_code=200)
     return HTTPException(status_code=404)
+
 
 @router.delete("/tasks/{task_id}")
 async def delete(task_id: str):
@@ -127,10 +132,12 @@ async def delete(task_id: str):
         return Response(status_code=204)
     return HTTPException(status_code=404)
 
+
 @router.put("/tasks/{task_id}",
             response_model=TaskUpdateResult,
             status_code=200)
 async def update(task_id: str, payload: TaskUpdate):
-    return await app.update(task_id, payload)
+    payload.task_uuid = task_id
+    return await app.update(payload)
 
-app.include_router(router, prefix=f"/scheduler")
+app.include_router(router, prefix="/scheduler")
